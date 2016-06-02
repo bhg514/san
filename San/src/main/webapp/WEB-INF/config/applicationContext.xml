@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:hadoop="http://www.springframework.org/schema/hadoop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.2.xsd
+		http://www.springframework.org/schema/hadoop http://www.springframework.org/schema/hadoop/spring-hadoop.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+	<aop:aspectj-autoproxy/>
+	<context:annotation-config/>
+	<context:component-scan base-package="com.sist.*"/>	
+    <hadoop:configuration id="hadoopConf">
+     fs.default.name=hdfs://localhost:9000
+    </hadoop:configuration>
+    <hadoop:job id="localCount"
+      input-path="/input/"
+      output-path="/output/"
+      mapper="com.sist.mapred.NaverMapper"
+      reducer="com.sist.mapred.NaverReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner 
+     job-ref="localCount"
+      run-at-startup="false"
+    />
+	<!-- properties 파일 읽기 -->
+	<util:properties id="db" location="/WEB-INF/config/db.properties"/>
+	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource" 
+			p:driverClassName="#{db['driver']}" 
+			p:url="#{db['url']}" 
+			p:username="#{db['username']}" 
+			p:password="#{db['password']}"/>
+	
+	<!-- 트랜잭션 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" 
+		p:dataSource-ref="ds"/>
+	
+	<!-- MyBatis -->
+	<!-- <bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean" 
+		p:dataSource-ref="ds"/>
+	<bean id="mapper" class="org.mybatis.spring.mapper.MapperFactoryBean" 
+		p:sqlSessionFactory-ref="ssf" 
+		p:mapperInterface="com.sist.dao.databoard.DataBoardMapper"/> -->
+	
+	<!-- Tiles -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver"
+		p:requestContextAttribute="requestContext" 
+		p:viewClass="org.springframework.web.servlet.view.tiles2.TilesView"/>
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer" 
+		p:definitions="/WEB-INF/tiles.xml"/>
+	
+	<!-- 파일업로드 (cos.jar와 비슷) -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	
+	
+
+
+
+</beans>

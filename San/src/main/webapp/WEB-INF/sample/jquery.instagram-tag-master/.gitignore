@@ -1,0 +1,78 @@
+#==================================
+# This project :
+
+log/
+db/
+*.rdb
+*.tmp
+tmp/
+.bundle
+
+#=================================
+# OS :
+.DS_Store*
+.cache
+.project
+.settings
+ehthumbs.db
+Icon?
+nbproject
+Thumbs.db
+
+# COMPRESS :
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# KOMODO
+*.komodoproject
+.komodotools
+
+# DREAMWEAVER :
+_notes
+dwsync.xml
+
+# VERSIONS
+.hg
+.svn
+.CVS
+.idea
+
+# BINARY / GENERATED :
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+*.swp
+*.sass-cache
+*.diff
+*.err
+*.orig
+*.rej
+*.swo
+*.swp
+*.vi
+*.log
+*~
+
+# SQL :
+*.sql
+*.sqlite
+
+# XCODE :
+*~.nib
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.xcuserstate
+xcuserdata/
+*.mode1v3
+*.mode2v3

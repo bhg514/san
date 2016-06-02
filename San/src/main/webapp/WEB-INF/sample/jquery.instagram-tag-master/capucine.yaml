@@ -1,0 +1,34 @@
+# sass: true
+coffee: true
+# incloudr: true
+
+# # ---------------[ SASS ]------------------------
+# sass_files_dir: sass
+# sass_output_dir: public/css_generated
+
+# sass_images_dir: public/images
+# sass_line_comments: false
+# sass_css_generated_style: expanded # compact | expanded | compressed
+# sass_options: '{:cache => false}'
+
+# sass_import_css: false
+# sass_import_formats: css to sass
+# sass_import_css_dir: public/css/import
+# sass_import_output_dir: sass/converted
+
+# # ---------------[ COMPASS ]------------------------
+# compass_config: {}
+# compass_plugins:
+#   - compass-capucine
+
+# # ---------------[ COFFEESCRIPT ]--------------------------
+coffeescript_bare: false
+coffeescript_files_dir: coffeescript
+coffeescript_output_dir: dist
+
+# # ---------------[ INCLOUDR ]------------------------
+# incloudr_output_dir: dist/modules
+# incloudr_libs:
+  # - name: jquery
+
+# DOCUMENTATION : http:// capucine.dln.name
