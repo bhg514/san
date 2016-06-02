@@ -30,7 +30,7 @@ public class NaverMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
 		    "창원","진주","통영","사천","김해","밀양","거제","양산시",
 		    "의령","함안","창녕","고성","남해","하동","산청","함양","거창","합천","제주"	
 	};
-	String[] who={
+	String[] san={ "방장산","비슬산","천태산","동악산","두위봉","백악산","북배산",
 			
 	};
 	
