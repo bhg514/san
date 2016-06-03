@@ -1,4 +1,4 @@
-package com.sist.mapred;
+package com.sist.mapredLocal;
 
 import java.io.IOException;
 import java.util.regex.Matcher;
@@ -11,7 +11,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.springframework.stereotype.Repository;
 
 
-public class NaverMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
+public class LocalMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
 	
 	private final IntWritable one=new IntWritable(1);
 	private Text result=new Text();

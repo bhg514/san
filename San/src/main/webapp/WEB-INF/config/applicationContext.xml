@@ -26,16 +26,16 @@
     </hadoop:configuration>
     
   												 <!-- 1번:local  -->
-    <hadoop:job id="weekday"			
-      input-path="/input/weekday"
-      output-path="/output/weekday"
-      mapper="com.sist.mapred.NaverMapper"
-      reducer="com.sist.mapred.NaverReducer"
+    <hadoop:job id="local"			
+      input-path="/input/local"
+      output-path="/output/local"
+      mapper="com.sist.mapredLocal.LocalMapper"
+      reducer="com.sist.mapredLocal.LocalReducer"
       configuration-ref="hadoopConf"
       scope="request"
     />
-    <hadoop:job-runner  id="weekdayj"
-     job-ref="weekday"
+    <hadoop:job-runner  id="localj"
+     job-ref="local"
       run-at-startup="false"
     />
     											 <!-- 2번:season  -->

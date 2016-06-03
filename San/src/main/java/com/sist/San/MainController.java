@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sist.data.*;
-import com.sist.mapred.NaverDriver;
+import com.sist.mapredLocal.LocalDriver;
 import com.sist.mapredSeason.SeasonDriver;
 import com.sist.naver.Naver;
 import com.sist.r.NaverRManager;
@@ -24,8 +24,9 @@ public class MainController {
 	private TourManager tmgr;			//메인 첫번째 한국 여행 동향
 	@Autowired
 	private Naver navar;
+	
 	@Autowired
-	private NaverDriver nd;
+	private LocalDriver ld;
 	
 	@Autowired
 	private SeasonDriver sd;
@@ -66,7 +67,7 @@ public class MainController {
 			}
 			fw.close();		
 
-			nd.jobCall();	
+			ld.jobCall();	
 			sd.jobCall();	
 			
 			}catch(Exception ex){

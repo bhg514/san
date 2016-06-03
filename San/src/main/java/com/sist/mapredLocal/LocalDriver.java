@@ -1,34 +1,27 @@
-package com.sist.mapred;
+package com.sist.mapredLocal;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.Text;
-
-import org.apache.hadoop.mapreduce.Job;
-import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.hadoop.mapreduce.JobRunner;
 import org.springframework.stereotype.Component;
 
-import java.io.*;
 
 import javax.annotation.Resource;
 
 @Component
-public class NaverDriver {
+public class LocalDriver {
 	
 		@Autowired
 	   private Configuration conf;
 		
-		@Resource(name="weekdayj")
-	   private JobRunner jobRunner1;		
+		@Resource(name="localj")
+	   private JobRunner jobRunner;		
 		
 		public void jobCall(){
 		   try{
-			   jobRunner1.call();
+			   jobRunner.call();
 		   }catch(Exception ex){
 			   System.out.println(ex.getMessage());
 		   }
@@ -38,11 +31,11 @@ public class NaverDriver {
 	   public void fileDelete(){
 		   try{
 			    FileSystem fs=FileSystem.get(conf);
-			    if(fs.exists(new Path("/input/weekday")))
-			    	fs.delete(new Path("/input/weekday"),true);
+			    if(fs.exists(new Path("/input/local")))
+			    	fs.delete(new Path("/input/local"),true);
 			    
-			    if(fs.exists(new Path("/output/weekday")))
-			    	fs.delete(new Path("/output/weekday"),true);
+			    if(fs.exists(new Path("/output/local")))
+			    	fs.delete(new Path("/output/local"),true);
 			    fs.close();
 		   }catch(Exception ex){
 			   System.out.println(ex.getMessage());
@@ -55,7 +48,7 @@ public class NaverDriver {
 			   // hadoop fs -cat /
 			   fs1.copyFromLocalFile(
 					   new Path("/home/sist/git/san/San/src/main/webapp/data/naver/san.txt"), 
-					   new Path("/input/weekday/san.txt"));	
+					   new Path("/input/local/san.txt"));	
 			   fs1.close();
 			   
 		   }catch(Exception ex){
@@ -68,8 +61,8 @@ public class NaverDriver {
 		   try{
 			   FileSystem fs=FileSystem.get(conf);
 			   fs.copyToLocalFile(
-					   new Path("/output/weekday/part-r-00000"),
-					   new Path("/home/sist/git/san/San/src/main/webapp/data/naver/output/weekday/part-r-00000"));
+					   new Path("/output/local/part-r-00000"),
+					   new Path("/home/sist/git/san/San/src/main/webapp/data/naver/output/local/part-r-00000"));
 			   fs.close();			   
 				
 		   }catch(Exception ex)

@@ -1,4 +1,4 @@
-package com.sist.mapred;
+package com.sist.mapredLocal;
 
 import java.io.IOException;
 
@@ -6,7 +6,7 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class NaverReducer extends Reducer<Text, IntWritable, Text, IntWritable>{
+public class LocalReducer extends Reducer<Text, IntWritable, Text, IntWritable>{
 	private IntWritable res=new IntWritable();
 
 	@Override
