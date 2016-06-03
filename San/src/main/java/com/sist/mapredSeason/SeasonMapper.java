@@ -10,7 +10,6 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.springframework.stereotype.Repository;
 
-@Repository("weekdayj")
 public class SeasonMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
 	
 	private final IntWritable one=new IntWritable(1);
