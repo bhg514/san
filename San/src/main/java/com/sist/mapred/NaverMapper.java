@@ -8,8 +8,11 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
+import org.springframework.stereotype.Repository;
+
 
 public class NaverMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
+	
 	private final IntWritable one=new IntWritable(1);
 	private Text result=new Text();
 	String[] local = {
@@ -30,26 +33,26 @@ public class NaverMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
 		    "창원","진주","통영","사천","김해","밀양","거제","양산시",
 		    "의령","함안","창녕","고성","남해","하동","산청","함양","거창","합천","제주"	
 	};
-	String[] san={ "방장산","비슬산","천태산","동악산","두위봉","백악산","북배산",
-			
-	};
 	
 	Pattern[] pattern=new Pattern[local.length];
+	
 	@Override
 	protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, Text, IntWritable>.Context context)
 			throws IOException, InterruptedException {
+		
 		for(int i=0; i<local.length;i++){
 			pattern[i]=Pattern.compile(local[i]);
 		}
+		
 		Matcher[] matcher=new Matcher[local.length];
+		
 		for(int i=0;i<local.length;i++){
 			matcher[i]=pattern[i].matcher(value.toString());
 			while(matcher[i].find()){
-				result.set(local[i]);//String을 text로 바꿀때 set 사용
+				result.set(local[i]);				//String을 text로 바꿀때 set 사용
 				context.write(result, one);
+				
 			}
-		}
+		}	
 	}
-	
-
 }

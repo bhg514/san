@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sist.data.*;
 import com.sist.mapred.NaverDriver;
+import com.sist.mapredSeason.SeasonDriver;
 import com.sist.naver.Naver;
 import com.sist.r.NaverRManager;
 
@@ -25,6 +26,10 @@ public class MainController {
 	private Naver navar;
 	@Autowired
 	private NaverDriver nd;
+	
+	@Autowired
+	private SeasonDriver sd;
+	
 	@Autowired
 	private NaverRManager nrm;
 	
@@ -43,37 +48,31 @@ public class MainController {
 
 	@RequestMapping("season.do")
 	public String season(Model model) {
-		////////////////////////////////////
-		try{
-			List<String> list = navar.naver("여행");	
-			
-			String path="/home/sist/git/P3_FinalProject/Fit/src/main/webapp/data/naver/naver.txt";
 		
+		try{
+			List<String> list = navar.naver("등산");	//블로그 검색
+			
+			String path="/home/sist/git/san/San/src/main/webapp/data/naver/san.txt";
+			
 			File file = new File(path);
 			
 			if(file.exists())
 				file.delete();
-			;
+			
 			FileWriter fw=new FileWriter(path);
 			
 			for(String n:list){		
-				fw.write(n);
-				
+				fw.write(n);	
 			}
 			fw.close();		
 
-			nd.jobCall();
-
-			//nd.movieMapReduce();
-			
-	
+			nd.jobCall();	
+			sd.jobCall();	
 			
 			}catch(Exception ex){
 				System.out.println(ex.getMessage());
 			}		
 		
-		
-		////////////////////////////////////
 		return "season/season";
 	}
 

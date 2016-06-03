@@ -1,4 +1,4 @@
-package com.sist.mapred;
+package com.sist.mapredSeason;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
@@ -18,60 +18,57 @@ import java.io.*;
 import javax.annotation.Resource;
 
 @Component
-public class NaverDriver {
+public class SeasonDriver {
 	
 		@Autowired
 	   private Configuration conf;
 		
-		@Resource(name="weekdayj")
-	   private JobRunner jobRunner1;		
-		
+		@Resource(name="seasonj")
+		private JobRunner jobRunner;
+	   
 		public void jobCall(){
-		   try{
-			   jobRunner1.call();
-		   }catch(Exception ex){
-			   System.out.println(ex.getMessage());
+			   try{
+				   jobRunner.call();
+			   }catch(Exception ex){
+				   System.out.println(ex.getMessage());
+			   }
 		   }
-	   }
-		
 		
 	   public void fileDelete(){
 		   try{
 			    FileSystem fs=FileSystem.get(conf);
-			    if(fs.exists(new Path("/input/weekday")))
-			    	fs.delete(new Path("/input/weekday"),true);
+			    if(fs.exists(new Path("/input/season")))
+			    	fs.delete(new Path("/input/season"),true);
 			    
-			    if(fs.exists(new Path("/output/weekday")))
-			    	fs.delete(new Path("/output/weekday"),true);
+			    if(fs.exists(new Path("/output/season")))
+			    	fs.delete(new Path("/output/season"),true);
 			    fs.close();
 		   }catch(Exception ex){
 			   System.out.println(ex.getMessage());
 		   }
-	   } 
+	   }  
 	   
 	   public void copyFromLocal(){
 		   try{
-			   FileSystem fs1=FileSystem.get(conf);
+			   FileSystem fs=FileSystem.get(conf);
 			   // hadoop fs -cat /
-			   fs1.copyFromLocalFile(
+			   fs.copyFromLocalFile(
 					   new Path("/home/sist/git/san/San/src/main/webapp/data/naver/san.txt"), 
-					   new Path("/input/weekday/san.txt"));	
-			   fs1.close();
-			   
+					   new Path("/input/season/san.txt"));	
+			   fs.close();
 		   }catch(Exception ex){
 			   System.out.println(ex.getMessage());
 		   }
 	   }
-	   
 
 	   public void copyToLocal(){
 		   try{
 			   FileSystem fs=FileSystem.get(conf);
 			   fs.copyToLocalFile(
-					   new Path("/output/weekday/part-r-00000"),
-					   new Path("/home/sist/git/san/San/src/main/webapp/data/naver/output/weekday/part-r-00000"));
-			   fs.close();			   
-				
+					   new Path("/output/season/part-r-00000"),
+					   new Path("/home/sist/git/san/San/src/main/webapp/data/naver/output/season/part-r-00000"));
+			   fs.close();
+			 					
 		   }catch(Exception ex)
 		   {
 			   System.out.println(ex.getMessage());
