@@ -50,7 +50,7 @@ ul {
   		font-family:$fontSans;
   		font-size: .85em;text-transform: uppercase;
   		clear: both;
-		// border-bottom: 1px solid $border;
+		// border-bottom: 1px solid b$border;
 		&:before {
 			content: "\2023";
 			padding: 0 1em 0 0;

@@ -6,37 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-
+<link rel="stylesheet" type="text/css" href="../assets/css/season.css">		<!-- 계절 ..... -->
 <!-- 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script> -->
-<link href="assets/css/season.css" rel="stylesheet" />
-<script src="assets/js/season.js"></script>
-<!-- <script type="text/javascript">
-setTimeout(function start (){
-	  
-	  $('.bar').each(function(i){  
-	    var $bar = $(this);
-	    $(this).append('<span class="count"></span>')
-	    setTimeout(function(){
-	      $bar.css('width', $bar.attr('data-percent'));      
-	    }, i*100);
-	  });
+<!-- <script src="assets/js/season.js"></script> -->
 
-	$('.count').each(function () {
-	    $(this).prop('Counter',0).animate({
-	        Counter: $(this).parent('.bar').attr('data-percent')
-	    }, {
-	        duration: 2000,
-	        easing: 'swing',
-	        step: function (now) {
-	            $(this).text(Math.ceil(now) +'%');
-	        }
-	    });
-	});
 
-	}, 500)
-</script> -->
-<script src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="http://www.amcharts.com/lib/3/amcharts.js"></script>	<!-- 지역 -->
 <script src="http://www.amcharts.com/lib/3/serial.js"></script>
 <script type="text/javascript">
 var chart;
@@ -123,6 +99,35 @@ chart.write("container");
 
 </script>
 
+
+
+<script type="text/javascript">
+setTimeout(function start (){
+	  
+	  $('.bar').each(function(i){  
+	    var $bar = $(this);
+	    $(this).append('<span class="count"></span>')
+	    setTimeout(function(){
+	      $bar.css('width', $bar.attr('data-percent'));      
+	    }, i*100);
+	  });
+
+	$('.count').each(function () {
+	    $(this).prop('Counter',0).animate({
+	        Counter: $(this).parent('.bar').attr('data-percent')
+	    }, {
+	        duration: 2000,
+	        easing: 'swing',
+	        step: function (now) {
+	            $(this).text(Math.ceil(now) +'%');
+	        }
+	    });
+	});
+
+	}, 500)
+</script> 
+
+
 </head>
 <body>
 	<div class="content-wrapper">
@@ -169,19 +174,12 @@ chart.write("container");
 												<div class="panel-body">
 												<div class="wrap">
 												<div class="holder">
-													<div class="bar cf" data-percent="85%">
-													<span class="label">봄</span>
+												<c:forEach var="vo" items="${season }">
+													<div class="bar cf" data-percent="${vo.count }">
+													<span class="label">${vo.season }</span>
 													</div>
-													<div class="bar cf" data-percent="85%">
-													<span class="label">여름</span>
-													</div>
-													<div class="bar cf" data-percent="85%">
-													<span class="label">가을</span>
-													</div>
-													<div class="bar cf" data-percent="85%">
-													<span class="label">겨울</span>
-													</div>
-												<div>
+												</c:forEach>
+												</div>
   												</div>	
   												</div>												
 												</div>
