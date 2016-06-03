@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.sist.data.*;
 import com.sist.mapredLocal.LocalDriver;
 import com.sist.mapredSeason.SeasonDriver;
+import com.sist.mongo.LocalVO;
+import com.sist.mongo.SanDAO;
 import com.sist.naver.Naver;
 import com.sist.r.NaverRManager;
 
@@ -34,6 +36,9 @@ public class MainController {
 	@Autowired
 	private NaverRManager nrm;
 	
+	@Autowired
+	private SanDAO dao;
+	
 	@RequestMapping("main.do")
 	public String main_page(Model model) throws Exception{
 		
@@ -49,6 +54,7 @@ public class MainController {
 
 	@RequestMapping("season.do")
 	public String season(Model model) {
+		List<LocalVO> localList=new ArrayList<LocalVO>();
 		
 		try{
 			List<String> list = navar.naver("등산");	//블로그 검색
@@ -70,9 +76,21 @@ public class MainController {
 			ld.jobCall();	
 			sd.jobCall();	
 			
-			}catch(Exception ex){
+			//몽고디비
+			localList=nrm.rLocalData();				
+			for(LocalVO r:localList)
+			{
+				LocalVO lv=new LocalVO();				
+				lv.setLocal(r.getLocal());					
+				lv.setCount(r.getCount());			
+				dao.localInsert(lv);			//7이상인 지역만 몽고디비에 저장			
+			}
+			
+		}catch(Exception ex){
 				System.out.println(ex.getMessage());
-			}		
+		}		
+		
+		model.addAttribute("local", localList);		//7개 이상인 지역만 그래프 그리기
 		
 		return "season/season";
 	}
