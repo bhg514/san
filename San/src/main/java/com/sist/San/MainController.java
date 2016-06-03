@@ -17,6 +17,7 @@ import com.sist.mongo.LocalVO;
 import com.sist.mongo.SanDAO;
 import com.sist.naver.Naver;
 import com.sist.r.NaverRManager;
+import com.sist.r.SeasonVO;
 
 
 @Controller
@@ -54,7 +55,9 @@ public class MainController {
 
 	@RequestMapping("season.do")
 	public String season(Model model) {
+		
 		List<LocalVO> localList=new ArrayList<LocalVO>();
+		List<SeasonVO> seasonList=new ArrayList<SeasonVO>();
 		
 		try{
 			List<String> list = navar.naver("등산");	//블로그 검색
@@ -77,7 +80,9 @@ public class MainController {
 			sd.jobCall();	
 			
 			//몽고디비
-			localList=nrm.rLocalData();				
+			localList=nrm.rLocalData();		//지역
+			seasonList=nrm.rSeasonData();	//계절
+			
 			for(LocalVO r:localList)
 			{
 				LocalVO lv=new LocalVO();				
@@ -86,11 +91,13 @@ public class MainController {
 				dao.localInsert(lv);			//7이상인 지역만 몽고디비에 저장			
 			}
 			
+			
 		}catch(Exception ex){
 				System.out.println(ex.getMessage());
 		}		
 		
 		model.addAttribute("local", localList);		//7개 이상인 지역만 그래프 그리기
+		model.addAttribute("season", seasonList);
 		
 		return "season/season";
 	}
