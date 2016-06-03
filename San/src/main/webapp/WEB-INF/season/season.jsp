@@ -6,11 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../assets/css/season.css">		<!-- 계절 ..... -->
-<!-- 
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script> -->
-<!-- <script src="assets/js/season.js"></script> -->
-
 
 <script src="http://www.amcharts.com/lib/3/amcharts.js"></script>	<!-- 지역 -->
 <script src="http://www.amcharts.com/lib/3/serial.js"></script>
@@ -97,35 +92,32 @@ chart.addLegend(legend);
 chart.write("container");
 });
 
-</script>
-
-
-
-<script type="text/javascript">
-setTimeout(function start (){
-	  
-	  $('.bar').each(function(i){  
-	    var $bar = $(this);
-	    $(this).append('<span class="count"></span>')
-	    setTimeout(function(){
-	      $bar.css('width', $bar.attr('data-percent'));      
-	    }, i*100);
-	  });
-
-	$('.count').each(function () {
-	    $(this).prop('Counter',0).animate({
-	        Counter: $(this).parent('.bar').attr('data-percent')
-	    }, {
-	        duration: 2000,
-	        easing: 'swing',
-	        step: function (now) {
-	            $(this).text(Math.ceil(now) +'%');
-	        }
-	    });
-	});
-
-	}, 500)
 </script> 
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load("current", {packages:["corechart"]});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      ['Work',     11],
+      ['Eat',      2],
+      ['Commute',  2],
+      ['Watch TV', 2],
+      ['Sleep',    7]
+    ]);
+
+    var options = {
+      title: 'My Daily Activities',
+      is3D: true,
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+    chart.draw(data, options);
+  }
+</script>
 
 
 </head>
@@ -161,7 +153,7 @@ setTimeout(function start (){
 											<div class="panel panel-default">
 												<div class="panel-heading">지역</div>
 												<div class="panel-body">												  
-														<div id="container" style="width:100%; height:400px;"></div> <!-- 1.지역 -->  
+													<div id="container" style="width:100%; height:400px;"></div> <!-- 1.지역 -->  
 												</div>
 												</div>
 												<div class="panel-footer">Panel Footer</div>
@@ -170,17 +162,10 @@ setTimeout(function start (){
 										
 										<div class="col-md-6 col-sm-6">
 											<div class="panel panel-primary">
-												<div class="panel-heading">계절</div>			<!-- 2.지역 -->
+												<div class="panel-heading">계절</div>			<!-- 2.계절 -->
 												<div class="panel-body">
-												<div class="wrap">
-												<div class="holder">
-												<c:forEach var="vo" items="${season }">
-													<div class="bar cf" data-percent="${vo.count }">
-													<span class="label">${vo.season }</span>
-													</div>
-												</c:forEach>
-												</div>
-  												</div>	
+												 <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+
   												</div>												
 												</div>
 											</div>
@@ -250,7 +235,6 @@ setTimeout(function start (){
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+
 </body>
 </html>
