@@ -5,7 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/weekday/weekday.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="css/weekday/weekday.js"></script>
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -278,9 +280,78 @@
 
 										<div class="col-md-4 col-sm-4">
 											<div class="panel panel-warning">
-												<div class="panel-heading">누구랑?</div>
+												<div class="panel-heading">가장 많이 가는 요일</div>
 												<div class="panel-body">
-													<div id="donutchart" style="width: 300px; height: 210px;"></div>
+													<!-- <div id="donutchart" style="width: 300px; height: 210px;"></div> -->
+													
+					<!-- start -->
+													<div class="progress aqua" data-width="0%">
+														<div class="progress-text">0%</div>
+														<div class="progress-bar">
+															<div class="progress-text">0%</div>
+														</div>
+													</div>
+													<br><br>
+													
+													<div class="progress copper" data-width="0%">
+														<div class="progress-text">0%</div>
+														<div class="progress-bar">
+															<div class="progress-text">0%</div>
+														</div>
+													</div>
+													<br><br>
+													
+													<div class="progress candy" data-width="0%">
+														<div class="progress-text">0%</div>
+														<div class="progress-bar">
+															<div class="progress-text">0%</div>
+														</div>
+													</div>
+													<br><br>
+													
+													<div class="progress neon" data-width="0%">
+														<div class="progress-text">0%</div>
+														<div class="progress-bar">
+															<div class="progress-text">0%</div>
+														</div>
+													</div>
+													<br><br>
+													
+													<div class="progress shine" data-width="0%">
+														<div class="progress-text">0%</div>
+														<div class="progress-bar">
+															<div class="progress-text">0%</div>
+														</div>
+													</div>
+													<br><br>
+													
+													<div class="progress zigzag" data-width="0%">
+														<div class="progress-text">0%</div>
+														<div class="progress-bar">
+															<div class="progress-text">0%</div>
+														</div>
+													</div>
+													<br><br>
+													
+													<div class="progress diamond" data-width="0%">
+														<div class="progress-text">0%</div>
+														<div class="progress-bar">
+															<div class="progress-text">0%</div>
+														</div>
+													</div>
+													<br><br>
+													
+													<br><br>
+													<input id="slider" type="range" name="slider" min="0" max="100" value="0">
+													<button class="test" data-val="0%">0%</button>
+													<button class="test" data-val="10%">10%</button>
+													<button class="test" data-val="40%">40%</button>
+													<button class="test" data-val="50%">50%</button>
+													<button class="test" data-val="60%">60%</button>
+													<button class="test" data-val="100%">100%</button>
+																					
+					<!-- end -->
+													
 												</div>
 												<div class="panel-footer">Panel Footer</div>
 											</div>

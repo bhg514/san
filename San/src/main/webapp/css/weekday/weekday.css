@@ -1,0 +1,252 @@
+/* Mixings &  Variables */
+@barHeight: 20px;
+@borders: #717D95;
+@primary: #59BAC0;
+
+.transition (@property) {
+  -webkit-transition: @property;
+  -moz-transition: @property;
+  -o-transition: @property;
+  transition: @property 
+}
+
+.transform(@degree) {
+  transform:rotate(@degree);
+  -ms-transform:rotate(@degree);
+  -webkit-transform:rotate(@degree); 
+}
+
+.clearfix,
+.clearfix:before,
+.clearfix:after {
+   display: block;
+   content: " ";   
+   clear: both;
+   zoom: 1;
+}
+
+/* Resets */
+
+* {
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;  
+}
+
+body {
+  background: #EDF2F6;
+  font-family: Arial;
+  color: #444;
+}
+
+.wrap {
+  margin: 0 auto;
+  padding: 50px;
+  max-width: 1200px;
+}
+
+/* Bar Graph Class */
+
+.barGraph {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-bottom: 50px;
+}
+
+.graph {
+  @indent: 4%;
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: calc(100% - @indent);
+  left: @indent;
+  
+  &-barBack {
+    border-radius: 2px;
+    background: #DAE4EB;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  &-bar {
+    background-color: @primary;    
+    .transition(all 1s ease-out);
+    border-radius: 2px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 9999;
+    display: block;
+    height: 20px;  
+    width: 0%;
+    
+    &:hover {
+      .transition(all 0.5s ease);
+      background: #428D92;
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    &:after {
+      position: absolute;
+      content: attr(data-value);
+      display: none;
+      
+      font-size: 12px;
+      border-radius: 4px;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      
+      line-height: @barHeight;
+      height: @barHeight; 
+      padding: 0 10px;
+      
+      margin-left: 5px;
+      left: 100%;
+      top: 0;
+    }
+    
+    &:hover:after {
+      display: block;
+    }
+  }
+  
+  &-legend {
+    position: absolute;
+    margin-right: 10px;
+    left: -40px ;
+    z-index: 9999;
+  }
+}
+
+
+/* Bubble Chart */
+.chart {
+  border-radius: 3px;
+  border: 2px solid fade(@borders, 45%);  
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 300px;
+  
+  &-bubble {
+    overflow: hidden;
+    background-color: @primary;    
+    .transition(all 1s ease-out);
+    position: absolute;
+    border-radius: 100%;
+    cursor: pointer;
+    display: block;
+    min-height: 10px;  
+    min-width: 10px;
+    z-index: 999;
+    bottom: 0;
+    left: 0;
+    
+    &:hover {
+      .transition(all 0.5s ease);
+      background: #428D92;
+    }
+    
+    &:after {
+      position: absolute;
+      content: attr(data-label);
+      display: none;
+      width: 100%;
+      height: 100%;
+      
+      text-align: center;
+      padding-top: 50%;
+      line-height: 1px;
+      font-size: 15px;
+      color: #fff;
+    }
+    
+    &:hover:after {
+      display: block;
+    }
+  }
+}
+
+/* Lines for Charts */
+
+.lines {
+  @bars: fade(@borders, 40%);
+  position: absolute;    
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  
+  &-horz {
+    border-bottom: 1px dashed @bars;
+    position: absolute;
+    width: 100%;
+    height: 0px;
+   
+    &:nth-of-type(1) { top: 20%; }
+    &:nth-of-type(2) { top: 40%; }
+    &:nth-of-type(3) { top: 60%; }
+    &:nth-of-type(4) { top: 80%; }
+  }
+  
+  &-vert {
+    border-right: 1px dashed @bars;    
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    
+    &:nth-of-type(5) { left: 20%; }
+    &:nth-of-type(6) { left: 40%; }
+    &:nth-of-type(7) { left: 60%; }
+    &:nth-of-type(8) { left: 80%; }
+  }
+}
+
+
+/* Line Graph */
+.lineChart {
+  .transition(all 0.5s ease);
+  border-radius: 3px;
+  border: 2px solid fade(@borders, 45%);  
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 300px;
+    
+    svg {
+      position: absolute;
+      z-index: 999;
+    }
+  
+    circle {
+      .transition(all 0.5s ease);
+      position: relative;
+      cursor: pointer;    
+      stroke: @primary;
+      stroke-width: 3;
+      fill: @primary;
+    
+      &:hover {
+        stroke-width: 8;
+      }
+    }
+  
+    line {
+      stroke: @borders;
+      stroke-width: 4;
+    }
+   
+    &-lines {}
+  
+    &-points {}
+ }
+
+.trend line {
+  stroke: rgba(204, 51, 51, 0.8);
+}

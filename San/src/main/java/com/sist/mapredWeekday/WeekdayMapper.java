@@ -1,4 +1,4 @@
-package com.sist.mapredSeason;
+package com.sist.mapredWeekday;
 
 import java.io.IOException;
 import java.util.regex.Matcher;
@@ -9,29 +9,29 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-
-public class SeasonMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
+public class WeekdayMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
 	
 	private final IntWritable one=new IntWritable(1);
 	private Text result=new Text();
-	String[] season={ "봄","여름","가을","겨울" };
+	String[] weekday={ "월요","화요","수요","목요","금요","토요","일요"};
 	
-	Pattern[] pattern=new Pattern[season.length];
+	Pattern[] pattern=new Pattern[weekday.length];
 	
 	@Override
 	protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, Text, IntWritable>.Context context)
 			throws IOException, InterruptedException {
 		
-		for(int i=0; i<season.length;i++){
-			pattern[i]=Pattern.compile(season[i]);
+		for(int i=0; i<weekday.length;i++){
+			pattern[i]=Pattern.compile(weekday[i]);
 		}
 		
-		Matcher[] matcher=new Matcher[season.length];
+		Matcher[] matcher=new Matcher[weekday.length];
 		
-		for(int i=0;i<season.length;i++){
+		for(int i=0;i<weekday.length;i++){
 			matcher[i]=pattern[i].matcher(value.toString());
 			while(matcher[i].find()){
-				result.set(season[i]);				//String을 text로 바꿀때 set 사용
+				
+				result.set(weekday[i]);				//String을 text로 바꿀때 set 사용
 				context.write(result, one);
 				
 			}

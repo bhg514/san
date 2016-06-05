@@ -11,8 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sist.data.*;
+import com.sist.mapredFeel.FeelDriver;
 import com.sist.mapredLocal.LocalDriver;
 import com.sist.mapredSeason.SeasonDriver;
+import com.sist.mapredWeekday.WeekdayDriver;
 import com.sist.naver.Naver;
 import com.sist.r.NaverRManager;
 
@@ -30,6 +32,12 @@ public class MainController {
 	
 	@Autowired
 	private SeasonDriver sd;
+	
+	@Autowired
+	private WeekdayDriver wd;
+	
+	@Autowired
+	private FeelDriver	fd;
 	
 	@Autowired
 	private NaverRManager nrm;
@@ -69,6 +77,8 @@ public class MainController {
 
 			ld.jobCall();	
 			sd.jobCall();	
+			wd.jobCall();
+			fd.jobCall();
 			
 			}catch(Exception ex){
 				System.out.println(ex.getMessage());

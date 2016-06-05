@@ -52,6 +52,35 @@
       run-at-startup="false"
     />
     
+    											 <!-- 3번:weekday  -->
+    <hadoop:job id="weekday"			
+      input-path="/input/weekday"
+      output-path="/output/weekday"
+      mapper="com.sist.mapredWeekday.WeekdayMapper"
+      reducer="com.sist.mapredWeekday.WeekdayReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner  id="weekdayj"
+     job-ref="weekday"
+      run-at-startup="false"
+    />
+   
+    											 <!-- 4번:feel  -->
+    <hadoop:job id="feel"			
+      input-path="/input/feel"
+      output-path="/output/feel"
+      mapper="com.sist.mapredFeel.FeelMapper"
+      reducer="com.sist.mapredFeel.FeelReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner id="feelj"
+    	job-ref="feel"
+    	run-at-startup="false"
+    />
+   
+    
 	<!-- properties 파일 읽기 -->
 	<util:properties id="db" location="/WEB-INF/config/db.properties"/>
 	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource" 
