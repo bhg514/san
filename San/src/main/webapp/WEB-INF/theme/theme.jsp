@@ -16,7 +16,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="page-head-line">테마로 보는 여행 통계</div>
+					<div class="page-head-line">Mountain Big Data</div>
 				</div>
 			</div>
 

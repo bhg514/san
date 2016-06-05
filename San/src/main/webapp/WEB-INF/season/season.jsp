@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -130,123 +130,65 @@ chart.write("container");
 
 			<div class="row">
 				<div class="col-md-12">
-					<div class="page-head-line">계절별 추천 여행지</div>
+					<div class="page-head-line">Mountain Bigdata</div>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-md-12">
 					<div class="page-head-line">
-						<div class="panel with-nav-tabs panel-default">
-							<div class="panel-heading">
-								<ul class="nav nav-tabs">
-									<li class="active"><a href="#tab1default"
-										data-toggle="tab">봄</a></li>
-									<li><a href="#tab2default" data-toggle="tab">여름</a></li>
-									<li><a href="#tab3default" data-toggle="tab">가을</a></li>
-									<li><a href="#tab4default" data-toggle="tab">겨울</a></li>
-								</ul>
-							</div>
-
-							<div class="panel-body">
-								<div class="tab-content">
-									<div class="tab-pane fade in active" id="tab1default">
-
-										<div class="col-md-6 col-sm-6">
-											<div class="panel panel-default">
-												<div class="panel-heading">지역</div>
-												<div class="panel-body">												  
-														<div id="container" style="width:100%; height:400px;"></div> <!-- 1.지역 -->  
-												</div>
-												</div>
-												<div class="panel-footer">Panel Footer</div>
-											</div>
-										</div>
-										
-										<div class="col-md-6 col-sm-6">
-											<div class="panel panel-primary">
-												<div class="panel-heading">계절</div>			<!-- 2.지역 -->
-												<div class="panel-body">
-												<div class="wrap">
-												<div class="holder">
-													<div class="bar cf" data-percent="85%">
-													<span class="label">봄</span>
-													</div>
-													<div class="bar cf" data-percent="85%">
-													<span class="label">여름</span>
-													</div>
-													<div class="bar cf" data-percent="85%">
-													<span class="label">가을</span>
-													</div>
-													<div class="bar cf" data-percent="85%">
-													<span class="label">겨울</span>
-													</div>
-												<div>
-  												</div>	
-  												</div>												
-												</div>
-											</div>
-										</div>
-
-										<!-- <div class="col-md-4 col-sm-4">
-											<div class="panel panel-success">
-												<div class="panel-heading">Success Panel</div>
-												<div class="panel-body">
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-														elit. Vestibulum tincidunt est vitae ultrices accumsan.
-														Aliquam ornare lacus adipiscing, posuere lectus et,
-														fringilla augue.</p>
-												</div>
-												<div class="panel-footer">Panel Footer</div>
-											</div>
-										</div> -->
-
-										<div class="col-md-4 col-sm-4">
-											<div class="panel panel-info">
-												<div class="panel-heading">워드클라우드</div>
-												<div class="panel-body">
-													<p>워드클라우드</p>
-												</div>
-												<div class="panel-footer">Panel Footer</div>
-											</div>
-										</div>
-
-										<div class="col-md-4 col-sm-4">
-											<div class="panel panel-warning">
-												<div class="panel-heading">누구랑?</div>
-												<div class="panel-body">
-													<div id="donutchart" style="width: 300px; height: 210px;"></div>
-												</div>
-												<div class="panel-footer">Panel Footer</div>
-											</div>
-										</div>
-
-										<div class="col-md-4 col-sm-4">
-											<div class="panel panel-danger">
-												<div class="panel-heading">날씨?</div>
-												<div class="panel-body">
-													<div id="container1" style="width: 300px; height: 210px;"></div>
-												</div>
-												<div class="panel-footer">Panel Footer</div>
-											</div>
-										</div>
-
-										<div class="col-md-12 col-sm-12">
-											<div class="panel panel-danger">
-												<div class="panel-heading">여행 관련 뉴스</div>
-												<div class="panel-body">
-													<p>뉴스</p>
-												</div>
-												<div class="panel-footer">Panel Footer</div>
-											</div>
-										</div>
+						<div class="panel panel-default">
+							<br>
+								
+								<div class="col-md-4 col-sm-4">
+									<div class="panel panel-default">
+										<div class="panel-heading">지역별 데이터</div>
+										<div class="panel-body">이미지</div>
 									</div>
-
-
-									<div class="tab-pane fade" id="tab2default">여름</div>
-									<div class="tab-pane fade" id="tab3default">가을</div>
-									<div class="tab-pane fade" id="tab4default">겨울</div>
 								</div>
+
+								<div class="col-md-4 col-sm-4">
+									<div class="panel panel-primary">
+										<div class="panel-heading">계절별 통계</div>
+										<div class="panel-body">이미지~</div>
+									</div>
+								</div>
+
+								<div class="col-md-4 col-sm-4">
+									<div class="panel panel-default">
+										<div class="panel-heading">감정분석</div>
+										<div class="panel-body">이미지 ~</div>
+									</div>
+								</div>
+								
+								<br><br>
+								<div class="col-md-4 col-sm-4">
+									<div class="panel panel-default">
+										<div class="panel-heading">감정분석</div>
+										<div class="panel-body">이미지 ~</div>
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-4">
+									<div class="panel panel-default">
+										<div class="panel-heading">감정분석</div>
+										<div class="panel-body">이미지 ~</div>
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-4">
+									<div class="panel panel-default">
+										<div class="panel-heading">감정분석</div>
+										<div class="panel-body">이미지 ~</div>
+									</div>
+								</div>
+
+								<div class="col-md-12">
+									<div class="panel panel-default">
+										<div class="panel-body">데이터 뿌려주는곳 ~</div>
+									</div>
+								</div>
+								
+							<div class="panel-body">
+
 							</div>
 						</div>
 					</div>
