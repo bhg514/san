@@ -7,36 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 
-<!-- 
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script> -->
-<link href="assets/css/season.css" rel="stylesheet" />
-<script src="assets/js/season.js"></script>
-<!-- <script type="text/javascript">
-setTimeout(function start (){
-	  
-	  $('.bar').each(function(i){  
-	    var $bar = $(this);
-	    $(this).append('<span class="count"></span>')
-	    setTimeout(function(){
-	      $bar.css('width', $bar.attr('data-percent'));      
-	    }, i*100);
-	  });
-
-	$('.count').each(function () {
-	    $(this).prop('Counter',0).animate({
-	        Counter: $(this).parent('.bar').attr('data-percent')
-	    }, {
-	        duration: 2000,
-	        easing: 'swing',
-	        step: function (now) {
-	            $(this).text(Math.ceil(now) +'%');
-	        }
-	    });
-	});
-
-	}, 500)
-</script> -->
-<script src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="http://www.amcharts.com/lib/3/amcharts.js"></script>	<!-- 1,지역 -->
 <script src="http://www.amcharts.com/lib/3/serial.js"></script>
 <script type="text/javascript">
 var chart;
@@ -121,7 +92,34 @@ chart.addLegend(legend);
 chart.write("container");
 });
 
+</script> 
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>	<!-- 2,계절 -->
+<script type="text/javascript">
+  google.charts.load("current", {packages:["corechart"]});
+  google.charts.setOnLoadCallback(drawChart);
+  
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      
+      <c:forEach var="vo" items="${season}">    
+      ['<c:out value="${vo.season}"/>',<c:out value="${vo.count}"/>],
+      </c:forEach>
+      
+    ]);
+      
+    var options = {
+      title: 'My Daily Activities',
+      is3D: true,
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+    chart.draw(data, options);
+  }
 </script>
+
 
 </head>
 <body>
@@ -133,17 +131,46 @@ chart.write("container");
 					<div class="page-head-line">Mountain Bigdata</div>
 				</div>
 			</div>
-
+<!-- test -->
 			<div class="row">
 				<div class="col-md-12">
 					<div class="page-head-line">
+
 						<div class="panel panel-default">
 							<br>
 								
 								<div class="col-md-4 col-sm-4">
 									<div class="panel panel-default">
 										<div class="panel-heading">지역별 데이터</div>
-										<div class="panel-body">이미지</div>
+										<div class="panel-body">
+
+									<div class="tab-content">
+									<div class="tab-pane fade in active" id="tab1default">
+
+										<div class="col-md-6 col-sm-6">
+											<div class="panel panel-default">
+												<div class="panel-heading">지역</div>
+												<div class="panel-body">												  
+													<div id="container" style="width:100%; height:400px;"></div> <!-- 1.지역 -->  
+												</div>
+												</div>
+												<div class="panel-footer">Panel Footer</div>
+											</div>
+										</div>
+										
+										<div class="col-md-6 col-sm-6">
+											<div class="panel panel-primary">
+												<div class="panel-heading">계절</div>			<!-- 2.계절 -->
+												<div class="panel-body">
+												 <div id="piechart_3d" style="width: 100%; height: 100%;"></div>
+  												</div>												
+												</div>
+											</div>
+										</div>
+										</div>
+			
+							
+
 									</div>
 								</div>
 
@@ -194,7 +221,6 @@ chart.write("container");
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+</div></div>
 </body>
 </html>
