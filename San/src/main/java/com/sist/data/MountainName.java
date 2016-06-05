@@ -12,10 +12,9 @@ import org.springframework.stereotype.Component;
 public class MountainName {
 	 
 	public static void main(String arg[]) {
-/*		 ga();
+		 ga();
 		 na();
 		 da();
-		// ra();
 		 ma();
 		 ba();
 		 sa();
@@ -23,20 +22,37 @@ public class MountainName {
 		 ja();
 		 cha();
 		 ka_pa();
-		 ha();
+		 ha();		
+		
+		gaHeight();
+		naHeight();
+		daHeight();
+		maHeight();
+		baHeight();
+		saHeight();
+		aHeight();
+		jaHeight();
+		ka_paHeight();
+		haHeight();
+		
 		Seoul();
 		Incheon();
 		Gyeonggi();
 		Gangwon();
 		Chungbuk();
 		Daejeon();
+		Chungnam();
+		
+		Jeonbuk();
+		Ghwngju();
+		Jeonnam();
 		Daegu();
+		Gyeongbuk();
 		Busan();
+		Gyeongnam();
 		Ulsan();
-*/		
-		gaHeight();
+		Jeju();
 	}
-	
 	public static void ga(){
 			try	{
 				String test;
@@ -846,7 +862,7 @@ public class MountainName {
 		}
 	
 	}
-	public static void Chungcheongnam(){
+	public static void Chungnam(){
 		try	{
 			String test;
 			 
@@ -860,7 +876,7 @@ public class MountainName {
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Chungcheongnam.txt",true);
+			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Chungnam.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_cn.htm").get();
@@ -1071,7 +1087,7 @@ public class MountainName {
 		}
 	
 	}
-	public static void Gyeongsangnam(){
+	public static void Gyeongnam(){
 		try	{
 			String test;
 			 
@@ -1085,7 +1101,7 @@ public class MountainName {
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Gyeongsangnam.txt",true);
+			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Gyeongnam.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_kn.htm").get();
@@ -1161,6 +1177,51 @@ public class MountainName {
 		}
 	
 	}
+	public static void Jeonnam(){
+		try	{
+			String test;
+			 
+			Document doc=null;
+			 
+			Elements titleElem=null;
+			 
+			 
+			 
+			/*File file = new File("/home/sist/바탕화면/seoul.txt");
+			if(file.exists())
+			file.delete();*/
+			 
+			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Jeonnam.txt",true);
+			 
+			 
+			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_chn.htm").get();
+			titleElem=doc.select("table.tbl tbody tr td ol li");
+			
+			for(int j=0;j<titleElem.size();j++)	{
+			 
+				Element telem=titleElem.get(j);	
+				test=telem.text()+"\n";
+				StringTokenizer st=new StringTokenizer(test, " ");
+				//fw.write(test);
+				
+				 /*
+				  * 하설산 1,035m 충북 제천 덕산면
+					학가산 870m 경북 안동, 예천
+				  */
+				//System.out.println(st.nextToken());
+				fw.write("\""+st.nextToken()+"\",");
+				
+				
+				
+			}
+			 
+			
+			fw.close();
+		}catch(Exception ex){
+			System.out.println(ex.getMessage());
+		}
+	
+	}
 	public static void Jeju(){
 		try	{
 			String test;
@@ -1179,6 +1240,52 @@ public class MountainName {
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_cj.htm").get();
+			titleElem=doc.select("table.tbl tbody tr td ol li");
+			
+			for(int j=0;j<titleElem.size();j++)	{
+			 
+				Element telem=titleElem.get(j);	
+				test=telem.text()+"\n";
+				StringTokenizer st=new StringTokenizer(test, " ");
+				//fw.write(test);
+				
+				 /*
+				  * 하설산 1,035m 충북 제천 덕산면
+					학가산 870m 경북 안동, 예천
+				  */
+				//System.out.println(st.nextToken());
+				fw.write("\""+st.nextToken()+"\",");
+				
+				
+				
+			}
+			 
+			
+			fw.close();
+		}catch(Exception ex){
+			System.out.println(ex.getMessage());
+		}
+	
+	}
+	
+	public static void Ghwngju(){
+		try	{
+			String test;
+			 
+			Document doc=null;
+			 
+			Elements titleElem=null;
+			 
+			 
+			 
+			/*File file = new File("/home/sist/바탕화면/seoul.txt");
+			if(file.exists())
+			file.delete();*/
+			 
+			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Jeju.txt",true);
+			 
+			 
+			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_kj.htm").get();
 			titleElem=doc.select("table.tbl tbody tr td ol li");
 			
 			for(int j=0;j<titleElem.size();j++)	{
@@ -1230,7 +1337,7 @@ public class MountainName {
 			for(int j=0;j<titleElem.size();j++)	{
 			 
 				Element telem=titleElem.get(j);	
-				test=telem.text()+"\n";
+				test=telem.text();
 				StringTokenizer st=new StringTokenizer(test, "m");
 				//fw.write(test);
 				
@@ -1239,7 +1346,8 @@ public class MountainName {
 					학가산 870m 경북 안동, 예천
 				  */
 				//System.out.println(st.nextToken());
-				fw.write(st.nextToken()+"\n");
+		
+				fw.write("\""+st.nextToken()+"\",");
 				
 				
 				
@@ -1275,7 +1383,7 @@ public class MountainName {
 			for(int j=0;j<titleElem.size();j++)	{
 			 
 				Element telem=titleElem.get(j);	
-				test=telem.text()+"\n";
+				test=telem.text();
 				StringTokenizer st=new StringTokenizer(test, "m");
 				//fw.write(test);
 				
@@ -1320,7 +1428,7 @@ public class MountainName {
 			for(int j=0;j<titleElem.size();j++)	{
 			 
 				Element telem=titleElem.get(j);	
-				test=telem.text()+"\n";
+				test=telem.text();
 				StringTokenizer st=new StringTokenizer(test, "m");
 				//fw.write(test);
 				
@@ -1410,7 +1518,7 @@ public class MountainName {
 			for(int j=0;j<titleElem.size();j++)	{
 			 
 				Element telem=titleElem.get(j);	
-				test=telem.text()+"\n";
+				test=telem.text();
 				StringTokenizer st=new StringTokenizer(test, "m");
 				//fw.write(test);
 				
@@ -1455,7 +1563,7 @@ public class MountainName {
 			for(int j=0;j<titleElem.size();j++)	{
 			 
 				Element telem=titleElem.get(j);	
-				test=telem.text()+"\n";
+				test=telem.text();
 				StringTokenizer st=new StringTokenizer(test, "m");
 				//fw.write(test);
 				
@@ -1500,7 +1608,7 @@ public class MountainName {
 			for(int j=0;j<titleElem.size();j++)	{
 			 
 				Element telem=titleElem.get(j);	
-				test=telem.text()+"\n";
+				test=telem.text();
 				StringTokenizer st=new StringTokenizer(test, "m");
 				//fw.write(test);
 				
@@ -1545,7 +1653,7 @@ public class MountainName {
 			for(int j=0;j<titleElem.size();j++)	{
 			 
 				Element telem=titleElem.get(j);	
-				test=telem.text()+"\n";
+				test=telem.text();
 				StringTokenizer st=new StringTokenizer(test, "m");
 				//fw.write(test);
 				
@@ -1590,7 +1698,7 @@ public class MountainName {
 			for(int j=0;j<titleElem.size();j++)	{
 			 
 				Element telem=titleElem.get(j);	
-				test=telem.text()+"\n";
+				test=telem.text();
 				StringTokenizer st=new StringTokenizer(test, "m");
 				//fw.write(test);
 				
@@ -1635,7 +1743,7 @@ public class MountainName {
 			for(int j=0;j<titleElem.size();j++)	{
 			 
 				Element telem=titleElem.get(j);	
-				test=telem.text()+"\n";
+				test=telem.text();
 				StringTokenizer st=new StringTokenizer(test, "m");
 				//fw.write(test);
 				
@@ -1680,7 +1788,7 @@ public class MountainName {
 			for(int j=0;j<titleElem.size();j++)	{
 			 
 				Element telem=titleElem.get(j);	
-				test=telem.text()+"\n";
+				test=telem.text();
 				StringTokenizer st=new StringTokenizer(test, "m");
 				//fw.write(test);
 				
@@ -1725,7 +1833,7 @@ public class MountainName {
 		for(int j=0;j<titleElem.size();j++)	{
 		 
 			Element telem=titleElem.get(j);	
-			test=telem.text()+"\n";
+			test=telem.text();
 			StringTokenizer st=new StringTokenizer(test, "m");
 			//fw.write(test);
 			
@@ -1748,7 +1856,6 @@ public class MountainName {
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////^  산 높이
-	
 	
 	
 	
