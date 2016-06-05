@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 
-<script src="http://www.amcharts.com/lib/3/amcharts.js"></script>	<!-- 지역 -->
+<script src="http://www.amcharts.com/lib/3/amcharts.js"></script>	<!-- 1,지역 -->
 <script src="http://www.amcharts.com/lib/3/serial.js"></script>
 <script type="text/javascript">
 var chart;
@@ -95,20 +95,21 @@ chart.write("container");
 </script> 
 
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>	<!-- 2,계절 -->
 <script type="text/javascript">
   google.charts.load("current", {packages:["corechart"]});
   google.charts.setOnLoadCallback(drawChart);
+  
   function drawChart() {
     var data = google.visualization.arrayToDataTable([
       ['Task', 'Hours per Day'],
-      ['Work',     11],
-      ['Eat',      2],
-      ['Commute',  2],
-      ['Watch TV', 2],
-      ['Sleep',    7]
+      
+      <c:forEach var="vo" items="${season}">    
+      ['<c:out value="${vo.season}"/>',<c:out value="${vo.count}"/>],
+      </c:forEach>
+      
     ]);
-
+      
     var options = {
       title: 'My Daily Activities',
       is3D: true,
@@ -164,8 +165,7 @@ chart.write("container");
 											<div class="panel panel-primary">
 												<div class="panel-heading">계절</div>			<!-- 2.계절 -->
 												<div class="panel-body">
-												 <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
-
+												 <div id="piechart_3d" style="width: 100%; height: 100%;"></div>
   												</div>												
 												</div>
 											</div>

@@ -5,6 +5,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -102,11 +105,25 @@ public class MainController {
 		return "season/season";
 	}
 
+	
+	//1.추천페이지
 	@RequestMapping("theme.do")
-	public String theme() {
-		return "theme/theme";
+	public String theme() {  
+	     return "guide/guideList.jsp";
 	}
 	
+	//2.추천페이지_지역선택
+	@RequestMapping("themeSelect.do")
+	public String theme(HttpServletRequest req) throws Exception{
+			
+		String type = req.getParameter("type"); 		// 정렬타입
+			
+		//req.setAttribute("list", list);      
+		      
+		return "guide/guideList.jsp";
+	}
+	
+			
 	@RequestMapping("zone.do")
 	public String zone() {
 		return "zone/zone";
