@@ -1,0 +1,205 @@
+body {
+  margin:0px !important;
+  font-family: 'Playfair Display', serif;
+}
+
+.logo {
+  width: 50px;
+  margin-top: -15px;
+  display: inline-block !important;
+}
+
+.text-logo {
+  display: inline-block;
+  
+}
+
+.navbar-brand {
+  min-width: 200px;
+  font-family: 'Pacifico', cursive;
+}
+
+.navbar-collapse.in {
+  overflow-y: auto;
+  background-color: rgba(10,10,10,0.5);
+}
+
+.navbar-collapse > ul > li > a {
+  color:#FFF !important;
+}
+
+.navbar-right {
+  font-family: 'Dosis', sans-serif;
+}
+
+.navbar-inverse {
+  background-color: transparent;
+  border:none;
+}
+
+#cf-jumbotron {
+	background-image: url(assets/img/main.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	color: #cfcfcf;
+}
+
+#cf-personal {
+    background: url("http://healthyandstylish.com/wp-content/uploads/2015/08/carrots-for-healthy-eating.jpg");
+    background-size: cover;
+    background-position:center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #ffffff;
+}
+@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+  #cf-jumbotron {
+    background-size: cover;
+    background-position: center 0em;
+  }
+  #cf-personal {
+    background-size: auto 1200px;
+    background-position: center 0em;
+    background-repeat:repeat-y;
+  }
+}
+@media only screen 
+  and (min-device-width: 320px)
+  and (max-device-width: 700px)
+  and (-webkit-min-device-pixel-ratio: 2) { 
+  #cf-jumbotron {
+    background-size: auto 750px;
+    background-position: center 0em;
+  }
+}
+@media (min-height: 400px) {
+  #cf-jumbotron {
+	background-position: center 0em;
+  }
+}
+@media (min-height: 800px) {
+  #cf-jumbotron {
+	background-position: center -3em;
+  }
+}
+@media (min-height: 1000px) {
+  #cf-jumbotron {
+	background-position: center -8em;
+  }
+}
+
+
+#cf-jumbotron .overlay{
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.73) 17%, rgba(0,0,0,0.66) 35%, rgba(0,0,0,0.55) 62%, rgba(0,0,0,0.4) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.8)), color-stop(17%,rgba(0,0,0,0.73)), color-stop(35%,rgba(0,0,0,0.66)), color-stop(62%,rgba(0,0,0,0.55)), color-stop(100%,rgba(0,0,0,0.4))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#66000000',GradientType=0 ); /* IE6-9 */
+	height: 750px;
+	background-attachment: fixed;
+}
+#cf-jumbotron p.lead{
+	color: #e3e3e3;
+}
+
+.content{
+	position: relative;
+	padding: 20% 0 0;
+}
+
+h1 {
+  font-family: 'Dosis', sans-serif;
+  font-size: 4em;
+}
+
+#personal-greeting {
+  font-family: 'Dosis', sans-serif;
+  font-size: 3em;
+}
+
+#content-hello-img {
+  padding: 50px;
+}
+
+#content-hello-about {
+  padding: 50px;
+}
+
+#personal-pic {
+  padding: 50px;
+}
+
+#personal-text {
+  font-family: 'Dosis', sans-serif;
+  padding: 70px;
+  font-size: 1.3em;
+}
+
+#portfolio-header {
+  font-family: 'Dosis', sans-serif;
+  font-size: 3em;
+}
+
+#cf-contact-header {
+  font-family: 'Dosis', sans-serif;
+  font-size: 3em;
+}
+
+
+hr{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+ 
+
+#cf-personal .overlay {
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.73) 17%, rgba(0,0,0,0.66) 35%, rgba(0,0,0,0.55) 62%, rgba(0,0,0,0.4) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.8)), color-stop(17%,rgba(0,0,0,0.73)), color-stop(35%,rgba(0,0,0,0.66)), color-stop(62%,rgba(0,0,0,0.55)), color-stop(100%,rgba(0,0,0,0.4)));
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%);
+    background: -o-linear-gradient(top, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%);
+    background: -ms-linear-gradient(top, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#66000000',GradientType=0 );
+}
+
+.section-title.center hr {
+    border-top: 2px solid rgba(252, 172, 69, 0.54);
+    width: 90%;
+    text-align: center;
+    margin-top: 10px;
+    position: relative;
+}
+
+li {
+  padding: 5px;
+  margin-top:-7px;
+}
+
+#footer {
+  font-family: 'Dosis', sans-serif;
+  background: #C02425;
+  background: -webkit-linear-gradient(to left, #C02425 , #F0CB35); 
+  background: linear-gradient(to left, #C02425 , #F0CB35); 
+    color: #ffffff;
+    padding: 15px 0 10px 0;
+    width:100%;
+}
+
+a.fa.fa-angle-down {
+    padding: 10px 15px;
+    color: #fff;
+    border: 2px solid #b4b4b4;
+    border-radius: 50%;
+    font-size: 24px;
+    margin-top: 200px;
+    transition: all 0.5s;
+}
+
+
+

@@ -22,28 +22,27 @@
 </body> -->
 <body>
 
-	<div class="navbar navbar-inverse set-radius-zero">
-		<div class="container">
-			<div class="navbar-header">
-				<a href="main.do">
-					<h1 style="color: white;">FIT:Foreign Independent Tours</h1>
-				</a>
-			</div>
-		</div>
-	</div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+       <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href=""><img src="http://www.fillfox.com/wp-content/uploads/2014/02/FILL-FOX-LOGO-ONLY3A-1024x1024.png" class="logo" alt="CarrotFox"><div class="text-logo">CarrotFox</div></a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#whatido"></a></li>
+        <li><a href="#meetme">PERSONAL</a></li>
+        <li><a href="#portfolio">PORTFOLIO</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 	
-	<div class="subnavbar">
-		<div class="subnavbar-inner">
-			<div class="container">
-				<ul class="mainnav">
-					<li class="active"><a href="main.do"><i class="icon-bullhorn"></i><span>HOME</span></a></li>
-					<li><a href="season.do"><i class="icon-list-alt"></i><span>통계</span></a></li>
-					<li><a href="theme.do"><i class="icon-code"></i><span>추천</span></a></li>
-				</ul>
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /subnavbar-inner -->
-	</div>
 </body>
 </html>
