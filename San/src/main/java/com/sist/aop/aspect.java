@@ -6,27 +6,52 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.sist.mapred.NaverDriver;
-import com.sist.mapred.NaverReducer;
+import com.sist.mapredLocal.LocalDriver;
+import com.sist.mapredLocal.LocalReducer;
+import com.sist.mapredSeason.SeasonDriver;
 import com.sist.r.NaverRManager;
 @Aspect
 @Component
 public class aspect {
+	
 	@Autowired
-	private NaverDriver nd;
+	private LocalDriver ld;
+	
+	@Autowired
+	private SeasonDriver sd;
+	
 	@Autowired
 	private NaverRManager nrm;
-    @Before("execution(* com.sist.mapred.NaverDriver.jobCall())")
+	
+	//1.weekday
+    @Before("execution(* com.sist.mapredLocal.LocalDriver.jobCall())")
     public void before()
     {
-    	nd.fileDelete();
-    	nd.copyFromLocal();
+    	ld.fileDelete();
+    	ld.copyFromLocal();
     }
-    @After("execution(* com.sist.mapred.NaverDriver.jobCall())")
+    
+    @After("execution(* com.sist.mapredLocal.LocalDriver.jobCall())")
     public void after()
     {
-    	nd.copyToLocal();
-    	nrm.rGraph();
+    	ld.copyToLocal();
+    	//nrm.rGraph();
+    }
+    
+    
+    //2.season
+    @Before("execution(* com.sist.mapredSeason.SeasonDriver.jobCall())")
+    public void beforeSeason()
+    {
+    	sd.fileDelete();
+    	sd.copyFromLocal();
+    }
+    
+    @After("execution(* com.sist.mapredSeason.SeasonDriver.jobCall())")
+    public void afterSeason()
+    {
+    	sd.copyToLocal();
+    	//nrm.rGraph();
     }
 }
 

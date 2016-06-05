@@ -1,4 +1,4 @@
-package com.sist.mapred;
+package com.sist.mapredSeason;
 
 import java.io.IOException;
 
@@ -6,7 +6,7 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class NaverReducer extends Reducer<Text, IntWritable, Text, IntWritable>{
+public class SeasonReducer extends Reducer<Text, IntWritable, Text, IntWritable>{
 	private IntWritable res=new IntWritable();
 
 	@Override
@@ -19,7 +19,6 @@ public class NaverReducer extends Reducer<Text, IntWritable, Text, IntWritable>{
 		 res.set(sum);//다시 intwriter로 변환
 		 context.write(key, res);
 
-		
 	}
 	
 	
