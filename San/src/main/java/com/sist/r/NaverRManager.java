@@ -6,6 +6,7 @@ import org.rosuda.REngine.Rserve.RConnection;
 import org.springframework.stereotype.Component;
 
 import com.sist.mongo.LocalVO;
+import com.sist.mongo.WeekdayVO;
 @Component
 public class NaverRManager {
 	
@@ -77,5 +78,34 @@ public class NaverRManager {
 			}
 			return list;
 		}
+		
+		public List<WeekdayVO> rWeekData(){
+			
+			List<WeekdayVO> list = new ArrayList<WeekdayVO>();
+			
+			try{
+				RConnection rc = new RConnection();
+				rc.voidEval("week<-read.table(\"/home/sist/git/san/San/src/main/webapp/data/naver/output/weekday/part-r-00000\")");
+				REXP p = rc.eval("week$V1");
+				String[] days = p.asStrings();
+				p = rc.eval("week$V2");
+				int[] count = p.asIntegers();
+				rc.close();
+				
+				for(int i=0; i<days.length; i++){
+					WeekdayVO vo = new WeekdayVO();
+					vo.setDay(days[i]);
+					vo.setCount(count[i]);
+					list.add(vo);
+				}
+				
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+			}
+			
+			
+			return list;
+		}
+		
 	
 }

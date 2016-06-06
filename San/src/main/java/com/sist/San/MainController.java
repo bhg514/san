@@ -21,6 +21,7 @@ import com.sist.mapredWeekday.WeekdayDriver;
 
 import com.sist.mongo.LocalVO;
 import com.sist.mongo.SanDAO;
+import com.sist.mongo.WeekdayVO;
 import com.sist.naver.Naver;
 import com.sist.r.NaverRManager;
 import com.sist.r.SeasonVO;
@@ -70,6 +71,9 @@ public class MainController {
 		
 		List<LocalVO> localList=new ArrayList<LocalVO>();
 		List<SeasonVO> seasonList=new ArrayList<SeasonVO>();
+		List<WeekdayVO> weekList = new ArrayList<WeekdayVO>();
+		
+		String weekData = "";
 		
 		try{
 			List<String> list = navar.naver("등산");	//블로그 검색
@@ -96,6 +100,14 @@ public class MainController {
 			//몽고디비
 			localList=nrm.rLocalData();		//지역
 			seasonList=nrm.rSeasonData();	//계절
+			weekList=nrm.rWeekData();		//요일
+			
+			for(int i=0; i<weekList.size(); i++){
+				String day = weekList.get(i).getDay()+"일";
+				weekList.get(i).setDay(day);
+				System.out.println(weekList.get(i).getDay());
+			}
+			
 			
 			for(LocalVO r:localList)
 			{
@@ -106,12 +118,24 @@ public class MainController {
 			}
 			
 			
+			
+			weekData = "{";
+			for(WeekdayVO vo:weekList){	
+				weekData += "\""+vo.getDay()+"\":"+vo.getCount()+",";
+			}
+			weekData += "\"Tuesday\":0";
+			weekData += "}";
+			
+			
 		}catch(Exception ex){
 				System.out.println(ex.getMessage());
 		}		
 		
+		System.out.println(weekData);
+		
 		model.addAttribute("local", localList);		//7개 이상인 지역만 그래프 그리기
 		model.addAttribute("season", seasonList);
+		model.addAttribute("weekData",weekData);
 		
 		return "season/season";
 	}
@@ -120,7 +144,7 @@ public class MainController {
 	//1.추천페이지
 	@RequestMapping("theme.do")
 	public String theme() {  
-	     return "guide/guideList.jsp";
+	     return "theme/theme";
 	}
 	
 	//2.추천페이지_지역선택

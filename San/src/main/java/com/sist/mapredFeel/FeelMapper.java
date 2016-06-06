@@ -36,6 +36,7 @@ public class FeelMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
 		for(int i=0;i<feel.length;i++){
 			matcher[i]=pattern[i].matcher(value.toString());
 			while(matcher[i].find()){
+				
 				result.set(feel[i]);				//String을 text로 바꿀때 set 사용
 				context.write(result, one);
 				
