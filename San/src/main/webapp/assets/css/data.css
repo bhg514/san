@@ -1,95 +1,98 @@
-body{
-  background:#eeeeee;
+body {
+	background: #eeeeee;
 }
 
-section{
-		float: left;
-		padding-top: 50px;
-		padding-bottom: 100px;
-		width: 100%;
-		padding-left:0;
-		padding-right:0;
+section {
+	float: left;
+	padding-top: 50px;
+	padding-bottom: 100px;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
 }
 
-#icon-wrapper{
-	width:100%;
-	float:left;
-	height:300px;
+#icon-wrapper {
+	width: 100%;
+	float: left;
+	height: 300px;
 }
 
 .icons {
-	width:16.666666%;
-	float:left;
-	position:relative;
+	width: 16.66666%;
+	float: left;
+	position: relative;
 }
+
 .icons2 {
-	width:16.666666%;
-	float:left;
-	position:relative;
-	margin-left:25%;
+	width: 16.66666%;
+	float: left;
+	position: relative;
+	margin-left: 16.66666%;
 }
+
 .icons3 {
-	width:16.666666%;
-	float:left;
-	position:relative;
-	margin-left:50%;
+	width: 16.66666%;
+	float: left;
+	position: relative;
+	margin-left: 33.33332%;
 }
+
 .icons4 {
-	width:16.666666%;
-	float:left;
-	position:relative;
-	margin-left:75%;
+	width: 16.66666%;
+	float: left;
+	position: relative;
+	margin-left: 50%;
 }
 
 .icons5 {
-	width:16.666666%;
-	float:left;
-	position:relative;
-	margin-left:75%;
+	width: 16.66666%;
+	float: left;
+	position: relative;
+	margin-left: 66.66664%;
 }
 
 .icons6 {
-	width:16.666666%;
-	float:left;
-	position:relative;
-	margin-left:75%;
+	width: 16.66666%;
+	float: left;
+	position: relative;
+	margin-left: 83.33333%;
 }
 
-.icon-slide-container{
-	height:220px;
-	overflow:hidden;
+.icon-slide-container {
+	height: 300px;
+	overflow: hidden;
 	text-align: left;
 	position: absolute;
 	float: left;
-	width: 220px;
+	width: 300px;
 	left: 50%;
 	margin-left: -150px;
 }
 
-.slide-icon{
-  width:220px;
-  height:220px;
-  position:absolute;
-  margin-top:-300px;
-  -webkit-transition:.4s ease;
-  -moz-transition:.4s ease;
-  -ms-transition:.4s ease;
-  -o-transition:.4s ease;
-  transition:.4 ease;
-}
-	
-.slide-icon:hover{
-  position:absolute;
-  margin-top:0;
+.slide-icon {
+	width: 300px;
+	height: auto;
+	position: absolute;
+	margin-top: -300px;
+	-webkit-transition: .4s ease;
+	-moz-transition: .4s ease;
+	-ms-transition: .4s ease;
+	-o-transition: .4s ease;
+	transition: .4 ease;
 }
 
-@media only screen and (max-width: 1600px) {
-  #icon-wrapper{
-		width:100%;
-		float:left;
-		height:170px;
+.slide-icon:hover {
+	position: absolute;
+	margin-top: 0;
+}
+
+@media only screen and (max-width: 2000px) {
+	#icon-wrapper {
+		width: 100%;
+		float: left;
+		height: 170px;
 	}
-  .icon-slide-container {
+	.icon-slide-container {
 		height: 200px;
 		overflow: hidden;
 		text-align: left;
@@ -99,7 +102,7 @@ section{
 		left: 50%;
 		margin-left: -100px;
 	}
-  .slide-icon {
+	.slide-icon {
 		width: 200px;
 		height: auto;
 		position: absolute;
@@ -108,7 +111,7 @@ section{
 }
 
 @media only screen and (max-width: 1000px) {
-  #home-social-container{
+	#home-social-container {
 		margin-right: 0;
 		margin-left: 0;
 		width: 100%;
@@ -119,12 +122,11 @@ section{
 }
 
 @media only screen and (max-width: 840px) {
-  #icon-wrapper{
-		width:100%;
-		float:left;
-		height:650px;
+	#icon-wrapper {
+		width: 100%;
+		float: left;
+		height: 650px;
 	}
-	
 	.icon-slide-container {
 		height: 300px;
 		overflow: hidden;
@@ -135,13 +137,12 @@ section{
 		left: 50%;
 		margin-left: -150px;
 	}
-	
 	.slide-icon {
 		width: 300px;
 		height: auto;
 		position: absolute;
 		margin-top: -300px;
-	}	
+	}
 	.icons {
 		width: 50%;
 		float: left;
@@ -166,16 +167,29 @@ section{
 		position: relative;
 		margin-left: 50%;
 	}
+	.icons5 {
+		width: 50%;
+		float: left;
+		position: relative;
+		margin-left: 0%;
+		margin-top:700px;
+	}
+	.icons6 {
+		width: 50%;
+		float: left;
+		position: relative;
+		margin-left: 50%;
+	}
 }
-                        
+
 @media only screen and (max-width: 650px) {
 	#icon-wrapper {
 		height: 400px;
 	}
-	#section{
+	#section {
 		width: 90%;
-		padding-left:5%;
-		padding-right:5%;
+		padding-left: 5%;
+		padding-right: 5%;
 	}
 	.slide-icon {
 		width: 200px;
@@ -196,7 +210,7 @@ section{
 		margin-top: 230px;
 	}
 }
-                                  
+
 @media only screen and (max-width: 570px) {
 	#icon-wrapper {
 		height: 300px;
@@ -218,5 +232,5 @@ section{
 		float: left;
 		margin-left: 0%;
 		margin-top: 190px;
-	}	
+	}
 }
