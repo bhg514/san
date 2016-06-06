@@ -12,7 +12,7 @@ public class NaverRManager {
 	public void rGraph(){
 		try{
 			RConnection rc=new RConnection();			
-			rc.voidEval("naver<-read.table(\"/home/actif/git/san/San/src/main/webapp/data/naver/output/part-r-00000\")");			
+			rc.voidEval("naver<-read.table(\"/home/stellayoon/git/san/San/src/main/webapp/data/naver/output/part-r-00000\")");			
 			rc.voidEval("png(\"/home/sist/git/san/San/src/main/webapp/R/naver.png\",width=900,height=500)");			
 			rc.voidEval("par(mfrow=c(1,2))");//그림그리기			
 			rc.voidEval("pie(naver$V2,labels=naver$V1,col=rainbow(10))");			
@@ -30,7 +30,7 @@ public class NaverRManager {
 			List<LocalVO> list=new ArrayList<LocalVO>();
 			try{
 				RConnection rc=new RConnection();
-				rc.voidEval("data<-read.table(\"/home/actif/git/san/San/src/main/webapp/data/naver/output/local/part-r-00000\")");
+				rc.voidEval("data<-read.table(\"/home/stellayoon/git/san/San/src/main/webapp/data/naver/output/local/part-r-00000\")");
 				REXP p=rc.eval("data$V1");	//1.지역
 				String[] local=p.asStrings();	
 				p=rc.eval("data$V2");			//2.카운트
@@ -58,7 +58,7 @@ public class NaverRManager {
 			
 			try{
 				RConnection rc=new RConnection();
-				rc.voidEval("data<-read.table(\"/home/actif/git/san/San/src/main/webapp/data/naver/output/season/part-r-00000\")");
+				rc.voidEval("data<-read.table(\"/home/stellayoon/git/san/San/src/main/webapp/data/naver/output/season/part-r-00000\")");
 				REXP p=rc.eval("data$V1");	//1.계절
 				String[] season=p.asStrings();	
 				p=rc.eval("data$V2");			//2.카운트

@@ -53,7 +53,7 @@ public class SeasonDriver {
 			   FileSystem fs=FileSystem.get(conf);
 			   // hadoop fs -cat /
 			   fs.copyFromLocalFile(
-					   new Path("/home/actif/git/san/San/src/main/webapp/data/naver/san.txt"), 
+					   new Path("/home/stellayoon/git/san/San/src/main/webapp/data/naver/san.txt"), 
 					   new Path("/input/season/san.txt"));	
 			   fs.close();
 		   }catch(Exception ex){
@@ -66,7 +66,7 @@ public class SeasonDriver {
 			   FileSystem fs=FileSystem.get(conf);
 			   fs.copyToLocalFile(
 					   new Path("/output/season/part-r-00000"),
-					   new Path("/home/actif/git/san/San/src/main/webapp/data/naver/output/season/part-r-00000"));
+					   new Path("/home/stellayoon/git/san/San/src/main/webapp/data/naver/output/season/part-r-00000"));
 			   fs.close();
 			 					
 		   }catch(Exception ex)

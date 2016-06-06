@@ -47,7 +47,7 @@ public class LocalDriver {
 			   FileSystem fs1=FileSystem.get(conf);
 			   // hadoop fs -cat /
 			   fs1.copyFromLocalFile(
-					   new Path("/home/actif/git/san/San/src/main/webapp/data/naver/san.txt"), 
+					   new Path("/home/stellayoon/git/san/San/src/main/webapp/data/naver/san.txt"), 
 					   new Path("/input/local/san.txt"));	
 			   fs1.close();
 			   
@@ -62,7 +62,7 @@ public class LocalDriver {
 			   FileSystem fs=FileSystem.get(conf);
 			   fs.copyToLocalFile(
 					   new Path("/output/local/part-r-00000"),
-					   new Path("/home/actif/git/san/San/src/main/webapp/data/naver/output/local/part-r-00000"));
+					   new Path("/home/stellayoon/git/san/San/src/main/webapp/data/naver/output/local/part-r-00000"));
 			   fs.close();			   
 				
 		   }catch(Exception ex)
