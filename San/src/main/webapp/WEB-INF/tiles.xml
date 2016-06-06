@@ -4,6 +4,8 @@
         "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
  
  <tiles-definitions>
+ 
+ 
  	<definition name="main" template="/WEB-INF/layout/main.jsp">
  		<put-attribute name="header" value="/WEB-INF/layout/header.jsp"/>
  		<put-attribute name="body" value="/WEB-INF/layout/body.jsp"/>
@@ -13,4 +15,12 @@
  	<definition name="*/*" extends="main">
  		<put-attribute name="body" value="/WEB-INF/{1}/{2}.jsp"/>
  	</definition>
+ 	
+ 	
+ 	
+ 	<definition name="l" template="/WEB-INF/theme/theme_ajax/recommand_local.jsp">
+ 		<put-attribute name="local" value="/WEB-INF/{1}/{2}/{3}.jsp"/>
+ 	</definition>
+ 	
+ 	
  </tiles-definitions>
