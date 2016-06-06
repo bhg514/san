@@ -17,11 +17,14 @@
 <link href="assets/css/font-awesome.css" rel="stylesheet" />
 <!-- <link href="assets/css/style.css" rel="stylesheet" /> -->
 <link href="assets/css/main.css" rel="stylesheet" />
-
 </head>
+
 <body>
+
+
 	<!-- Header -->
 	<tiles:insertAttribute name="header" />
+
 
 	<!-- Body -->
 	<tiles:insertAttribute name="body" />
