@@ -58,7 +58,6 @@ public class MainController {
 		
 		List<TourDTO> tlist=tmgr.tourYearData();		//1.국내여행동향인원수d
 		List<TourDTO> inoutlist=tmgr.tourInOutData();	//2.입국출국인원수	
-
 		
 		model.addAttribute("tlist",tlist);
 		model.addAttribute("inoutlist",inoutlist);
@@ -75,6 +74,7 @@ public class MainController {
 		List<FeelVO> feelList = new ArrayList<FeelVO>();
 		
 		String weekData = "";
+		String feelAll = "";
 		
 		try{
 			List<String> list = navar.naver("등산");	//블로그 검색
@@ -129,6 +129,17 @@ public class MainController {
 			weekData += "}";
 			
 			
+			for(int i=0; i<feelList.size(); i++){
+				
+				for(int j=0; j<feelList.get(i).getCount(); j++){
+					
+					feelAll += feelList.get(i).getFeel()+" ";
+					
+				}
+				
+			}
+			
+			
 		}catch(Exception ex){
 				System.out.println(ex.getMessage());
 		}		
@@ -139,6 +150,7 @@ public class MainController {
 		model.addAttribute("season", seasonList);
 		model.addAttribute("weekData",weekData);
 		model.addAttribute("feelList",feelList);
+		model.addAttribute("feelAll",feelAll);
 		
 		return "season/season";
 	}

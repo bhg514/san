@@ -114,14 +114,16 @@ public class NaverRManager {
 			
 			try{
 				
-				RConnection rc = new RConnection();
+				RConnection rc = new RConnection();		
 				rc.voidEval("feel<-read.table(\"/home/sist/git/san/San/src/main/webapp/data/naver/output/feel/part-r-00000\")");
+				//rc.voidEval("feel<-read.table(\"/home/sist/data\")");
+				
 				REXP p = rc.eval("feel$V1");
 				String[] feels = p.asStrings();
 				p = rc.eval("feel$V2");
 				int[] count = p.asIntegers();
 				rc.close();
-				
+
 				for(int i=0; i<feels.length; i++){
 					FeelVO vo = new FeelVO();
 					vo.setFeel(feels[i]);

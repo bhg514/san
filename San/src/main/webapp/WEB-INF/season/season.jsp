@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -7,202 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-
-<script src="http://www.amcharts.com/lib/3/amcharts.js"></script>
-<!-- 지역 -->
-<script src="http://www.amcharts.com/lib/3/serial.js"></script>
-<script type="text/javascript">
-var chart;
-var graph;
-
-var chartData = [
-<c:forEach var="vo" items="${local}">        
-{
-'date': '<c:out value="${vo.local}"/>',
-'검색수': <c:out value="${vo.count}"/>,
-'Botev Plovdiv': 2.9,
-'The Draw': 3.55
-},
-</c:forEach>
-];
-
-AmCharts.ready(function () {
-// SERIAL CHART
-chart = new AmCharts.AmSerialChart();
-chart.dataProvider = chartData;
-chart.categoryField = "date";
-chart.startDuration = 0.5;
-chart.balloon.color = "#000000";
-
-// AXES
-// category
-var categoryAxis = chart.categoryAxis;
-categoryAxis.fillAlpha = 1;
-categoryAxis.fillColor = "#FAFAFA";
-categoryAxis.gridAlpha = 0;
-categoryAxis.axisAlpha = 0;
-categoryAxis.gridPosition = "start";
-
-// value
-var valueAxis = new AmCharts.ValueAxis();
-valueAxis.title = "Average Prices";
-valueAxis.dashLength = 5;
-valueAxis.axisAlpha = 0;
-valueAxis.minimum = 1;
-valueAxis.maximum = 30;
-valueAxis.gridCount = 10;
-chart.addValueAxis(valueAxis);
-
-// GRAPHS
-// Italy graph						            		
-var graph = new AmCharts.AmGraph();
-graph.title = "검색수";
-graph.valueField = "검색수";
-graph.balloonText = "place taken by Cherno More in [[category]]: [[value]]";
-graph.bullet = "round";
-chart.addGraph(graph);
-
-// Germany graph
-var graph = new AmCharts.AmGraph();
-graph.title = "Botev Plovdiv";
-graph.valueField = "Botev Plovdiv";
-graph.balloonText = "place taken by Botev Plovdiv in [[category]]: [[value]]";
-graph.bullet = "round";
-chart.addGraph(graph);
-
-// United Kingdom graph
-var graph = new AmCharts.AmGraph();
-graph.title = "The Draw";
-graph.valueField = "The Draw";
-graph.balloonText = "place taken by The Draw in [[category]]: [[value]]";
-graph.bullet = "round";
-chart.addGraph(graph);
-
-// CURSOR
-var chartCursor = new AmCharts.ChartCursor();
-chartCursor.cursorPosition = "mouse";
-chartCursor.zoomable = false;
-chartCursor.cursorAlpha = 0;
-chart.addChartCursor(chartCursor);                
-
-// LEGEND
-var legend = new AmCharts.AmLegend();
-legend.useGraphSettings = true;
-chart.addLegend(legend);
-
-// WRITE
-chart.write("container");
-});
-
-</script>
-
-
-<script type="text/javascript"
-	src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-  google.charts.load("current", {packages:["corechart"]});
-  google.charts.setOnLoadCallback(drawChart);
-  function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Task', 'Hours per Day'],
-      ['Work',     11],
-      ['Eat',      2],
-      ['Commute',  2],
-      ['Watch TV', 2],
-      ['Sleep',    7]
-    ]);
-
-    var options = {
-      title: 'My Daily Activities',
-      is3D: true,
-    };
-
-    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-    chart.draw(data, options);
-  }
-</script>
-
-
-</head>
-<body>
-	<div class="content-wrapper">
-		<div class="container">
-
-			<div class="row">
-				<div class="col-md-12">
-					<div class="page-head-line">Mountain Bigdata</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="page-head-line">
-						<div class="panel panel-default">
-							<br>
-
-							<div class="col-md-4 col-sm-4">
-								<div class="panel panel-default">
-									<div class="panel-heading">지역별 데이터</div>
-									<div class="panel-body">이미지</div>
-								</div>
-							</div>
-
-							<div class="col-md-4 col-sm-4">
-								<div class="panel panel-primary">
-									<div class="panel-heading">계절별 통계</div>
-									<div class="panel-body">이미지~</div>
-								</div>
-							</div>
-
-							<div class="col-md-4 col-sm-4">
-								<div class="panel panel-default">
-									<div class="panel-heading">감정분석</div>
-									<div class="panel-body">이미지 ~</div>
-								</div>
-							</div>
-
-							<br> <br>
-							<div class="col-md-4 col-sm-4">
-								<div class="panel panel-default">
-									<div class="panel-heading">음식</div>
-									<div class="panel-body">이미지 ~</div>
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-4">
-								<div class="panel panel-default">
-									<div class="panel-heading">준비물</div>
-									<div class="panel-body">이미지 ~</div>
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-4">
-								<div class="panel panel-default">
-									<div class="panel-heading">누구랑</div>
-									<div class="panel-body">이미지 ~</div>
-								</div>
-							</div>
-
-							<div class="col-md-12">
-								<div class="panel panel-default">
-									<div class="panel-body">데이터 뿌려주는곳 ~</div>
-								</div>
-							</div>
-
-							<div class="panel-body"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</body>
-=======
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<style type="text/css">
+.word-cloud {
+  display: block;
+  margin: 20px auto;
+}
+</style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script src="http://www.amcharts.com/lib/3/amcharts.js"></script>	<!-- 1,지역 -->
 <script src="http://www.amcharts.com/lib/3/serial.js"></script>
@@ -585,7 +394,120 @@ chart.write("container");
 								<div class="col-md-4 col-sm-4">
 									<div class="panel panel-default">
 										<div class="panel-heading">감정분석</div>
-										<div class="panel-body">이미지 ~</div>
+										<div class="panel-body">
+											<script src="http://d3js.org/d3.v3.min.js"></script>
+											  <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
+											  <script>
+											
+											//Simple animated example of d3-cloud - https://github.com/jasondavies/d3-cloud
+											//Based on https://github.com/jasondavies/d3-cloud/blob/master/examples/simple.html
+											
+											// Encapsulate the word cloud functionality
+											function wordCloud(selector) {
+											
+											    var fill = d3.scale.category20();
+											
+											    //Construct the word cloud's SVG element
+											    var svg = d3.select(selector).append("svg")
+											        .attr("class", "word-cloud")
+											        .attr("width", 500)
+											        .attr("height", 500)
+											        .append("g")
+											        .attr("transform", "translate(250,250)");
+											
+											
+											    //Draw the word cloud
+											    function draw(words) {
+											        var cloud = svg.selectAll("g text")
+											                        .data(words, function(d) { return d.text; })
+											
+											        //Entering words
+											        cloud.enter()
+											            .append("text")
+											            .style("font-family", "Impact")
+											            .style("fill", function(d, i) { return fill(i); })
+											            .attr("text-anchor", "middle")
+											            .attr('font-size', 1)
+											            .text(function(d) { return d.text; });
+											
+											        //Entering and existing words
+											        cloud
+											            .transition()
+											                .duration(600)
+											                .style("font-size", function(d) { return d.size + "px"; })
+											                .attr("transform", function(d) {
+											                    return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+											                })
+											                .style("fill-opacity", 1);
+											
+											        //Exiting words
+											        cloud.exit()
+											            .transition()
+											                .duration(200)
+											                .style('fill-opacity', 1e-6)
+											                .attr('font-size', 1)
+											                .remove();
+											    }
+											
+											
+											    //Use the module pattern to encapsulate the visualisation code. We'll
+											    // expose only the parts that need to be public.
+											    return {
+											
+											        //Recompute the word cloud for a new set of words. This method will
+											        // asycnhronously call draw when the layout has been computed.
+											        //The outside world will need to call this function, so make it part
+											        // of the wordCloud return value.
+											        update: function(words) {
+											            d3.layout.cloud().size([500, 500])
+											                .words(words)
+											                .padding(5)
+											                .rotate(function() { return ~~(Math.random() * 2) * 90; })
+											                .font("Impact")
+											                .fontSize(function(d) { return d.size; })
+											                .on("end", draw)
+											                .start();
+											        }
+											    }
+											
+											}
+											
+											//Some sample data - http://en.wikiquote.org/wiki/Opening_lines
+											var words = [
+											    /*  "hi nice nice nice hi good oh oh my god god god god god", */
+											   "<c:out value='${feelAll}'/>"
+											]
+											
+											//Prepare one of the sample sentences by removing punctuation,
+											// creating an array of words and computing a random size attribute.
+											function getWords(i) {
+											    return words[i]
+											            .replace(/[!\.,:;\?]/g, '')
+											            .split(' ')
+											            .map(function(d) {
+											                return {text: d, size: 10 + Math.random() * 60};
+											            })
+											}
+											
+											//This method tells the word cloud to redraw with a new set of words.
+											//In reality the new words would probably come from a server request,
+											// user input or some other source.
+											function showNewWords(vis, i) {
+											    i = i || 0;
+											
+											    vis.update(getWords(i ++ % words.length))
+											    setTimeout(function() { showNewWords(vis, i + 1)}, 2000)
+											}
+											
+											//Create a new instance of the word cloud visualisation.
+											var myWordCloud = wordCloud('body');
+											
+											//Start cycling through the demo data
+											showNewWords(myWordCloud);
+											
+											
+											</script>
+										</div>
 									</div>
 								</div>
 								<div class="col-md-4 col-sm-4">
@@ -616,5 +538,4 @@ chart.write("container");
 			</div>
 </div></div>
 </body>
->>>>>>> branch 'master' of https://github.com/bhg514/san.git
 </html>

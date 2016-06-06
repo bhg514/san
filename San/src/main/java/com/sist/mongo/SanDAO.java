@@ -14,7 +14,7 @@ public class SanDAO {
 	public SanDAO(){
 		
 		try{
-			mc=new MongoClient(new ServerAddress("211.238.142.77",27017));	//보영ip
+			mc=new MongoClient(new ServerAddress("211.238.142.86",27017));	//보영ip
 			db=mc.getDB("sandb");
 			dbc=db.getCollection("recommand");	//테이블
 		}catch(Exception e){

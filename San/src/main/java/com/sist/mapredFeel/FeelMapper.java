@@ -14,13 +14,15 @@ public class FeelMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
 	private final IntWritable one=new IntWritable(1);
 	private Text result=new Text();
 	String[] feel = {
-			"행복","재미","즐거움","상쾌","유쾌","통쾌","가고 싶은","좋[가-힣]","그리운",
+			"좋[가-힣]","행복","재미","즐거움","상쾌","유쾌","통쾌","가고싶은","그리운",
 			"힘든","힘듦","힘듬","싫음","싫어","우울","절망","별로","다시는","괜히","망설","귀찮",
-			"모험","여정","더움","더워","더웠","덥네","추워","춥네","추움","서늘","시원",
-			"추천","꼭","반드시","한번쯤",
-			"멀긴","먼","가까운","가까워"
+			"모험","여정","시원","아쉬움","이쁜",
+			"흐뭇","현기증","무서움","뿌듯","보람","기쁨","지루","대견","조오타","죽겠다","죽겟다","주글거","삭막",
+			"힘겹","존좋","아름다움","이쁘","이쁨","들떠","힘내","기분업","기대","포기","어려움","탁 트이다","탁트이다","트이다",
+			"뻥뚫","희노애락","매료","최고","환상","열받아","짜증","아쉬운","고생","설렘"
 	};
-	
+	//흐뭇,힘들,현기증무서움,뿌듯,보람,기쁨,지루,대견,조오타,죽겟다,삭막,힘겹다,재미,존좋,아름다움,이쁨,들뜨다,힘내,기분업,기대,포기,어려움,야호,탁트이다,뻥뚤린다,희노애락,매료,최고,환상,열받아,짜증
+	//아쉬운, 고생,설렘
 	Pattern[] pattern=new Pattern[feel.length];
 	
 	@Override
@@ -37,7 +39,8 @@ public class FeelMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
 			matcher[i]=pattern[i].matcher(value.toString());
 			while(matcher[i].find()){
 				
-				result.set(feel[i]);				//String을 text로 바꿀때 set 사용
+				if(i==0) result.set("좋음");
+				else result.set(feel[i]);				//String을 text로 바꿀때 set 사용
 				context.write(result, one);
 				
 			}

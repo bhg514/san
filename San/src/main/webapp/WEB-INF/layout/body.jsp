@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-
 <!-- script -->
 <script src="assets/js/jquery-1.11.1.js"></script>
 <script src="assets/js/bootstrap.js"></script>
@@ -71,8 +68,7 @@
 						chart2.draw(data2, options2);
 					} */
 				</script>
-
-
+				
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script type="text/javascript">
