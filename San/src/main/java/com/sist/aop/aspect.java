@@ -8,7 +8,10 @@ import org.springframework.stereotype.Component;
 
 import com.sist.mapredLocal.LocalDriver;
 import com.sist.mapredLocal.LocalReducer;
+import com.sist.mapredRec.RecommandDriver;
+import com.sist.mapredSeason.RecSeasonDriver;
 import com.sist.mapredSeason.SeasonDriver;
+import com.sist.mapredThings.ThingsDriver;
 import com.sist.r.NaverRManager;
 @Aspect
 @Component
@@ -19,6 +22,15 @@ public class aspect {
 	
 	@Autowired
 	private SeasonDriver sd;
+	
+	@Autowired
+	private ThingsDriver td;
+	@Autowired
+	private RecommandDriver rd;
+	
+	@Autowired
+	private RecSeasonDriver rsd;
+
 	
 	@Autowired
 	private NaverRManager nrm;
@@ -53,6 +65,52 @@ public class aspect {
     	sd.copyToLocal();
     	//nrm.rGraph();
     }
+
+
+  //3. recommand
+    @Before("execution(* com.sist.mapredRec.RecommandDriver.jobCallB())")
+    public void beforeRecommandB()
+    {
+    	rd.fileDelete();
+    	rd.copyFromLocal();
+    }
+    
+    @After("execution(* com.sist.mapredRec.RecommandDriver.jobCallB())")
+    public void afterRecommandB()
+    {
+    	rd.copyToLocal();
+    }
+    
+    @Before("execution(* com.sist.mapredRec.RecommandDriver.jobCallC())")
+    public void beforeRecommandC()
+    {
+    	rd.fileDelete();
+    	rd.copyFromLocal();
+    }
+    
+    @After("execution(* com.sist.mapredRec.RecommandDriver.jobCallC())")
+    public void afterRecommandC()
+    {
+    	rd.copyToLocal();
+    }
+    
+    
+    //========================
+    //4.recommand_season
+    @Before("execution(* com.sist.mapredSeason.RecSeasonDriver.jobCall())")
+    public void beforeRecSeason()
+    {
+    	rsd.fileDelete();
+    	rsd.copyFromLocal();
+    }
+    
+    @After("execution(* com.sist.mapredSeason.RecSeasonDriver.jobCall())")
+    public void afterRecSeason()
+    {
+    	rsd.copyToLocal();
+    	//nrm.rGraph();
+    }
+  
 }
 
 
