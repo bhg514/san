@@ -118,7 +118,7 @@ body {
 		62%, rgba(0, 0, 0, 0.4) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000',
 		endColorstr='#66000000', GradientType=0); /* IE6-9 */
-	height: 750px;
+	height: 600px;
 	background-attachment: fixed;
 }
 
@@ -129,11 +129,11 @@ body {
 .content {
 	position: relative;
 	padding: 20% 0 0;
+	margin-top:-150px;
 }
 
 h1 {
 	font-family: 'Dosis', sans-serif;
-	font-size: 4em;
 }
 
 #personal-greeting {
@@ -308,3 +308,4 @@ div#carousel ~ span:hover {
 	color: black;
 	cursor: pointer;
 }
+

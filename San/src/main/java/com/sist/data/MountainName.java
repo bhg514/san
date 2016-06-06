@@ -47,11 +47,11 @@ public class MountainName {
 				 
 				 
 				 
-				/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+				/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 				if(file.exists())
 				file.delete();*/
 				 
-				FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
+				FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
 				 
 				 
 				doc=Jsoup.connect("http://www.koreasanha.net/ganada/ga.htm").get();
@@ -92,11 +92,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/na.htm").get();
@@ -137,11 +137,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/da.htm").get();
@@ -182,11 +182,11 @@ public class MountainName {
 			 
 			 
 			 
-			File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/ra.htm").get();
@@ -227,11 +227,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/ma.htm").get();
@@ -272,11 +272,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/ba.htm").get();
@@ -317,11 +317,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/sa.htm").get();
@@ -362,11 +362,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/a.htm").get();
@@ -407,11 +407,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/ja.htm").get();
@@ -452,11 +452,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/cha.htm").get();
@@ -497,11 +497,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/ka-pa.htm").get();
@@ -542,11 +542,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainName.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/ha.htm").get();
@@ -588,11 +588,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/바탕화면/seoul.txt");
+			/*File file = new File("/home/actif/바탕화면/seoul.txt");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Seoul.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/Seoul.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_seo.htm").get();
@@ -631,11 +631,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/바탕화면/seoul.txt");
+			/*File file = new File("/home/actif/바탕화면/seoul.txt");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Incheon.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/Incheon.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_ic.htm").get();
@@ -676,11 +676,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/바탕화면/seoul.txt");
+			/*File file = new File("/home/actif/바탕화면/seoul.txt");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Gyeonggi.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/Gyeonggi.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_kg.htm").get();
@@ -721,11 +721,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/바탕화면/seoul.txt");
+			/*File file = new File("/home/actif/바탕화면/seoul.txt");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Gangwon.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/Gangwon.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_kw.htm").get();
@@ -766,11 +766,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/바탕화면/seoul.txt");
+			/*File file = new File("/home/actif/바탕화면/seoul.txt");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Chungbuk.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/Chungbuk.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_cb.htm").get();
@@ -811,11 +811,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/바탕화면/seoul.txt");
+			/*File file = new File("/home/actif/바탕화면/seoul.txt");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Daejeon.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/Daejeon.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_tj.htm").get();
@@ -856,11 +856,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/바탕화면/seoul.txt");
+			/*File file = new File("/home/actif/바탕화면/seoul.txt");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Chungcheongnam.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/Chungcheongnam.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_cn.htm").get();
@@ -901,11 +901,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/바탕화면/seoul.txt");
+			/*File file = new File("/home/actif/바탕화면/seoul.txt");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Jeonbuk.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/Jeonbuk.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_chb.htm").get();
@@ -946,11 +946,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/바탕화면/seoul.txt");
+			/*File file = new File("/home/actif/바탕화면/seoul.txt");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Daegu.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/Daegu.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_tg.htm").get();
@@ -991,11 +991,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/바탕화면/seoul.txt");
+			/*File file = new File("/home/actif/바탕화면/seoul.txt");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Gyeongbuk.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/Gyeongbuk.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_kb.htm").get();
@@ -1036,11 +1036,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/바탕화면/seoul.txt");
+			/*File file = new File("/home/actif/바탕화면/seoul.txt");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Busan.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/Busan.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_ps.htm").get();
@@ -1081,11 +1081,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/바탕화면/seoul.txt");
+			/*File file = new File("/home/actif/바탕화면/seoul.txt");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Gyeongsangnam.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/Gyeongsangnam.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_kn.htm").get();
@@ -1126,11 +1126,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/바탕화면/seoul.txt");
+			/*File file = new File("/home/actif/바탕화면/seoul.txt");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Ulsan.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/Ulsan.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_us.htm").get();
@@ -1171,11 +1171,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/바탕화면/seoul.txt");
+			/*File file = new File("/home/actif/바탕화면/seoul.txt");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Jeju.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/Jeju.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_cj.htm").get();
@@ -1217,11 +1217,11 @@ public class MountainName {
 			 
 			 
 			 
-			File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/ga.htm").get();
@@ -1262,11 +1262,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/na.htm").get();
@@ -1307,11 +1307,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/da.htm").get();
@@ -1352,11 +1352,11 @@ public class MountainName {
 			 
 			 
 			 
-			File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/ra.htm").get();
@@ -1397,11 +1397,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/ma.htm").get();
@@ -1442,11 +1442,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/ba.htm").get();
@@ -1487,11 +1487,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/sa.htm").get();
@@ -1532,11 +1532,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/a.htm").get();
@@ -1577,11 +1577,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/ja.htm").get();
@@ -1622,11 +1622,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/cha.htm").get();
@@ -1667,11 +1667,11 @@ public class MountainName {
 			 
 			 
 			 
-			/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+			/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
+			FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/ganada/ka-pa.htm").get();
@@ -1712,11 +1712,11 @@ public class MountainName {
 		 
 		 
 		 
-		/*File file = new File("/home/sist/git/san/San/src/main/webapp/data/MountainName");
+		/*File file = new File("/home/actif/git/san/San/src/main/webapp/data/MountainName");
 		if(file.exists())
 		file.delete();*/
 		 
-		FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
+		FileWriter fw=new FileWriter("/home/actif/git/san/San/src/main/webapp/data/MountainName/MountainHeight.txt",true);
 		 
 		 
 		doc=Jsoup.connect("http://www.koreasanha.net/ganada/ha.htm").get();

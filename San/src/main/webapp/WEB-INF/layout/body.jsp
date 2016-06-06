@@ -15,148 +15,6 @@
 <!-- <script src="assets/js/main.js"></script> -->
 <script src="assets/js/main2.js"></script>
 
-<!-- 구글차트_보영 -->
-<script type="text/javascript"
-	src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-    
-    //1번차트
-    
-      google.charts.load('current', {'packages':['corechart']});
-     google.charts.setOnLoadCallback(drawChart1); 
- 
-      function drawChart1() {
-        var data1 = google.visualization.arrayToDataTable([
-          ['Year', '국내여행인원수', '숙박여행','당일치기'],
-          <c:forEach var="vo" items="${tlist}">
-          ['<c:out value="${vo.year}"/>', <c:out value="${vo.total}"/>, <c:out value="${vo.sleep}"/>,<c:out value="${vo.oneday}"/>],
-          </c:forEach>
-        ]);
-
-        var options1 = {
-        		backgroundColor:'none',
-          title: '',
-          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 20000}
-        };
-
-        var chart1 = new google.visualization.AreaChart(document.getElementById('chart_div'));
-        chart1.draw(data1, options1);
-      
-      }
-        		
-				/* 	//2번차트
-					google.charts.load('current', {'packages' : [ 'bar' ]});
-					google.charts.setOnLoadCallback(drawChart2);
-
-					function drawChart2() {
-						var data2 = google.visualization.arrayToDataTable([
-								[ 'Year', 'in', 'out' ],
-								<c:forEach var="vo" items="${inoutlist}">[
-										'<c:out value="${vo.year}"/>',
-										'<c:out value="${vo.sleep}"/>',
-										'<c:out value="${vo.total}"/>'],
-								</c:forEach> ]);
-
-						var options2 = {
-							chart : {
-								title : 'Company Performance',
-								subtitle : 'Sales, Expenses, and Profit: 2014-2017',
-							}
-						};
-
-						var chart2 = new google.charts.Bar(document
-								.getElementById('columnchart_material'));
-
-						chart2.draw(data2, options2);
-					} */
-				</script>
-
-
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script type="text/javascript">
-$(function () {
-    // Age categories
-    var categories = [
-						<c:forEach var="vo" items="${inoutlist}">
-                      	<c:out value="${vo.year}"/>,
-                      </c:forEach>
-                      ];
-    $(document).ready(function () {
-        $('#container').highcharts({
-            chart: {
-                type: 'bar'
-            },
-            title: {
-                text: ''
-            },
-            subtitle: {
-                text: ''
-            },
-            xAxis: [{
-                categories: categories,
-                reversed: false,
-                labels: {
-                    step: 1
-                }
-            }, { // mirror axis on right side
-                opposite: true,
-                reversed: false,
-                categories: categories,
-                linkedTo: 0,
-                labels: {
-                    step: 1
-                }
-            }],
-            yAxis: {
-                title: {
-                    text: null
-                },
-                labels: {
-                    formatter: function () {
-                        return this.value;
-                    }
-                }
-            },
-
-            plotOptions: {
-                series: {
-                    stacking: 'normal'
-                }
-            },
-
-            tooltip: {
-                formatter: function () {
-                    return '<b>' + this.series.name + ', age ' + this.point.category + '</b><br/>' +
-                        'Population: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
-                }
-            },
-
-            series: [{
-                name: '입국자',
-                data: [
-						<c:forEach var="vo" items="${inoutlist}">
-							-<c:out value="${vo.sleep}"/>,
-						</c:forEach>
-                       ]
-            }, {
-                name: '출국자',
-                data: [
-						<c:forEach var="vo" items="${inoutlist}">
-						<c:out value="${vo.total}"/>,
-						</c:forEach>
-                       ]
-            }]
-        });
-    });
-
-});
-
-</script>
-
-
-
 <!-- css -->
 <link href="assets/css/bootstrap.css" rel="stylesheet" />
 <link href="assets/css/font-awesome.css" rel="stylesheet" />
@@ -166,41 +24,38 @@ $(function () {
 <body>
 
 
-
-		<div id="cf-jumbotron" class="text-center">
-			<div class="col-md-12">
-				<div class="overlay">
-					<div class="content">
-						<h1>
-							한국의 산에 대해서<strong><span class="color">&nbsp;얼마나&nbsp;</span></strong>알고계신가요?
-						</h1>
-						<br>
-					</div>
-				</div>
+	<div id="cf-jumbotron" class="text-center">
+		<div class="overlay">
+			<div class="content">
+				<h1>
+					"한국의 산에 대해서<strong><span class="color">&nbsp;&nbsp;얼마나&nbsp;&nbsp;</span></strong>알고계신가요?"
+				</h1>
+				<br>
 			</div>
-			<div class="col-md-12">
-				<div id=carousel>
-					<figure id=spinner>
-						<img src=//demosthenes.info/assets/images/wanaka-tree.jpg alt="">
-						<img src=//demosthenes.info/assets/images/still-lake.jpg alt="">
-						<img src=//demosthenes.info/assets/images/pink-milford-sound.jpg alt="">
-						<img src=//demosthenes.info/assets/images/paradise.jpg alt="">
-						<img src=//demosthenes.info/assets/images/morekai.jpg alt="">
-						<img src=//demosthenes.info/assets/images/milky-blue-lagoon.jpg alt="">
-						<img src=//demosthenes.info/assets/images/lake-tekapo.jpg alt="">
-						<img src=//demosthenes.info/assets/images/milford-sound.jpg alt="">
-					</figure>
-				</div>
-			</div>
-			<span style="float: left" class=ss-icon onclick="galleryspin('-')">&lt;</span>
-			<span style="float: right" class=ss-icon onclick="galleryspin('')">&gt;</span>
-			<br>
-			<div>
-				<div class="overlay">
-					<a href="#cf-about" class="fa fa-angle-down page-scroll"></a>
-				</div>
+			<div id=carousel>
+				<figure id=spinner>
+					<img src=//demosthenes.info/assets/images/wanaka-tree.jpg alt="">
+					<img src=//demosthenes.info/assets/images/still-lake.jpg alt="">
+					<img src=//demosthenes.info/assets/images/pink-milford-sound.jpg
+						alt="">
+					<img src=//demosthenes.info/assets/images/paradise.jpg alt="">
+					<img src=//demosthenes.info/assets/images/morekai.jpg alt="">
+					<img src=//demosthenes.info/assets/images/milky-blue-lagoon.jpg
+						alt="">
+					<img src=//demosthenes.info/assets/images/lake-tekapo.jpg alt="">
+					<img src=//demosthenes.info/assets/images/milford-sound.jpg alt="">
+				</figure>
 			</div>
 		</div>
+		<span style="float: left" class=ss-icon onclick="galleryspin('-')">&lt;</span>
+		<span style="float: right" class=ss-icon onclick="galleryspin('')">&gt;</span>
+		<br>
+		<div>
+			<div class="overlay">
+				<a href="#cf-about" class="fa fa-angle-down page-scroll"></a>
+			</div>
+		</div>
+	</div>
 	</div>
 
 
