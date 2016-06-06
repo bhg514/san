@@ -18,7 +18,7 @@ import com.sist.mapredFeel.FeelDriver;
 import com.sist.mapredLocal.LocalDriver;
 import com.sist.mapredSeason.SeasonDriver;
 import com.sist.mapredWeekday.WeekdayDriver;
-
+import com.sist.mongo.FeelVO;
 import com.sist.mongo.LocalVO;
 import com.sist.mongo.SanDAO;
 import com.sist.mongo.WeekdayVO;
@@ -72,6 +72,7 @@ public class MainController {
 		List<LocalVO> localList=new ArrayList<LocalVO>();
 		List<SeasonVO> seasonList=new ArrayList<SeasonVO>();
 		List<WeekdayVO> weekList = new ArrayList<WeekdayVO>();
+		List<FeelVO> feelList = new ArrayList<FeelVO>();
 		
 		String weekData = "";
 		
@@ -101,6 +102,7 @@ public class MainController {
 			localList=nrm.rLocalData();		//지역
 			seasonList=nrm.rSeasonData();	//계절
 			weekList=nrm.rWeekData();		//요일
+			feelList=nrm.rFeelData();		//감정
 			
 			for(int i=0; i<weekList.size(); i++){
 				String day = weekList.get(i).getDay()+"일";
@@ -136,6 +138,7 @@ public class MainController {
 		model.addAttribute("local", localList);		//7개 이상인 지역만 그래프 그리기
 		model.addAttribute("season", seasonList);
 		model.addAttribute("weekData",weekData);
+		model.addAttribute("feelList",feelList);
 		
 		return "season/season";
 	}

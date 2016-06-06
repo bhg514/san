@@ -5,6 +5,7 @@ import org.rosuda.REngine.REXP;
 import org.rosuda.REngine.Rserve.RConnection;
 import org.springframework.stereotype.Component;
 
+import com.sist.mongo.FeelVO;
 import com.sist.mongo.LocalVO;
 import com.sist.mongo.WeekdayVO;
 @Component
@@ -107,5 +108,34 @@ public class NaverRManager {
 			return list;
 		}
 		
-	
+		public List<FeelVO> rFeelData(){
+			
+			List<FeelVO> list = new ArrayList<FeelVO>();
+			
+			try{
+				
+				RConnection rc = new RConnection();
+				rc.voidEval("feel<-read.table(\"/home/sist/git/san/San/src/main/webapp/data/naver/output/feel/part-r-00000\")");
+				REXP p = rc.eval("feel$V1");
+				String[] feels = p.asStrings();
+				p = rc.eval("feel$V2");
+				int[] count = p.asIntegers();
+				rc.close();
+				
+				for(int i=0; i<feels.length; i++){
+					FeelVO vo = new FeelVO();
+					vo.setFeel(feels[i]);
+					vo.setCount(count[i]);
+					list.add(vo);
+				}
+				
+				
+			}catch(Exception ex){
+				System.out.println(ex.getMessage());
+			}
+			
+			return list;
+		}
+		
+		
 }
