@@ -10,8 +10,10 @@
 <!-- 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script> -->
 <link href="assets/css/season.css" rel="stylesheet" />
+<link href="season2.css" rel="stylesheet" />
 <script src="assets/js/season.js"></script>
-<!-- <script type="text/javascript">
+<script type="text/javascript" src="season2.js"></script>
+<script type="text/javascript">
 setTimeout(function start (){
 	  
 	  $('.bar').each(function(i){  
@@ -35,9 +37,10 @@ setTimeout(function start (){
 	});
 
 	}, 500)
-</script> -->
+</script>
 <script src="http://www.amcharts.com/lib/3/amcharts.js"></script>
 <script src="http://www.amcharts.com/lib/3/serial.js"></script>
+
 <script type="text/javascript">
 var chart;
 var graph;
@@ -121,7 +124,9 @@ chart.addLegend(legend);
 chart.write("container");
 });
 
+
 </script>
+
 
 </head>
 <body>
@@ -167,39 +172,11 @@ chart.write("container");
 											<div class="panel panel-primary">
 												<div class="panel-heading">계절</div>			<!-- 2.지역 -->
 												<div class="panel-body">
-												<div class="wrap">
-												<div class="holder">
-													<div class="bar cf" data-percent="85%">
-													<span class="label">봄</span>
-													</div>
-													<div class="bar cf" data-percent="85%">
-													<span class="label">여름</span>
-													</div>
-													<div class="bar cf" data-percent="85%">
-													<span class="label">가을</span>
-													</div>
-													<div class="bar cf" data-percent="85%">
-													<span class="label">겨울</span>
-													</div>
-												<div>
-  												</div>	
-  												</div>												
-												</div>
-											</div>
-										</div>
+												 <div id="chart" class="chart-container">
 
-										<!-- <div class="col-md-4 col-sm-4">
-											<div class="panel panel-success">
-												<div class="panel-heading">Success Panel</div>
-												<div class="panel-body">
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-														elit. Vestibulum tincidunt est vitae ultrices accumsan.
-														Aliquam ornare lacus adipiscing, posuere lectus et,
-														fringilla augue.</p>
+    											</div>
 												</div>
-												<div class="panel-footer">Panel Footer</div>
-											</div>
-										</div> -->
+													
 
 										<div class="col-md-4 col-sm-4">
 											<div class="panel panel-info">
