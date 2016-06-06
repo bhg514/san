@@ -1,38 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 
-<script src="assets/js/insta.js"></script>
-
-
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="ajax.js"></script>
 <script type="text/javascript">
 
 	$(function(){
-		//2.정렬
-		$('#sortType').change(function(){		
-			var sortType=$('#sortType').val();	//ex_가격높은순
-			
-			var param="type="+sortType;
-			sendMessage("POST", "guide_sort.do",param, localsan);
+		$('#localType').change(function(){		
+			var selectsan=$('#localType').val();	
+			var param="type="+selectsan;
+			sendMessage("POST", "recommand_select.do",param, localsan);
 			
 		});
 	}); 
 
-	//마지막. 데이터리스트 불러오기
-	function guideList() {
+	function localsan() {
 		if (httpRequest.readyState == 4) {
 			if (httpRequest.status == 200) {
-				$('#localsan').html(httpRequest.responseText);
+				$('#localSanResult').html(httpRequest.responseText);
 			}
 		}
 	}
-
+	
 </script>
 </head>
 <body>
@@ -49,37 +44,33 @@
 				<div class="col-md-12">
 					<div class="col-md-12">
 						<div class="panel panel-default">
-							테마순위?
+							 <select name="text_loc2" id="localType">
+								<option value="">- SORT -</option>
+								<option value="Busan">부산</option>
+								<option value="Chungbuk">충북</option>			
+								<option value="Chungnam">충남</option>	
+								<option value="Daegu">대구</option>	
+								<option value="Daejeon">대전</option>			
+								<option value="Gangwon">강원</option>		
+								<option value="Gyeonbuk">경북</option>
+								<option value="Gyeongnam">경남</option>
+								<option value="Gyeonggi">경기</option>	
+								<option value="Incheon">인천</option>
+								<option value="Jeju">제주</option>
+								<option value="Jeonbuk">전북</option>
+								<option value="Jeonnam">전남</option>
+								<option value="Ulsan">울산</option>
+							</select> 
 						</div>
 					</div>
 					
 					<div class="col-md-2">
 						<div class="panel panel-default">
-							<div class="panel-heading">주간 순위</div>
+							<div class="panel-heading">Top 5 Mountain</div>
 							<div class="panel-body">
-								<ul>
-									<!-- 3. 정렬 -->
-										<div class="inner">
-											<br><br>
-											<div class="9u 12u$(xsmall) tourFit">
-												<h4>I FIND GUIDE!</h4>
-											</div>
-											
-											<div class="select-wrapper tourist_select 3u$ 12u$(xsmall) tourFit">
-												<select name="text_loc2" id="sortType">
-													<option value="">- SORT -</option>
-													<option value="cost">서울</option>			
-													<option value="newest">인천</option>	
-													<option value="ranking">경기</option>	
-													<option value="cost">강원</option>			
-													<option value="newest">충북</option>		
-													<option value="ranking">대전</option>
-													<option value="cost">충남</option>	
-												</select>
-											</div>
-										</div>	
-									
-								</ul>
+							
+								 <!-- 지역의 탑5 산 출력 -->
+								 <div id="localSanResult"></div>  
 							</div>
 						</div>
 					</div>
@@ -88,9 +79,11 @@
 						<div class="panel panel-primary">
 							<div class="panel-heading">테마별 감정분석</div>
 							<div class="panel-body">
-								<p>내요요요요용.</p>
+							
+								<!-- 지역의 탑5 detail 출력 -->
+							<div id="localSanDetail_season" style="width:500px; height:600px;"></div>
+							
 							</div>
-							<div class="panel-footer">Panel Footer</div>
 						</div>
 					</div>
 					<div class="col-md-5 col-sm-6">
@@ -99,7 +92,6 @@
 							<div class="panel-body">
 								<p>내요요요요용.</p>
 							</div>
-							<div class="panel-footer">Panel Footer</div>
 						</div>
 					</div>
 
@@ -107,10 +99,6 @@
 						<div class="panel panel-default">
 							<div class="panel-heading">누구랑</div>
 							<div class="panel-body">
-							
-							<!-- 지역의 탑5 산 출력 -->
-							<div id="localSan"></div>
-								
 							</div>
 						</div>
 					</div>
@@ -122,24 +110,23 @@
 						</div>
 					</div>
 
-					<div class="col-md-10">
+					<!-- <div class="col-md-10">
 						<div class="panel panel-default">
 							<div class="panel-heading">인스타 사진 긁은거~</div>
 							<div class="panel-body">
 								<div id="test"></div>
 							</div>
 						</div>
-					</div>
-
+					</div> -->
 
 
 				</div>
 			</div>
 		</div>
 	</div>
+	
 
-
-	<script>
+	<!-- <script>
 		InstagramScroll({
 			tag : '부산여행',
 			imageSize : 200,
@@ -147,7 +134,7 @@
 			imageContainer : '#test',
 			includeCaption : true
 		});
-	</script>
+	</script> -->
 
 </body>
 </html>

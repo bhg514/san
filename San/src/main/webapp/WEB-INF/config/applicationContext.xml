@@ -65,6 +65,49 @@
       run-at-startup="false"
     />
     
+    											 <!-- busan  -->
+    <hadoop:job id="busan"
+      input-path="/input/recommand"
+      output-path="/output/recommand"
+      mapper="com.sist.mapredRec.Busan_RecommandMapper"
+      reducer="com.sist.mapredRec.RecommandReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner id="busanj"
+     job-ref="busan"
+      run-at-startup="false"
+    />
+    
+    											 <!-- chungbuk  -->
+ <hadoop:job id="chungbuk"
+      input-path="/input/recommand"
+      output-path="/output/recommand"
+      mapper="com.sist.mapredRec.Chungbuk_RecommandMapper"
+      reducer="com.sist.mapredRec.RecommandReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner id="chungbukj"
+     job-ref="chungbuk"
+      run-at-startup="false"
+    />
+    
+    											 <!-- 4번:recommand_season  -->
+    <hadoop:job id="recseason"
+      input-path="/input/recommand/season"
+      output-path="/output/recommand/season"
+      mapper="com.sist.mapredSeason.SeasonMapper"
+      reducer="com.sist.mapredSeason.SeasonReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner id="recseasonj"
+     job-ref="recseason"
+      run-at-startup="false"
+    />
+    
+    
 	<!-- properties 파일 읽기 -->
 	<util:properties id="db" location="/WEB-INF/config/db.properties"/>
 	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource" 

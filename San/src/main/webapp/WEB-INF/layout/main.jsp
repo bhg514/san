@@ -15,12 +15,16 @@
 <!-- css -->
 <link href="assets/css/bootstrap.css" rel="stylesheet" />
 <link href="assets/css/font-awesome.css" rel="stylesheet" />
-<link href="assets/css/style.css" rel="stylesheet" />
-<script src="assets/js/main2.js"></script>
+<!-- <link href="assets/css/style.css" rel="stylesheet" /> -->
+<link href="assets/css/main.css" rel="stylesheet" />
 </head>
+
 <body>
+
+
 	<!-- Header -->
 	<tiles:insertAttribute name="header" />
+
 
 	<!-- Body -->
 	<tiles:insertAttribute name="body" />

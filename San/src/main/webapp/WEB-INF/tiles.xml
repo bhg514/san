@@ -4,6 +4,8 @@
         "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
  
  <tiles-definitions>
+ 
+ 
  	<definition name="main" template="/WEB-INF/layout/main.jsp">
  		<put-attribute name="header" value="/WEB-INF/layout/header.jsp"/>
  		<put-attribute name="body" value="/WEB-INF/layout/body.jsp"/>
@@ -13,4 +15,47 @@
  	<definition name="*/*" extends="main">
  		<put-attribute name="body" value="/WEB-INF/{1}/{2}.jsp"/>
  	</definition>
+	
+ 	<definition name="theme/theme_ajax/recommand_local" template="/WEB-INF/theme/theme_ajax/recommand_local.jsp">
+ 		<put-attribute name="local" value="/WEB-INF/{1}/{2}/{3}.jsp"/>
+ 	</definition> 
+ 	
+ 	<definition name="theme/theme_ajax/recommand_detail" template="/WEB-INF/theme/theme_ajax/recommand_detail.jsp">
+ 		<put-attribute name="detail" value="/WEB-INF/{1}/{2}/{3}.jsp"/>
+ 	</definition>  
+ 	
+ 	
+ 	<!--  <definition name="theme/theme" template="/WEB-INF/theme/theme.jsp">
+ 		<put-attribute name="header" value="/WEB-INF/layout/header.jsp"/>
+ 		<put-attribute name="local_" value="/WEB-INF/theme/theme_ajax/recommand_local.jsp"/>
+ 		<put-attribute name="detail_" value="/WEB-INF/theme/theme_ajax/recommand_detail.jsp"/>
+ 		<put-attribute name="footer" value="/WEB-INF/layout/footer.jsp"/>
+ 	</definition>
+ 	
+ 	
+ 	<definition name="theme/theme_ajax/recommand_local" extends="theme/theme">
+ 		<put-attribute name="local_" value="/WEB-INF/theme/theme_ajax/recommand_local.jsp"/>
+ 	</definition> 
+ 	
+ 	<definition name="theme/theme_ajax/recommand_detail" extends="theme/theme">
+ 		<put-attribute name="detail_" value="/WEB-INF/theme/theme_ajax/recommand_detail.jsp"/>
+ 	</definition>  -->
+ 	
+ <!-- 	<definition name="themeMain" template="/WEB-INF/theme/theme.jsp">
+ 		<put-attribute name="theme" value="/WEB-INF/theme/theme_ajax/theme.jsp"/>
+ 		<put-attribute name="recommand_local" value="/WEB-INF/theme/theme_ajax/recommand_local.jsp"/>
+ 		<put-attribute name="recommand_detail" value="/WEB-INF/theme/theme_ajax/recommand_detail.jsp"/>
+ 	</definition>
+
+ 	<definition name="*/*/*" extends="themeMain">
+ 		<put-attribute name="theme" value="/WEB-INF/{1}/{2}/{3}.jsp"/>
+ 	</definition>  -->
+ 	
+  
+ 	
+ <!-- 	 <definition name="theme" template="/WEB-INF/theme/theme.jsp" extends="main">
+ 		<put-attribute name="recommand_local" value="/WEB-INF/theme/theme_ajax/recommand_local.jsp"/>
+ 		<put-attribute name="recommand_detail" value="/WEB-INF/theme/theme_ajax/recommand_detail.jsp"/>
+ 	</definition>
+ 	 --> 
  </tiles-definitions>
