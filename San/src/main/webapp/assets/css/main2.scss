@@ -1,0 +1,103 @@
+@import "bourbon";
+
+html, body {
+  margin: 0;
+  background-color: slateblue;
+}
+
+// Mountain illustration.
+.illustration {
+  height: 200px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+	svg {
+		bottom: 0;
+		fill: white;
+     height: 300px;
+     width: 100%;
+		position: absolute;
+	}
+}
+
+// Ripple Animation
+@include keyframes(ripple) {
+	0% {
+		opacity: auto;
+	}
+	50% {
+		opacity: 0;
+	}
+  100% {
+    opacity: auto;
+  }
+}
+
+.ring-1,
+.ring-2,
+.ring-3,
+.ring-4,
+.ring-5,
+.ring-6 {
+  @include animation(ripple 3.0s ease infinite);
+}
+
+.ring-1 {
+	opacity: 1;
+}
+
+.ring-2 {
+	@include animation-delay(0.25s);
+	opacity: 0.8;
+}
+
+.ring-3 {
+  @include animation-delay(0.5s);
+	opacity: 0.6;
+}
+
+.ring-4 {
+  @include animation-delay(0.75s);
+	opacity: 0.3;
+}
+
+.ring-5 {
+  @include animation-delay(1s);
+	opacity: 0.2;
+}
+
+.ring-6 {
+  @include animation-delay(1.25s);
+	opacity: 0.1;
+}
+
+
+// Pulse Animation
+@include keyframes(glide) {
+	0% {
+		@include transform(translateX(0px));
+	}
+	50% {
+		@include transform(translateX(5px));
+	}
+	100% {
+		@include transform(translateX(0px));
+	}
+}
+
+.cloud-level-top {
+  @include animation(glide 6s ease-in-out infinite);
+  @include animation-delay(0.25s);
+}
+
+.cloud-level-middle {
+  @include animation(glide 4s ease-in-out infinite);
+  @include animation-delay(0.5s);
+	opacity: 0.5;
+}
+
+.cloud-level-bottom {
+  @include animation(glide 8s ease-in-out infinite);
+  @include animation-delay(0.75s);
+	opacity: 0.15;
+}

@@ -36,7 +36,6 @@ function sendMessage(method,url,param,callback){
 	httpRequest.onreadystatechange=callback;
 
 	httpRequest.setRequestHeader("content-type","application/x-www-form-urlencoded");//3
-	
 	httpRequest.send(method=="GET"||method==null?null:param);
 	//4
 	

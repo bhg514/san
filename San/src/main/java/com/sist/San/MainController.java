@@ -109,18 +109,17 @@ public class MainController {
 	//1.추천페이지
 	@RequestMapping("theme.do")
 	public String theme() {  
-	     return "guide/guideList.jsp";
+	     return "theme/theme";
 	}
 	
 	//2.추천페이지_지역선택
-	@RequestMapping("themeSelect.do")
-	public String theme(HttpServletRequest req) throws Exception{
+	@RequestMapping("recommand_select.do")
+	public String recommand_select(HttpServletRequest req) throws Exception{
 			
 		String type = req.getParameter("type"); 		// 정렬타입
-			
 		//req.setAttribute("list", list);      
 		      
-		return "guide/guideList.jsp";
+		return "theme/theme_ajax/recommand_local";
 	}
 	
 			
