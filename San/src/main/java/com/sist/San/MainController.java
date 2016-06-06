@@ -111,7 +111,7 @@ public class MainController {
 		try{
 			List<String> list = navar.naver("등산");	//블로그 검색
 			
-			String path="/home/stellayoon/git/san/San/src/main/webapp/data/naver/san.txt";
+			String path="/home/sist/git/san/San/src/main/webapp/data/naver/san.txt";
 			
 			File file = new File(path);
 			
