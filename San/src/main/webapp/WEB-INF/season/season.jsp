@@ -95,7 +95,7 @@ chart.write("container");
 </script> 
 
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>	<!-- 2,계절 -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>	2,계절
 <script type="text/javascript">
   google.charts.load("current", {packages:["corechart"]});
   google.charts.setOnLoadCallback(drawChart);
@@ -117,10 +117,34 @@ chart.write("container");
 
     var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
     chart.draw(data, options);
+    
+   
   }
-</script>
+</script> 
 
+    <script type="text/javascript">
+      
+      google.charts.setOnLoadCallback(drawFoodChart);
+      function drawFoodChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          
+          <c:forEach var="vo" items="${food}">    
+          ['<c:out value="${vo.food}"/>',<c:out value="${vo.count}"/>],
+          </c:forEach>
+        ]);
 
+        var options = {
+          
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+  
 </head>
 <body>
 	<div class="content-wrapper">
@@ -162,22 +186,24 @@ chart.write("container");
 											<div class="panel panel-primary">
 												<div class="panel-heading">계절</div>			<!-- 2.계절 -->
 												<div class="panel-body">
-												 <div id="piechart_3d" style="width: 100%; height: 100%;"></div>
+												  <div id="piechart_3d" style="width: 100%; height: 100%;"></div> 
   												</div>												
 												</div>
 											</div>
 										</div>
 										</div>
 			
-							
 
 									</div>
 								</div>
 
 								<div class="col-md-4 col-sm-4">
 									<div class="panel panel-primary">
-										<div class="panel-heading">계절별 통계</div>
-										<div class="panel-body">이미지~</div>
+										<div class="panel-heading">감정분석</div>
+										<div class="panel-body"> 
+										<div id="pieChart" class="chart"></div>
+									
+										</div>
 									</div>
 								</div>
 
@@ -191,14 +217,18 @@ chart.write("container");
 								<br><br>
 								<div class="col-md-4 col-sm-4">
 									<div class="panel panel-default">
-										<div class="panel-heading">감정분석</div>
-										<div class="panel-body">이미지 ~</div>
+										<div class="panel-heading">음식</div>
+										<div class="panel-body">
+										 <div id="donutchart" style="width: 100%; height: 100%;"></div> 
+										</div>
 									</div>
 								</div>
 								<div class="col-md-4 col-sm-4">
 									<div class="panel panel-default">
 										<div class="panel-heading">감정분석</div>
-										<div class="panel-body">이미지 ~</div>
+										<div class="panel-body">
+ 										 
+										</div>
 									</div>
 								</div>
 								<div class="col-md-4 col-sm-4">

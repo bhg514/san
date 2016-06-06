@@ -6,6 +6,7 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.sist.mapredFood.FoodDriver;
 import com.sist.mapredLocal.LocalDriver;
 import com.sist.mapredLocal.LocalReducer;
 import com.sist.mapredSeason.SeasonDriver;
@@ -19,6 +20,9 @@ public class aspect {
 	
 	@Autowired
 	private SeasonDriver sd;
+	
+	@Autowired
+	private FoodDriver fd;
 	
 	@Autowired
 	private NaverRManager nrm;
@@ -51,6 +55,21 @@ public class aspect {
     public void afterSeason()
     {
     	sd.copyToLocal();
+    	//nrm.rGraph();
+    }
+    
+    //3.food
+    @Before("execution(* com.sist.mapredFood.FoodDriver.jobCall())")
+    public void beforeFood()
+    {
+    	fd.fileDelete();
+    	fd.copyFromLocal();
+    }
+    
+    @After("execution(* com.sist.mapredFood.FoodDriver.jobCall())")
+    public void afterFood()
+    {
+    	fd.copyToLocal();
     	//nrm.rGraph();
     }
 }

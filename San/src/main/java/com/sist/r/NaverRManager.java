@@ -77,5 +77,31 @@ public class NaverRManager {
 			}
 			return list;
 		}
+		
+public List<FoodVO> rFoodData(){
+			
+			List<FoodVO> list=new ArrayList<FoodVO>();
+			
+			try{
+				RConnection rc=new RConnection();
+				rc.voidEval("data<-read.table(\"/home/sist/git/san/San/src/main/webapp/data/naver/output/food/part-r-00000\")");
+				REXP p=rc.eval("data$V1");	//1.음식
+				String[] food=p.asStrings();	
+				p=rc.eval("data$V2");			//2.카운트
+				int[] count=p.asIntegers();
+				rc.close();
+				
+				for(int i=0; i<count.length; i++){			
+						FoodVO vo=new FoodVO();
+						vo.setFood(food[i]);
+						vo.setCount(count[i]);
+						list.add(vo);
+				}
+			
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+			}
+			return list;
+		}
 	
 }

@@ -16,11 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.sist.data.*;
 import com.sist.mapredLocal.LocalDriver;
 import com.sist.mapredSeason.SeasonDriver;
+import com.sist.mapredFood.FoodDriver;
 import com.sist.mongo.LocalVO;
 import com.sist.mongo.SanDAO;
 import com.sist.naver.Naver;
+import com.sist.naver.NaverFood;
 import com.sist.r.NaverRManager;
 import com.sist.r.SeasonVO;
+import com.sist.r.FoodVO;
 
 
 @Controller
@@ -32,10 +35,16 @@ public class MainController {
 	private Naver navar;
 	
 	@Autowired
+	private NaverFood navarfood;
+	
+	@Autowired
 	private LocalDriver ld;
 	
 	@Autowired
 	private SeasonDriver sd;
+	
+	@Autowired
+	private FoodDriver fd;
 	
 	@Autowired
 	private NaverRManager nrm;
@@ -61,6 +70,7 @@ public class MainController {
 		
 		List<LocalVO> localList=new ArrayList<LocalVO>();
 		List<SeasonVO> seasonList=new ArrayList<SeasonVO>();
+		List<FoodVO> foodList=new ArrayList<FoodVO>();
 		
 		try{
 			List<String> list = navar.naver("등산");	//블로그 검색
@@ -81,10 +91,12 @@ public class MainController {
 
 			ld.jobCall();	
 			sd.jobCall();	
+			fd.jobCall();	
 			
 			//몽고디비
 			localList=nrm.rLocalData();		//지역
 			seasonList=nrm.rSeasonData();	//계절
+			foodList=nrm.rFoodData(); //음식
 			
 			for(LocalVO r:localList)
 			{
@@ -101,6 +113,7 @@ public class MainController {
 		
 		model.addAttribute("local", localList);		//7개 이상인 지역만 그래프 그리기
 		model.addAttribute("season", seasonList);
+		model.addAttribute("food", foodList);
 		
 		return "season/season";
 	}
