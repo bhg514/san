@@ -10,12 +10,9 @@
 <!-- FONT AWESOME ICONS  -->
 <link href="assets/css/font-awesome.css" rel="stylesheet" />
 <link href="assets/css/font-awesome2.css" rel="stylesheet" />
-<!-- CUSTOM STYLE  -->
 <link href="assets/css/style.css" rel="stylesheet" />
 <link rel="stylesheet"
 	href="path/to/font-awesome/css/font-awesome.min.css">
-
-
 </head>
 <body>
 
@@ -29,10 +26,11 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="">
-					<img src="assets/img/logo.png" class="logo" alt="CarrotFox"/>
-					SAN
+
+				<a class="navbar-brand" href=""> <img src="assets/img/logo.png"
+					class="logo" alt="CarrotFox" />
 				</a>
+
 			</div>
 			
 			<div id="navbar" class="collapse navbar-collapse">

@@ -8,11 +8,10 @@
 </head>
 <body>
     <nav id="footer">
-        <div class="container">
+      
             <div class="nav-footer text-center">
                 <p>Designed and Coded by SIST-C <a href="#meetme" style="color:#FCAC45;">
                 </a></p>
-            </div>
         </div>
     </nav>
 </body>

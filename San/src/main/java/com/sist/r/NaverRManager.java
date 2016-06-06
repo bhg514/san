@@ -6,6 +6,7 @@ import org.rosuda.REngine.Rserve.RConnection;
 import org.springframework.stereotype.Component;
 
 import com.sist.mongo.LocalVO;
+import com.sist.mongo.ThingsVO;
 @Component
 public class NaverRManager {
 	
@@ -52,13 +53,17 @@ public class NaverRManager {
 			return list;
 		}
 		
-		public List<SeasonVO> rSeasonData(){
+		public List<SeasonVO> rSeasonData(int c){
 			
 			List<SeasonVO> list=new ArrayList<SeasonVO>();
 			
 			try{
 				RConnection rc=new RConnection();
-				rc.voidEval("data<-read.table(\"/home/sist/git/san/San/src/main/webapp/data/naver/output/season/part-r-00000\")");
+				if(c==0){
+					rc.voidEval("data<-read.table(\"/home/sist/git/san/San/src/main/webapp/data/naver/output/season/part-r-00000\")");
+				}else if(c==1){
+					rc.voidEval("data<-read.table(\"/home/sist/git/san/San/src/main/webapp/data/naver/output/recommand/season/part-r-00000\")");
+				}
 				REXP p=rc.eval("data$V1");	//1.계절
 				String[] season=p.asStrings();	
 				p=rc.eval("data$V2");			//2.카운트
@@ -77,5 +82,70 @@ public class NaverRManager {
 			}
 			return list;
 		}
+		
+		public List<LocalVO> rRecommandData(){
+			
+			List<LocalVO> list=new ArrayList<LocalVO>();
+			try{
+				RConnection rc=new RConnection();
+				rc.voidEval("data<-read.table(\"/home/sist/git/san/San/src/main/webapp/data/naver/output/recommand/part-r-00000\")");
+				REXP p=rc.eval("data$V1");	//1.산
+				String[] local=p.asStrings();	
+				p=rc.eval("data$V2");			//2.카운트
+				int[] count=p.asIntegers();
+				rc.close();
+				
+				for(int i=0; i<count.length; i++){	//오름차순정렬
+					for(int j=i+1; j<count.length; j++){
+						if(count[j]>count[i]){
+							int temp=count[i];
+							count[i]=count[j];
+							count[j]=temp;
+							String temp1=local[i];
+							local[i]=local[j];
+							local[j]=temp1;
+						}
+					}
+				}
+				
+				for(int i=0; i<5; i++){	
+					LocalVO vo=new LocalVO();
+					vo.setLocal(local[i]);
+					vo.setCount(count[i]);
+					//System.out.println(vo.getCount()+","+vo.getLocal());
+					list.add(vo);
+				}
+			
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+			}
+			return list;
+		}
 	
+		
+		public List<ThingsVO> rThingsData(){	
+			List<ThingsVO> list=new ArrayList<ThingsVO>();
+			try{
+				RConnection rc=new RConnection();
+				rc.voidEval("data<-read.table(\"/home/sist/git/san/San/src/main/webapp/data/naver/output/things/part-r-00000\")");
+				REXP p=rc.eval("data$V1");		//1.준비물
+				String[] things=p.asStrings();	
+				p=rc.eval("data$V2");			//2.카운트
+				int[] count=p.asIntegers();
+				rc.close();
+				
+				for(int i=0; i<count.length; i++){
+					if(count[i]>=5){				
+						ThingsVO vo=new ThingsVO();
+						vo.setThings(things[i]);
+						vo.setCount(count[i]);
+						list.add(vo);
+					}
+				}
+			
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+			}
+			return list;
+		}
 }

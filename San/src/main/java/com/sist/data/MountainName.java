@@ -876,7 +876,7 @@ public class MountainName {
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Chungnam.txt",true);
+			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Chungcheongnam.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_cn.htm").get();
@@ -1101,7 +1101,7 @@ public class MountainName {
 			if(file.exists())
 			file.delete();*/
 			 
-			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Gyeongnam.txt",true);
+			FileWriter fw=new FileWriter("/home/sist/git/san/San/src/main/webapp/data/MountainName/Gyeongsangnam.txt",true);
 			 
 			 
 			doc=Jsoup.connect("http://www.koreasanha.net/rg/mt_kn.htm").get();
