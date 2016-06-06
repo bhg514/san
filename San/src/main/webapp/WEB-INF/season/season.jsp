@@ -204,7 +204,8 @@ chart.write("container");
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 
-<script src="http://www.amcharts.com/lib/3/amcharts.js"></script>	<!-- 1,지역 -->
+<script src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+<!-- 1,지역 -->
 <script src="http://www.amcharts.com/lib/3/serial.js"></script>
 <script type="text/javascript">
 var chart;
@@ -289,10 +290,12 @@ chart.addLegend(legend);
 chart.write("container");
 });
 
-</script> 
+</script>
 
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>	<!-- 2,계절 -->
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<!-- 2,계절 -->
 <script type="text/javascript">
   google.charts.load("current", {packages:["corechart"]});
   google.charts.setOnLoadCallback(drawChart);
@@ -328,97 +331,70 @@ chart.write("container");
 					<div class="page-head-line">Mountain Bigdata</div>
 				</div>
 			</div>
-<!-- test -->
+			<!-- test -->
 			<div class="row">
 				<div class="col-md-12">
-					<div class="page-head-line">
 
-						<div class="panel panel-default">
-							<br>
-								
-								<div class="col-md-4 col-sm-4">
-									<div class="panel panel-default">
-										<div class="panel-heading">지역별 데이터</div>
-										<div class="panel-body">
-
-									<div class="tab-content">
-									<div class="tab-pane fade in active" id="tab1default">
-
-										<div class="col-md-6 col-sm-6">
-											<div class="panel panel-default">
-												<div class="panel-heading">지역</div>
-												<div class="panel-body">												  
-													<div id="container" style="width:100%; height:400px;"></div> <!-- 1.지역 -->  
-												</div>
-												</div>
-												<div class="panel-footer">Panel Footer</div>
-											</div>
-										</div>
-										
-										<div class="col-md-6 col-sm-6">
-											<div class="panel panel-primary">
-												<div class="panel-heading">계절</div>			<!-- 2.계절 -->
-												<div class="panel-body">
-												 <div id="piechart_3d" style="width: 100%; height: 100%;"></div>
-  												</div>												
-												</div>
-											</div>
-										</div>
-										</div>
-			
-							
-
-									</div>
-								</div>
-
-								<div class="col-md-4 col-sm-4">
-									<div class="panel panel-primary">
-										<div class="panel-heading">계절별 통계</div>
-										<div class="panel-body">이미지~</div>
-									</div>
-								</div>
-
-								<div class="col-md-4 col-sm-4">
-									<div class="panel panel-default">
-										<div class="panel-heading">감정분석</div>
-										<div class="panel-body">이미지 ~</div>
-									</div>
-								</div>
-								
-								<br><br>
-								<div class="col-md-4 col-sm-4">
-									<div class="panel panel-default">
-										<div class="panel-heading">감정분석</div>
-										<div class="panel-body">이미지 ~</div>
-									</div>
-								</div>
-								<div class="col-md-4 col-sm-4">
-									<div class="panel panel-default">
-										<div class="panel-heading">감정분석</div>
-										<div class="panel-body">이미지 ~</div>
-									</div>
-								</div>
-								<div class="col-md-4 col-sm-4">
-									<div class="panel panel-default">
-										<div class="panel-heading">감정분석</div>
-										<div class="panel-body">이미지 ~</div>
-									</div>
-								</div>
-
-								<div class="col-md-12">
-									<div class="panel panel-default">
-										<div class="panel-body">데이터 뿌려주는곳 ~</div>
-									</div>
-								</div>
-								
+					<div class="col-md-4 col-sm-4">
+						<div class="panel panel-primary">
+							<div class="panel-heading">지역별 통계</div>
 							<div class="panel-body">
-
+								<div id="container" style="width: 100%; height: 400px;"></div>
 							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 col-sm-4">
+						<div class="panel panel-primary">
+							<div class="panel-heading">계절별 통계</div>
+							<div class="panel-body">
+								<div id="piechart_3d" style="width: 100%; height: 400px;"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 col-sm-4">
+						<div class="panel panel-primary">
+							<div class="panel-heading">감정분석</div>
+							<div class="panel-body">
+								<div id="piechart_3d" style="width: 100%; height: 400px;"></div>
+							</div>
+						</div>
+					</div>
+
+					<br> <br>
+
+					<div class="col-md-4 col-sm-4">
+						<div class="panel panel-default">
+							<div class="panel-heading">감정분석</div>
+							<div class="panel-body">이미지 ~</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 col-sm-4">
+						<div class="panel panel-default">
+							<div class="panel-heading">감정분석</div>
+							<div class="panel-body">이미지 ~</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 col-sm-4">
+						<div class="panel panel-default">
+							<div class="panel-heading">감정분석</div>
+							<div class="panel-body">이미지 ~</div>
+						</div>
+					</div>
+
+					<div class="col-md-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">데이터 확인</div>
+							<div class="panel-body">데이터 뿌려주는곳 ~</div>
 						</div>
 					</div>
 				</div>
 			</div>
-</div></div>
+		</div>
+	</div>
 </body>
 >>>>>>> branch 'master' of https://github.com/bhg514/san.git
 </html>
