@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.sist.data.*;
 import com.sist.mapredLocal.LocalDriver;
 import com.sist.mapredSeason.SeasonDriver;
+import com.sist.mapredThings.ThingsDriver;
 import com.sist.mongo.LocalVO;
 import com.sist.mongo.SanDAO;
+import com.sist.mongo.ThingsVO;
 import com.sist.naver.Naver;
 import com.sist.r.NaverRManager;
 import com.sist.r.SeasonVO;
@@ -28,6 +30,7 @@ public class MainController {
 	
 	@Autowired
 	private TourManager tmgr;			//메인 첫번째 한국 여행 동향
+	
 	@Autowired
 	private Naver navar;
 	
@@ -38,6 +41,9 @@ public class MainController {
 	private SeasonDriver sd;
 	
 	@Autowired
+	private ThingsDriver td;
+	
+	@Autowired
 	private NaverRManager nrm;
 	
 	@Autowired
@@ -46,13 +52,50 @@ public class MainController {
 	@RequestMapping("main.do")
 	public String main_page(Model model) throws Exception{
 		
-		List<TourDTO> tlist=tmgr.tourYearData();		//1.국내여행동향인원수d
-		List<TourDTO> inoutlist=tmgr.tourInOutData();	//2.입국출국인원수	
+		//List<TourDTO> tlist=tmgr.tourYearData();		//1.국내여행동향인원수d
+		//List<TourDTO> inoutlist=tmgr.tourInOutData();	//2.입국출국인원수	
+		
+		List<ThingsVO> thingsList=new ArrayList<ThingsVO>();		// 등산 준비물.
+		
+		try{
+			List<String> list = navar.naver("등산 준비물");	//블로그 검색
+			
+			String path="/home/seo/git/san/San/src/main/webapp/data/naver/things.txt";
+			
+			File file = new File(path);
+			
+			if(file.exists()){
+				file.delete();
+			}
+			
+			FileWriter fw=new FileWriter(path);
+			
+			for(String n:list){	
+				fw.write(n);	
+			}
+			fw.close();		
 
+			td.jobCall();
+			
+			//몽고디비
+			thingsList=nrm.rThingsData();		// 준비물
+			
+			for(ThingsVO r:thingsList)
+			{
+				ThingsVO tv=new ThingsVO();				
+				tv.setThings(r.getThings());					
+				tv.setCount(r.getCount());			
+				dao.thingsInsert(tv);			// 5이상인 지역만 몽고디비에 저장			
+			}
+			
+			
+		}catch(Exception ex){
+				System.out.println(ex.getMessage());
+		}		
 		
-		model.addAttribute("tlist",tlist);
-		model.addAttribute("inoutlist",inoutlist);
-		
+		//model.addAttribute("tlist",tlist);
+		//model.addAttribute("inoutlist",inoutlist);
+		model.addAttribute("thingsList",thingsList);
 		return "main";
 	}
 

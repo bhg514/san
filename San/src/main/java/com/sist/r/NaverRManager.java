@@ -6,6 +6,7 @@ import org.rosuda.REngine.Rserve.RConnection;
 import org.springframework.stereotype.Component;
 
 import com.sist.mongo.LocalVO;
+import com.sist.mongo.ThingsVO;
 @Component
 public class NaverRManager {
 	
@@ -78,4 +79,30 @@ public class NaverRManager {
 			return list;
 		}
 	
+		
+		public List<ThingsVO> rThingsData(){	
+			List<ThingsVO> list=new ArrayList<ThingsVO>();
+			try{
+				RConnection rc=new RConnection();
+				rc.voidEval("data<-read.table(\"/home/sist/git/san/San/src/main/webapp/data/naver/output/things/part-r-00000\")");
+				REXP p=rc.eval("data$V1");		//1.준비물
+				String[] things=p.asStrings();	
+				p=rc.eval("data$V2");			//2.카운트
+				int[] count=p.asIntegers();
+				rc.close();
+				
+				for(int i=0; i<count.length; i++){
+					if(count[i]>=5){				
+						ThingsVO vo=new ThingsVO();
+						vo.setThings(things[i]);
+						vo.setCount(count[i]);
+						list.add(vo);
+					}
+				}
+			
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+			}
+			return list;
+		}
 }

@@ -51,6 +51,19 @@
      job-ref="season"
       run-at-startup="false"
     />
+    											 <!-- 3번:things  -->
+    <hadoop:job id="things"
+      input-path="/input/things"
+      output-path="/output/things"
+      mapper="com.sist.mapredThings.ThingsMapper"
+      reducer="com.sist.mapredThings.ThingsReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner id="thingsj"
+     job-ref="things"
+      run-at-startup="false"
+    />
     
 	<!-- properties 파일 읽기 -->
 	<util:properties id="db" location="/WEB-INF/config/db.properties"/>
@@ -76,13 +89,9 @@
 		p:requestContextAttribute="requestContext" 
 		p:viewClass="org.springframework.web.servlet.view.tiles2.TilesView"/>
 	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer" 
-		p:definitions="/WEB-INF/tiles.xml"/>
+		p:definitions="/WEB-INF/tiles.xml"/>	
 	
 	<!-- 파일업로드 (cos.jar와 비슷) -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
-	
-	
-
-
 
 </beans>

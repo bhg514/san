@@ -2,7 +2,6 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +21,7 @@
     
     //1번차트
     
-      google.charts.load('current', {'packages':['corechart']});
+     google.charts.load('current', {'packages':['corechart']});
      google.charts.setOnLoadCallback(drawChart1); 
  
       function drawChart1() {
@@ -155,7 +154,34 @@ $(function () {
 
 </script>
 
+<!-- D3 : 준비물 -->
+<link href="cssR/things.css" rel="stylesheet" />
+<script type="text/javascript">
+setTimeout(function start (){
+	  
+	  $('.bar').each(function(i){  
+	    var $bar = $(this);
+	    $(this).append('<span class="count"></span>')
+	    setTimeout(function(){
+	      $bar.css('width', $bar.attr('data-percent'));      
+	    }, i*100);
+	  });
 
+	$('.count').each(function () {
+	    $(this).prop('Counter',0).animate({
+	        Counter: $(this).parent('.bar').attr('data-percent')
+	    }, {
+	        duration: 2000,
+	        easing: 'swing',
+	        step: function (now) {
+	            $(this).text(Math.ceil(now) +'%');
+	        }
+	    });
+	});
+
+	}, 500)
+
+</script>
 
 <!-- css -->
 <link href="assets/css/bootstrap.css" rel="stylesheet" />
@@ -252,7 +278,17 @@ $(function () {
 
 								<div class="col-md-12">
 									<div class="panel panel-default">
-										<div class="panel-body">데이터 뿌려주는곳 ~</div>
+										<div class="panel-body">
+											<div class="wrap">
+												<h3>등산시 준비물</h3>
+												<div class="holder">
+												<c:forEach var="vo" items="${thingsList}">
+													<div class="bar cf" data-percent="${vo.count }">
+														<span class="label">${vo.things }</span>
+													</div>
+  												</c:forEach>
+  											</div>
+										</div>
 									</div>
 								</div>
 

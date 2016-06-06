@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import com.sist.mapredLocal.LocalDriver;
 import com.sist.mapredLocal.LocalReducer;
 import com.sist.mapredSeason.SeasonDriver;
+import com.sist.mapredThings.ThingsDriver;
 import com.sist.r.NaverRManager;
 @Aspect
 @Component
@@ -19,6 +20,9 @@ public class aspect {
 	
 	@Autowired
 	private SeasonDriver sd;
+	
+	@Autowired
+	private ThingsDriver td;
 	
 	@Autowired
 	private NaverRManager nrm;
@@ -51,6 +55,21 @@ public class aspect {
     public void afterSeason()
     {
     	sd.copyToLocal();
+    	//nrm.rGraph();
+    }
+    
+  //2.season
+    @Before("execution(* com.sist.mapredThings.ThingsDriver.jobCall())")
+    public void beforeThings()
+    {
+    	td.fileDelete();
+    	td.copyFromLocal();
+    }
+    
+    @After("execution(* com.sist.mapredThings.ThingsDriver.jobCall())")
+    public void afterThings()
+    {
+    	td.copyToLocal();
     	//nrm.rGraph();
     }
 }
