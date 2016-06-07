@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -85,6 +85,21 @@
 			</div>
 			 
 			
+			
+			<!-- <div id=carousel>
+				<figure id=spinner>
+					<img src=//demosthenes.info/assets/images/wanaka-tree.jpg alt="">
+					<img src=//demosthenes.info/assets/images/still-lake.jpg alt="">
+					<img src=//demosthenes.info/assets/images/pink-milford-sound.jpg
+						alt="">
+					<img src=//demosthenes.info/assets/images/paradise.jpg alt="">
+					<img src=//demosthenes.info/assets/images/morekai.jpg alt="">
+					<img src=//demosthenes.info/assets/images/milky-blue-lagoon.jpg
+						alt="">
+					<img src=//demosthenes.info/assets/images/lake-tekapo.jpg alt="">
+					<img src=//demosthenes.info/assets/images/milford-sound.jpg alt="">
+				</figure>
+			</div>
 			
 			<!-- <div id=carousel>
 				<figure id=spinner>
