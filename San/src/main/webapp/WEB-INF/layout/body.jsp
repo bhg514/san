@@ -17,9 +17,9 @@
 <script src="assets/js/main2.js"></script>
 
 <!-- css -->
+<link href="assets/css/main.css" rel="stylesheet" />
 <link href="assets/css/bootstrap.css" rel="stylesheet" />
 <link href="assets/css/font-awesome.css" rel="stylesheet" />
-<link href="assets/css/main.css" rel="stylesheet" />
 <link href="assets/css/slide.css" rel="stylesheet" />
 
 </head>

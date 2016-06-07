@@ -1,4 +1,4 @@
-package com.sist.mapredThings;
+package com.sist.mapredFeel;
 
 import javax.annotation.Resource;
 
@@ -10,58 +10,60 @@ import org.springframework.data.hadoop.mapreduce.JobRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ThingsDriver {
+public class FeelDriver {
+
 	@Autowired
 	   private Configuration conf;
 		
-		@Resource(name="thingsj")
-		private JobRunner jobRunner;
-	   
-		public void jobCall(){
-			   try{
-				   jobRunner.call();
-			   }catch(Exception ex){
-				   System.out.println(ex.getMessage());
-			   }
-		   }
+		@Resource(name="feelj")
+	   private JobRunner jobRunner;		
 		
-	   public void fileDelete(){
+		public void jobCall(){
 		   try{
-			    FileSystem fs=FileSystem.get(conf);
-			    if(fs.exists(new Path("/input/things")))
-			    	fs.delete(new Path("/input/things"),true);
-			    
-			    if(fs.exists(new Path("/output/things")))
-			    	fs.delete(new Path("/output/things"),true);
-			    fs.close();
-		   }catch(Exception ex){
-			   System.out.println(ex.getMessage());
-		   }
-	   }  
-	   
-	   public void copyFromLocal(){
-		   try{
-			   System.out.println("copyFromLocal=========");
-			   FileSystem fs=FileSystem.get(conf);
-			   // hadoop fs -cat /
-			   fs.copyFromLocalFile(
-					   new Path("/home/sist/git/san/San/src/main/webapp/data/naver/things.txt"), 
-					   new Path("/input/things/things.txt"));	
-			   fs.close();
+			   jobRunner.call();
 		   }catch(Exception ex){
 			   System.out.println(ex.getMessage());
 		   }
 	   }
+		
+		
+	   public void fileDelete(){
+		   try{
+			    FileSystem fs=FileSystem.get(conf);
+			    if(fs.exists(new Path("/input/feel")))
+			    	fs.delete(new Path("/input/feel"),true);
+			    
+			    if(fs.exists(new Path("/output/feel")))
+			    	fs.delete(new Path("/output/feel"),true);
+			    fs.close();
+		   }catch(Exception ex){
+			   System.out.println(ex.getMessage());
+		   }
+	   } 
+	   
+	   public void copyFromLocal(){
+		   try{
+			   FileSystem fs1=FileSystem.get(conf);
+			   // hadoop fs -cat /
+			   fs1.copyFromLocalFile(
+					   new Path("/home/sist/git/san/San/src/main/webapp/data/naver/san.txt"), 
+					   new Path("/input/feel/san.txt"));	
+			   fs1.close();
+			   
+		   }catch(Exception ex){
+			   System.out.println(ex.getMessage());
+		   }
+	   }
+	   
 
 	   public void copyToLocal(){
 		   try{
-			   System.out.println("copyToLocal=========");
 			   FileSystem fs=FileSystem.get(conf);
 			   fs.copyToLocalFile(
-					   new Path("/output/things/part-r-00000"),
-					   new Path("/home/sist/git/san/San/src/main/webapp/data/naver/output/things/part-r-00000"));
-			   fs.close();
-			 					
+					   new Path("/output/feel/part-r-00000"),
+					   new Path("/home/sist/git/san/San/src/main/webapp/data/naver/output/feel/part-r-00000"));
+			   fs.close();			   
+				
 		   }catch(Exception ex)
 		   {
 			   System.out.println(ex.getMessage());

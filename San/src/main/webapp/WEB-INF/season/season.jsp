@@ -123,7 +123,203 @@ chart.write("container");
   }
 </script>
 
+<!-- 3.feel -->
+<script type="text/javascript">
+// week
+$(function(){
+	  $('#weekGraph').radarChart({
+    size: [300, 300],
+    step: 1,
+    values: <%-- <%=request.getAttribute("weekData")%> --%>
+     { "월요일": 4.1,
+      "화요일": 4.1,
+      "수요일": 4.1,
+      "목요일": 4.1,
+      "금요일": 6.1,
+      "토요일": 5.1,
+      "일요일": 3.1
+     }
+    ,
+    showAxisLabels: true
+  });
+});
 
+(function($) {
+  
+  var Radar = (function() {
+    
+    function Radar(ele, settings) {
+      this.ele = ele;
+      this.settings = $.extend({
+        showAxisLabels: false,
+        step: 1,
+        size: [300,300],
+        values: {},
+        color: [0,128,255]
+      },settings);
+      this.width = settings.size[0];
+      this.height = settings.size[1];
+      $(ele).css({
+        'position': 'relative',
+        'width': this.width,
+        'height': this.height
+      });
+      this.canvases = {};
+      this.draw();
+    }
+    
+    Radar.prototype.newCanvas = function(name, delay) {
+      var delay = delay || 0;
+      var canvas = document.createElement('canvas');
+      canvas.width = this.width;
+      canvas.height = this.height;
+      $(canvas).css({
+        'position': 'absolute'
+      });
+      this.canvases[name] = canvas;
+      this.ele.appendChild(canvas);
+      this.cxt = canvas.getContext('2d');
+      if (delay != 0) {
+        $(canvas).css('opacity',0).delay(delay).animate({opacity: 1}, 500);
+      }
+    }
+    
+    Radar.prototype.draw = function() {
+      this.newCanvas('axis', 100);
+      var min = 0;
+      var max = 0;
+      
+      $.each(this.settings.values, function(i,val){
+        if (val < min)
+          min = val;
+        if (val > max)
+          max = val;
+      });
+      
+      min = Math.floor(min);
+      max = Math.ceil(max);
+
+      var spacing = 7;
+      
+      for(var i = min; i <= max; i += this.settings.step) {
+        this.cxt.beginPath();
+        this.cxt.arc(this.width/2,
+                     this.height/2,
+                     this.settings.step * spacing * i,
+                     0, 2 * Math.PI, false);
+        this.cxt.strokeStyle = "#666";
+        this.cxt.fillStyle = "#444";
+        this.cxt.stroke();
+        if (this.settings.showAxisLabels)
+          this.cxt.fillText(i,this.width/2 + this.settings.step * spacing * i+4, this.height/2-2);
+      }
+      
+      var size = 0;
+      for(var key in this.settings.values)
+        size += 1;
+      
+      for(var i = 0; i < size; i += 1) {
+        this.cxt.beginPath();
+        this.cxt.moveTo(this.width / 2, this.height /2);
+        var x = this.width / 2 + Math.cos((Math.PI * 2) * (i / size)) * spacing * max;
+        var y = this.height /2 + Math.sin((Math.PI * 2) * (i / size)) * spacing * max;
+        this.cxt.lineTo(x, y);
+        this.cxt.stroke();
+      }
+      
+      this.newCanvas('part',200);
+      
+      this.cxt.beginPath();
+      var first = true;
+      var i = 0;
+      var that = this;
+      var end = {x: null, y: null};
+      $.each(this.settings.values, function(key,val){
+        var x = that.width / 2 + Math.cos((Math.PI * 2) * (i / size)) * spacing * val;
+        var y = that.height / 2 + Math.sin((Math.PI * 2) * (i / size)) * spacing * val;
+        if (first) {
+          that.cxt.moveTo(x, y);
+          end.x = x;
+          end.y = y;
+          first = false;
+        }
+        that.cxt.lineTo(x, y);
+        i += 1;
+      });
+      
+      this.cxt.lineTo(end.x, end.y);
+      var grad = this.cxt.createLinearGradient(0, 0, 0, this.height);
+      grad.addColorStop(0,"rgba("+this.settings.color[0]+","+this.settings.color[1]+","+this.settings.color[2]+",0)");
+      grad.addColorStop(1,"rgba("+this.settings.color[0]+","+this.settings.color[1]+","+this.settings.color[2]+",1)");
+      this.cxt.fillStyle = grad;
+      this.cxt.shadowBlur = 2;
+      this.cxt.shadowColor = "rgba(0, 0, 0, .2)";
+      this.cxt.stroke();
+      this.cxt.fill();
+      
+      this.newCanvas('labels',1000);
+      
+      i = 0;
+      $.each(this.settings.values, function(key,val){
+        that.newCanvas('label-'+i, i * 250);
+        that.cxt.fillStyle = "rgba(0,0,0,.8)";
+        that.cxt.strokeStyle = "rgba(0,0,0,.5)";
+        that.cxt.font = "bold 12px Verdana";
+        var dist = Math.min(spacing * val, size * spacing);
+        var x = that.width / 2 + Math.cos((Math.PI * 2) * (i / size)) * spacing * val;
+        var y = that.height / 2 + Math.sin((Math.PI * 2) * (i / size)) * spacing * val;
+
+        var textX = that.width / 2 + Math.cos((Math.PI * 2) * (i / size)) * spacing * val;
+        var textY = that.height / 2 + Math.sin((Math.PI * 2) * (i / size)) * spacing * val * 1.5;
+        
+        if (textX < that.width/2) {
+          textX -= 75
+          that.cxt.textAlign="end";
+          that.cxt.beginPath();
+          var width = that.cxt.measureText(key).width;
+          that.cxt.moveTo(textX - width - 5, textY + 4);
+          that.cxt.lineTo(textX + 15, textY + 4);
+          that.cxt.lineTo(x - 2, y);
+          that.cxt.lineWidth = 2;
+          that.cxt.stroke();
+        } else {
+          textX += 75
+          that.cxt.textAlign="start";
+          that.cxt.beginPath();
+          var width = that.cxt.measureText(key).width;
+          that.cxt.moveTo(x + 2,y);
+          that.cxt.lineTo(textX - 15, textY + 4);
+          that.cxt.lineTo(textX + width + 5, textY + 4);
+          that.cxt.lineWidth = 2;
+          that.cxt.stroke();
+        }
+        that.cxt.fillText(key, textX, textY);
+        //For arrows that aren't done.
+        i += 1;
+      });
+      
+      
+     /* this.cxt.font = "bold 24px Verdana";
+      this.cxt.fillText(this.settings, 10, 30); */
+    }
+    
+    return Radar;
+    
+  })();
+  
+  $.fn.radarChart = function(settings){
+    this.each(function(i,ele){
+      var radar = new Radar(ele, settings);
+    });
+  }
+  
+})(jQuery);
+
+</script>
+
+<!-- 4.feel -->
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
 </head>
 <body>
 	<div class="content-wrapper">
@@ -160,7 +356,7 @@ chart.write("container");
 						<div class="panel panel-primary">
 							<div class="panel-heading">감정분석</div>
 							<div class="panel-body">
-								<div id="piechart_3d" style="width: 100%; height: 400px;"></div>
+								<div id="feelword" style="width: 100%; height: 400px;"></div>
 							</div>
 						</div>
 					</div>
@@ -169,8 +365,10 @@ chart.write("container");
 
 					<div class="col-md-4 col-sm-4">
 						<div class="panel panel-default">
-							<div class="panel-heading">감정분석</div>
-							<div class="panel-body">이미지 ~</div>
+							<div class="panel-heading">요일분석</div>
+							<div class="panel-body">
+								<div id="weekGraph" style="width: 100%; height: 100%;"></div>
+							</div>
 						</div>
 					</div>
 
@@ -198,5 +396,117 @@ chart.write("container");
 			</div>
 		</div>
 	</div>
+
+
+<!-- 감정워드클라우드.. 아래있어야 됨... -->
+<script>
+
+//Simple animated example of d3-cloud - https://github.com/jasondavies/d3-cloud
+//Based on https:F//github.com/jasondavies/d3-cloud/blob/master/examples/simple.html
+
+// Encapsulate the word cloud functionality
+function wordCloud() {
+
+  var fill = d3.scale.category20();
+
+  //Construct the word cloud's SVG element
+  var svg = d3.select("#feelword").append("svg")
+      .attr("class", "word-cloud")
+      .attr("width", 300)
+      .attr("height", 400)
+      .append("g")
+      .attr("transform", "translate(150,200)");
+
+
+  //Draw the word cloud
+  function draw(words) {
+      var cloud = svg.selectAll("g text")
+                      .data(words, function(d) { return d.text; })
+
+      //Entering words
+      cloud.enter()
+          .append("text")
+          .style("font-family", "Impact")
+          .style("fill", function(d, i) { return fill(i); })
+          .attr("text-anchor", "middle")
+          .attr('font-size', 1)
+          .text(function(d) { return d.text; });
+
+      //Entering and existing words
+      cloud
+          .transition()
+              .duration(600)
+              .style("font-size", function(d) { return d.size + "px"; })
+              .attr("transform", function(d) {
+                  return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+              })
+              .style("fill-opacity", 1);
+
+      //Exiting words
+      cloud.exit()
+          .transition()
+              .duration(200)
+              .style('fill-opacity', 1e-6)
+              .attr('font-size', 1)
+              .remove();
+  }
+
+
+  //Use the module pattern to encapsulate the visualisation code. We'll
+  // expose only the parts that need to be public.
+  return {
+
+      //Recompute the word cloud for a new set of words. This method will
+      // asycnhronously call draw when the layout has been computed.
+      //The outside world will need to call this function, so make it part
+      // of the wordCloud return value.
+      update: function(words) {
+          d3.layout.cloud().size([300, 400])
+              .words(words)
+              .padding(5)
+              .rotate(function() { return ~~(Math.random() * 2) * 90; })
+              .font("Impact")
+              .fontSize(function(d) { return d.size; })
+              .on("end", draw)
+              .start();
+      }
+  }
+
+}
+
+//Some sample data - http://en.wikiquote.org/wiki/Opening_lines
+var words = [
+  /*  "hi nice nice nice hi good oh oh my god god god god god", */
+ "<c:out value='${feelAll}'/>"
+]
+
+//Prepare one of the sample sentences by removing punctuation,
+// creating an array of words and computing a random size attribute.
+function getWords(i) {
+  return words[i]
+          .replace(/[!\.,:;\?]/g, '')
+          .split(' ')
+          .map(function(d) {
+              return {text: d, size: 10 + Math.random() * 30};
+          })
+}
+
+//This method tells the word cloud to redraw with a new set of words.
+//In reality the new words would probably come from a server request,
+// user input or some other source.
+function showNewWords(vis, i) {
+  i = i || 0;
+
+  vis.update(getWords(i ++ % words.length))
+  setTimeout(function() { showNewWords(vis, i + 1)}, 2000)
+}
+
+//Create a new instance of the word cloud visualisation.
+//var myWordCloud = wordCloud(document.getElementById('feelword'));
+var myWordCloud = wordCloud();
+//Start cycling through the demo data
+showNewWords(myWordCloud);
+
+</script>
 </body>
 </html>
