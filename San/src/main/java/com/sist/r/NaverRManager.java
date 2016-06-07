@@ -210,4 +210,5 @@ public class NaverRManager {
 			
 			return list;
 		}
+
 }

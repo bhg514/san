@@ -55,6 +55,7 @@ public class MainController {
 	
 	@Autowired
 	private FeelDriver	fd;
+
 	
 	@Autowired
 	private NaverRManager nrm;
@@ -65,6 +66,7 @@ public class MainController {
 	@RequestMapping("main.do")
 	public String main_page(Model model) throws Exception{
 		
+
 		//List<TourDTO> tlist=tmgr.tourYearData();		//1.국내여행동향인원수d
 		//List<TourDTO> inoutlist=tmgr.tourInOutData();	//2.입국출국인원수	
 		
@@ -105,6 +107,7 @@ public class MainController {
 		}catch(Exception ex){
 				System.out.println(ex.getMessage());
 		}		
+
 		
 		//model.addAttribute("tlist",tlist);
 		//model.addAttribute("inoutlist",inoutlist);
@@ -122,7 +125,6 @@ public class MainController {
 		
 		String weekData = "";
 		String feelAll = "";
-		
 		
 		try{
 			List<String> list = navar.naver("등산");	//블로그 검색
@@ -253,12 +255,14 @@ public class MainController {
 				lv.setCount(r.getCount());			
 				dao.localInsert(lv);			//7이상인 지역만 몽고디비에 저장			
 			}
+
 			
 			
 		}catch(Exception ex){
 				System.out.println("local: "+ex.getMessage());
 		}		
 		
+
 		req.setAttribute("recommandlist", localList);      
 		      
 		return "theme/theme_ajax/recommand_local";

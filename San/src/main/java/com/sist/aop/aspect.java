@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import com.sist.mapredFeel.FeelDriver;
 import com.sist.mapredLocal.LocalDriver;
-import com.sist.mapredLocal.LocalReducer;
 import com.sist.mapredRec.RecommandDriver;
 import com.sist.mapredSeason.RecSeasonDriver;
 import com.sist.mapredSeason.SeasonDriver;
@@ -38,7 +37,6 @@ public class aspect {
 	
 	@Autowired
 	private WeekdayDriver wd;
-	
 	
 	@Autowired
 	private NaverRManager nrm;
@@ -73,7 +71,6 @@ public class aspect {
     	sd.copyToLocal();
     	//nrm.rGraph();
     }
-
 
   //3. recommand
     @Before("execution(* com.sist.mapredRec.RecommandDriver.jobCallB())")

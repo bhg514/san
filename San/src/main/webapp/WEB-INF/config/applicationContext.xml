@@ -136,6 +136,9 @@
       run-at-startup="false"
     />
     
+    
+   
+    
 	<!-- properties 파일 읽기 -->
 	<util:properties id="db" location="/WEB-INF/config/db.properties"/>
 	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource" 
