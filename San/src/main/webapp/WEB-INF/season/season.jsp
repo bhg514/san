@@ -6,6 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<link href="assets/css/data.css" rel="stylesheet" />
+<link href="assets/css/bootstrap.css" rel="stylesheet" />
 
 <script src="http://www.amcharts.com/lib/3/amcharts.js"></script>
 <!-- 1,지역 -->
@@ -130,14 +132,85 @@ chart.write("container");
 		<div class="container">
 
 			<div class="row">
-				<div class="col-md-12">
-					<div class="page-head-line">Mountain Bigdata</div>
-				</div>
+				<div class="page-head-line">Mountain Bigdata</div>
 			</div>
-			<!-- test -->
+
+
+			<section>
+
+				<div id="icon-wrapper">
+
+					<div class="row">
+
+						<div class="col-sm-6">
+							<div class="icons">
+								<div class="icon-slide-container">
+									<a href="map.html"> <img class="slide-icon"
+										alt="The Kite Map Logo" height="100" src="assets/img/1.png">
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+							<div class="icons2">
+								<div class="icon-slide-container">
+									<a href="kite-map.php"> <img class="slide-icon"
+										alt="The Kite Map Logo" height="100" src="assets/img/2.png">
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+							<div class="icons3">
+								<div class="icon-slide-container">
+									<img class="slide-icon" alt="The Kite Map Logo" height="100"
+										src="assets/img/3.png">
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+							<div class="icons4">
+								<div class="icon-slide-container">
+
+									<a href="feedback.html"> <img class="slide-icon"
+										alt="The Kite Map Logo" height="100" src="assets/img/4.png">
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+							<div class="icons5">
+								<div class="icon-slide-container">
+
+									<a href="feedback.html"> <img class="slide-icon"
+										alt="The Kite Map Logo" height="100" src="assets/img/5.png">
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+							<div class="icons6">
+								<div class="icon-slide-container">
+									<a href="feedback.html"> <img class="slide-icon"
+										alt="The Kite Map Logo" height="100" src="assets/img/6.png">
+									</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+
+
 			<div class="row">
 				<div class="col-md-12">
-
 					<div class="col-md-4 col-sm-4">
 						<div class="panel panel-primary">
 							<div class="panel-heading">지역별 통계</div>
