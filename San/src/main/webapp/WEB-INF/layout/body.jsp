@@ -81,7 +81,8 @@
 			  <input type="button" value="통계" style="font-size: 20px" class="button"></a>
 			  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			  <input type="button" value="추천" style="font-size: 20px" class="button">
+			  <a href="theme.do" style="border: none">
+			  <input type="button" value="추천" style="font-size: 20px" class="button"></a>
 			</div>
 			 
 			

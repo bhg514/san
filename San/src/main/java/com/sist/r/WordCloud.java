@@ -14,7 +14,7 @@ public class WordCloud {
 		try{
 			RConnection rc=new RConnection();
 			
-			rc.voidEval("data<-readLines(\"/home/sist/바탕화면/san.txt\")");			
+			rc.voidEval("data<-readLines(\"/home/stellayoon/바탕화면/san.txt\")");			
 			System.out.println("zz");
 			rc.voidEval("library(KoNLP)");
 			System.out.println("zz");
