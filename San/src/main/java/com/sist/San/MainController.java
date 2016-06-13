@@ -208,9 +208,7 @@ public class MainController {
 	//2.추천페이지_지역 선택
 	@RequestMapping("recommand_select.do")
 	public String recommand_select(HttpServletRequest req) throws Exception{
-		//부산------------
-		//"거문산","구곡산","구덕산","구봉산","구월산","금련산","금정봉","금정산","달음산","마안산","망월산(망월대)","망월산","배산","백양산","백운산","보개산",
-		//"봉래산","불광산","산성산","삼각산","석은덤산","수정산","승학산","시명산","아홉산","엄광산","연대봉","용두산","윤산","일광산","장산","철마산","황령산",
+		
 		String local = req.getParameter("type"); 		// 지역
 		System.out.println(local);
 	
