@@ -27,7 +27,7 @@ public class ThingsMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
 			"장갑","등산장갑","방한 장갑",										//등산장갑(3)
 			"등산 양말","여분 양말","양말",										//여분양말(3)
 			"우산","우비","우의",												//우천용품(3)
-			"스틱","등산스틱","등산 스틱",										//등산스틱(3)
+			"스틱",												//등산스틱(2)
 			"등산화","보조밧줄",
 			"선글라스","보온병","선크림","삼각끈","배낭",
 			"손전등","전등",
@@ -54,28 +54,28 @@ public class ThingsMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
 			matcher[i]=pattern[i].matcher(value.toString());
 			while(matcher[i].find()){
 				if(i>=0 && i<7){
-					result.set("음료 및 식수");				//String을 text로 바꿀때 set 사용
+					result.set("음료및식수");				//String을 text로 바꿀때 set 사용
 				}else if(i>=7 && i<13){
-					result.set("음식 및 간식");
+					result.set("음식및간식");
 				}else if(i>=13 && i<17){
 					result.set("다용도칼");
 				}else if(i>=17 && i<22){
-					result.set("가벼운 자켓류");
+					result.set("가벼운자켓류");
 				}else if(i>=22 && i<40){
 					result.set("보온용품");
 				}else if(i>=40 && i<46){
 					result.set("비상약");
-				}else if(i>=46 && i<52){
-					result.set("벌레퇴치 용품");
+				}else if(i>=46 && i<52){result.set("등산스틱");
+					result.set("벌레퇴치용품");
 				}else if(i>=52 && i<56){
 					result.set("등산모");
 				}else if(i>=56 && i<59){
-					result.set("등산 장갑");
+					result.set("등산장갑");
 				}else if(i>=59 && i<62){
-					result.set("여분 양말");
+					result.set("여분양말");
 				}else if(i>=62 && i<65){
-					result.set("우천시 용품");
-				}else if(i>=65 && i<68){
+					result.set("우천시용품");
+				}else if(i>=65 && i<66){
 					result.set("등산스틱");
 				}else{
 					result.set(things[i]);

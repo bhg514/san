@@ -1,4 +1,4 @@
-package com.sist.mapredSeason;
+package com.sist.mapredFood;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
@@ -18,16 +18,18 @@ import java.io.*;
 import javax.annotation.Resource;
 
 @Component
-public class SeasonDriver {
+public class FoodDriver {
+
 	
 		@Autowired
 	   private Configuration conf;
 		
-		@Resource(name="seasonj")
+		@Resource(name="foodj")
 		private JobRunner jobRunner;
 	   
 		public void jobCall(){
 			   try{
+				  
 				   jobRunner.call();
 			   }catch(Exception ex){
 				   System.out.println(ex.getMessage());
@@ -37,11 +39,12 @@ public class SeasonDriver {
 	   public void fileDelete(){
 		   try{
 			    FileSystem fs=FileSystem.get(conf);
-			    if(fs.exists(new Path("/input/season")))
-			    	fs.delete(new Path("/input/season"),true);
-			    
-			    if(fs.exists(new Path("/output/season")))
-			    	fs.delete(new Path("/output/season"),true);
+			
+			    if(fs.exists(new Path("/input/food")))
+			    	fs.delete(new Path("/input/food"),true);
+
+			    if(fs.exists(new Path("/output/food")))
+			    	fs.delete(new Path("/output/food"),true);
 			    fs.close();
 		   }catch(Exception ex){
 			   System.out.println(ex.getMessage());
@@ -51,10 +54,11 @@ public class SeasonDriver {
 	   public void copyFromLocal(){
 		   try{
 			   FileSystem fs=FileSystem.get(conf);
+		
 			   // hadoop fs -cat /
 			   fs.copyFromLocalFile(
 					   new Path("/home/bhg/git/san/San/src/main/webapp/data/naver/san.txt"), 
-					   new Path("/input/season/san.txt"));	
+					   new Path("/input/food/san.txt"));	
 			   fs.close();
 		   }catch(Exception ex){
 			   System.out.println(ex.getMessage());
@@ -65,8 +69,8 @@ public class SeasonDriver {
 		   try{
 			   FileSystem fs=FileSystem.get(conf);
 			   fs.copyToLocalFile(
-					   new Path("/output/season/part-r-00000"),
-					   new Path("/home/bhg/git/san/San/src/main/webapp/data/naver/output/season/part-r-00000"));
+					   new Path("/output/food/part-r-00000"),
+					   new Path("/home/bhg/git/san/San/src/main/webapp/data/naver/output/food/part-r-00000"));
 			   fs.close();
 			 					
 		   }catch(Exception ex)

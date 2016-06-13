@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.sist.mapredFeel.FeelDriver;
+import com.sist.mapredFood.FoodDriver;
 import com.sist.mapredLocal.LocalDriver;
 import com.sist.mapredRec.RecommandDriver;
 import com.sist.mapredSeason.RecSeasonDriver;
@@ -37,10 +38,11 @@ public class aspect {
 	
 	@Autowired
 	private WeekdayDriver wd;
-	
+	@Autowired
+	private FoodDriver foodDriver;
 	@Autowired
 	private NaverRManager nrm;
-	
+
 	//1.weekday
     @Before("execution(* com.sist.mapredLocal.LocalDriver.jobCall())")
     public void before()
@@ -146,6 +148,35 @@ public class aspect {
     	fd.copyToLocal();
     	//nrm.rGraph();
     }
+    //7.food
+    @Before("execution(* com.sist.mapredFood.FoodDriver.jobCall())")
+    public void beforeFood()
+    {
+    	foodDriver.fileDelete();
+    	foodDriver.copyFromLocal();
+    }
+    
+    @After("execution(* com.sist.mapredFood.FoodDriver.jobCall())")
+    public void afterFood()
+    {
+    	foodDriver.copyToLocal();
+    	//nrm.rGraph();
+    }
+    //8.food
+    @Before("execution(* com.sist.mapredThings.ThingsDriver.jobCall())")
+    public void beforethings()
+    {
+    	td.fileDelete();
+    	td.copyFromLocal();
+    }
+    
+    @After("execution(* com.sist.mapredThings.ThingsDriver.jobCall())")
+    public void afterthings()
+    {
+    	td.copyToLocal();
+    	//nrm.rGraph();
+    }
+    
     
 }
 
