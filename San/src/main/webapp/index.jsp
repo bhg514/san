@@ -4,4 +4,4 @@
 <%
 	response.sendRedirect("main.do");
 %>
-<!-- test -->
+<!-- psh -->
