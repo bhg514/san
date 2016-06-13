@@ -345,6 +345,7 @@ chart.write("container");
 							<div class="panel-heading">지역별 통계</div>
 							<div class="panel-body">
 								<div id="container" style="width: 100%; height: 400px;"></div>
+
 							</div>
 						</div>
 					</div>
