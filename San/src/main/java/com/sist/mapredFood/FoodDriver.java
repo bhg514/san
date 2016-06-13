@@ -57,7 +57,7 @@ public class FoodDriver {
 		
 			   // hadoop fs -cat /
 			   fs.copyFromLocalFile(
-					   new Path("/home/sist/git/san/San/src/main/webapp/data/naver/san.txt"), 
+					   new Path("/home/bhg/git/san/San/src/main/webapp/data/naver/san.txt"), 
 					   new Path("/input/food/san.txt"));	
 			   fs.close();
 		   }catch(Exception ex){
@@ -70,7 +70,7 @@ public class FoodDriver {
 			   FileSystem fs=FileSystem.get(conf);
 			   fs.copyToLocalFile(
 					   new Path("/output/food/part-r-00000"),
-					   new Path("/home/sist/git/san/San/src/main/webapp/data/naver/output/food/part-r-00000"));
+					   new Path("/home/bhg/git/san/San/src/main/webapp/data/naver/output/food/part-r-00000"));
 			   fs.close();
 			 					
 		   }catch(Exception ex)

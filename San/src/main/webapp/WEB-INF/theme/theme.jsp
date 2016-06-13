@@ -15,6 +15,7 @@
 		$('#localType').change(function(){		
 			var selectsan=$('#localType').val();	
 			var param="type="+selectsan;
+
 			sendMessage("POST", "recommand_select.do",param, localsan);
 			
 		});

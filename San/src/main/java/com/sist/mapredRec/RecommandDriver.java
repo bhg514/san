@@ -178,7 +178,7 @@ public class RecommandDriver {
 			   FileSystem fs=FileSystem.get(conf);
 			   // hadoop fs -cat /
 			   fs.copyFromLocalFile(
-					   new Path("/home/sist/git/san/San/src/main/webapp/data/naver/localsan.txt"), 
+					   new Path("/home/bhg/git/san/San/src/main/webapp/data/naver/localsan.txt"), 
 					   new Path("/input/recommand/localsan.txt"));	
 			   fs.close();
 		   }catch(Exception ex){
@@ -191,7 +191,7 @@ public class RecommandDriver {
 			   FileSystem fs=FileSystem.get(conf);
 			   fs.copyToLocalFile(
 					   new Path("/output/recommand/part-r-00000"),
-					   new Path("/home/sist/git/san/San/src/main/webapp/data/naver/output/recommand/part-r-00000"));
+					   new Path("/home/bhg/git/san/San/src/main/webapp/data/naver/output/recommand/part-r-00000"));
 			   fs.close();
 			 					
 		   }catch(Exception ex)

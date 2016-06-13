@@ -46,7 +46,7 @@ public class FeelDriver {
 			   FileSystem fs1=FileSystem.get(conf);
 			   // hadoop fs -cat /
 			   fs1.copyFromLocalFile(
-					   new Path("/home/sist/git/san/San/src/main/webapp/data/naver/san.txt"), 
+					   new Path("/home/bhg/git/san/San/src/main/webapp/data/naver/san.txt"), 
 					   new Path("/input/feel/san.txt"));	
 			   fs1.close();
 			   
@@ -61,7 +61,7 @@ public class FeelDriver {
 			   FileSystem fs=FileSystem.get(conf);
 			   fs.copyToLocalFile(
 					   new Path("/output/feel/part-r-00000"),
-					   new Path("/home/sist/git/san/San/src/main/webapp/data/naver/output/feel/part-r-00000"));
+					   new Path("/home/bhg/git/san/San/src/main/webapp/data/naver/output/feel/part-r-00000"));
 			   fs.close();			   
 				
 		   }catch(Exception ex)

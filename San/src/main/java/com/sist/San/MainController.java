@@ -81,7 +81,7 @@ public class MainController {
 		try{
 			List<String> list = navar.naver("등산 준비물");	//블로그 검색
 			
-			String path="/home/sist/git/san/San/src/main/webapp/data/naver/things.txt";
+			String path="/home/bhg/git/san/San/src/main/webapp/data/naver/things.txt";
 			
 			File file = new File(path);
 			
@@ -137,7 +137,7 @@ public class MainController {
 		try{
 			List<String> list = navar.naver("등산");	//블로그 검색
 			
-			String path="/home/sist/git/san/San/src/main/webapp/data/naver/san.txt";
+			String path="/home/bhg/git/san/San/src/main/webapp/data/naver/san.txt";
 			
 			File file = new File(path);
 			
@@ -238,7 +238,7 @@ public class MainController {
 		try{
 			List<String> list = navar.naver(local+" 등산");	//블로그 검색
 			
-			String path="/home/sist/git/san/San/src/main/webapp/data/naver/localsan.txt";
+			String path="/home/bhg/git/san/San/src/main/webapp/data/naver/localsan.txt";
 			
 			File file = new File(path);
 			
@@ -337,7 +337,7 @@ public class MainController {
 			String san = req.getParameter("san");	//지리산	
 			List<String> list = navar.naver(san);	//블로그 검색
 			
-			String path="/home/sist/git/san/San/src/main/webapp/data/naver/recommand_san.txt";
+			String path="/home/bhg/git/san/San/src/main/webapp/data/naver/recommand_san.txt";
 			
 			File file = new File(path);
 			if(file.exists())
@@ -379,7 +379,10 @@ public class MainController {
 		}catch(Exception ex){
 				System.out.println(ex.getMessage());
 		}	
-		
+		for(SeasonVO vo:seasonlist){
+			System.out.println(vo.getSeason());
+			System.out.println(vo.getCount());
+		}
 		req.setAttribute("seasonlist", seasonlist);      
 		//req.setAttribute("weekData", weekData);  
 		req.setAttribute("feelAll", feelAll);  
