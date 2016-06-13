@@ -10,13 +10,17 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.springframework.stereotype.Repository;
 
-public class Busan_RecommandMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
+public class Chungnam_RecommandMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
 	
 	private final IntWritable one=new IntWritable(1);
 	private Text result=new Text();
-	String[] san={"거문산","구곡산","구덕산","구봉산","구월산","금련산","금정봉","금정산","달음산","마안산","망월산(망월대)","망월산","배산",
-			"백양산","백운산","보개산","봉래산","불광산","산성산","삼각산","석은덤산","수정산","승학산","시명산","아홉산","엄광산","연대봉","용두산",
-			"윤산","일광산","장산","철마산","황령산"};
+	String[] san={"가야산","갑하산","계룡산","고불산","광덕산","금오산","대둔산","덕숭산",
+			"도고산","도덕봉","도비산","만수산","만인산","망경산","무성산","바랑산","백마산",
+			"백암산","백월산","백화산","봉서산","봉수산","봉수산","상왕산","서대산","석문봉",
+			"선야봉","설화산","성거산","성주산","수덕산","아미산635m","아미산","영인산","오서산",
+			"옥녀봉","옥마산","옥양봉","용봉산","우산봉","운주산","월성산","위례산","은석산","일락산",
+			"일봉산","작성산","진악산","천방산","천태산","천호봉","칠갑산","태조산","태학산","태화산","팔봉산","흑성산","희리산"
+	};
 	
 	Pattern[] pattern=new Pattern[san.length];
 	

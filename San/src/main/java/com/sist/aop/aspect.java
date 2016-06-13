@@ -1,9 +1,12 @@
 package com.sist.aop;
 
+import javax.annotation.Resource;
+
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.hadoop.mapreduce.JobRunner;
 import org.springframework.stereotype.Component;
 
 import com.sist.mapredFeel.FeelDriver;
@@ -71,15 +74,15 @@ public class aspect {
     	sd.copyToLocal();
     	//nrm.rGraph();
     }
-
-  //3. recommand
+   
+    
+    //3. recommand     ------------------------------------------------------------------------------------------- 
     @Before("execution(* com.sist.mapredRec.RecommandDriver.jobCallB())")
     public void beforeRecommandB()
     {
     	rd.fileDelete();
     	rd.copyFromLocal();
-    }
-    
+    }    
     @After("execution(* com.sist.mapredRec.RecommandDriver.jobCallB())")
     public void afterRecommandB()
     {
@@ -91,16 +94,160 @@ public class aspect {
     {
     	rd.fileDelete();
     	rd.copyFromLocal();
-    }
-    
+    }  
     @After("execution(* com.sist.mapredRec.RecommandDriver.jobCallC())")
     public void afterRecommandC()
     {
     	rd.copyToLocal();
     }
+
+    @Before("execution(* com.sist.mapredRec.RecommandDriver.jobCallCN())")
+    public void beforeRecommandCN()
+    {
+    	rd.fileDelete();
+    	rd.copyFromLocal();
+    }    
+    @After("execution(* com.sist.mapredRec.RecommandDriver.jobCallCN())")
+    public void afterRecommandCN()
+    {
+    	rd.copyToLocal();
+    }
+    
+    @Before("execution(* com.sist.mapredRec.RecommandDriver.jobCallDJ())")
+    public void beforeRecommandDJ()
+    {
+    	rd.fileDelete();
+    	rd.copyFromLocal();
+    }    
+    @After("execution(* com.sist.mapredRec.RecommandDriver.jobCallDJ())")
+    public void afterRecommandDJ()
+    {
+    	rd.copyToLocal();
+    }
+    
+   
+    @Before("execution(* com.sist.mapredRec.RecommandDriver.jobCallDG())")
+    public void beforeRecommandDG()
+    {
+    	rd.fileDelete();
+    	rd.copyFromLocal();
+    }    
+    @After("execution(* com.sist.mapredRec.RecommandDriver.jobCallDG())")
+    public void afterRecommandDG()
+    {
+    	rd.copyToLocal();
+    }
+    
+    @Before("execution(* com.sist.mapredRec.RecommandDriver.jobCallGW())")
+    public void beforeRecommandGW()
+    {
+    	rd.fileDelete();
+    	rd.copyFromLocal();
+    }    
+    @After("execution(* com.sist.mapredRec.RecommandDriver.jobCallGW())")
+    public void afterRecommandGW()
+    {
+    	rd.copyToLocal();
+    }
+    
+    @Before("execution(* com.sist.mapredRec.RecommandDriver.jobCallGB())")
+    public void beforeRecommandGB()
+    {
+    	rd.fileDelete();
+    	rd.copyFromLocal();
+    }    
+    @After("execution(* com.sist.mapredRec.RecommandDriver.jobCallGB())")
+    public void afterRecommandGB()
+    {
+    	rd.copyToLocal();
+    }
     
     
-    //========================
+    @Before("execution(* com.sist.mapredRec.RecommandDriver.jobCallGN())")
+    public void beforeRecommandGN()
+    {
+    	rd.fileDelete();
+    	rd.copyFromLocal();
+    }    
+    @After("execution(* com.sist.mapredRec.RecommandDriver.jobCallGN())")
+    public void afterRecommandGN()
+    {
+    	rd.copyToLocal();
+    }
+    
+    @Before("execution(* com.sist.mapredRec.RecommandDriver.jobCallGG())")
+    public void beforeRecommandGG()
+    {
+    	rd.fileDelete();
+    	rd.copyFromLocal();
+    }    
+    @After("execution(* com.sist.mapredRec.RecommandDriver.jobCallGG())")
+    public void afterRecommandGG()
+    {
+    	rd.copyToLocal();
+    }
+    
+    @Before("execution(* com.sist.mapredRec.RecommandDriver.jobCallIC())")
+    public void beforeRecommandIC()
+    {
+    	rd.fileDelete();
+    	rd.copyFromLocal();
+    }    
+    @After("execution(* com.sist.mapredRec.RecommandDriver.jobCallIC())")
+    public void afterRecommandIC()
+    {
+    	rd.copyToLocal();
+    }
+    
+    @Before("execution(* com.sist.mapredRec.RecommandDriver.jobCallJJ())")
+    public void beforeRecommandJJ()
+    {
+    	rd.fileDelete();
+    	rd.copyFromLocal();
+    }    
+    @After("execution(* com.sist.mapredRec.RecommandDriver.jobCallJJ())")
+    public void afterRecommandJJ()
+    {
+    	rd.copyToLocal();
+    }
+
+    @Before("execution(* com.sist.mapredRec.RecommandDriver.jobCallJB())")
+    public void beforeRecommandJB()
+    {
+    	rd.fileDelete();
+    	rd.copyFromLocal();
+    }    
+    @After("execution(* com.sist.mapredRec.RecommandDriver.jobCallJB())")
+    public void afterRecommandJB()
+    {
+    	rd.copyToLocal();
+    }
+    
+    @Before("execution(* com.sist.mapredRec.RecommandDriver.jobCallJN())")
+    public void beforeRecommandJN()
+    {
+    	rd.fileDelete();
+    	rd.copyFromLocal();
+    }     
+    @After("execution(* com.sist.mapredRec.RecommandDriver.jobCallJN())")
+    public void afterRecommandJN()
+    {
+    	rd.copyToLocal();
+    }
+    
+    @Before("execution(* com.sist.mapredRec.RecommandDriver.jobCallUS())")
+    public void beforeRecommandUS()
+    {
+    	rd.fileDelete();
+    	rd.copyFromLocal();
+    }    
+    @After("execution(* com.sist.mapredRec.RecommandDriver.jobCallUS())")
+    public void afterRecommandUS()
+    {
+    	rd.copyToLocal();
+    }
+    
+    //===================================================================================================================
     //4.recommand_season
     @Before("execution(* com.sist.mapredSeason.RecSeasonDriver.jobCall())")
     public void beforeRecSeason()

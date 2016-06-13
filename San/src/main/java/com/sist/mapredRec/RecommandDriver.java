@@ -22,6 +22,42 @@ public class RecommandDriver {
 		@Resource(name="chungbukj")
 		private JobRunner jobRunnerC;
 	   
+		@Resource(name="chungnamj")
+		private JobRunner jobRunnerCN;
+		
+		@Resource(name="daejeonj")
+		private JobRunner jobRunnerDJ;
+		
+		@Resource(name="daeguj")
+		private JobRunner jobRunnerDG;
+		
+		@Resource(name="gangwonj")
+		private JobRunner jobRunnerGW;
+		
+		@Resource(name="gyeongbukj")
+		private JobRunner jobRunnerGB;
+		
+		@Resource(name="gyeongnamj")
+		private JobRunner jobRunnerGN;
+		
+		@Resource(name="gyeonggij")
+		private JobRunner jobRunnerGG;
+		
+		@Resource(name="incheonj")
+		private JobRunner jobRunnerIC;
+		
+		@Resource(name="jejuj")
+		private JobRunner jobRunnerJJ;
+		
+		@Resource(name="jeonbukj")
+		private JobRunner jobRunnerJB;
+		
+		@Resource(name="jeonnamj")
+		private JobRunner jobRunnerJN;
+		
+		@Resource(name="ulsanj")
+		private JobRunner jobRunnerUS;
+		
 		public void jobCallB(){
 			   try{
 					  jobRunnerB.call();
@@ -36,6 +72,92 @@ public class RecommandDriver {
 				   System.out.println(ex.getMessage());
 			   }
 		 }
+		public void jobCallCN(){
+			   try{
+					  jobRunnerCN.call();
+			   }catch(Exception ex){
+				   System.out.println(ex.getMessage());
+			   }
+		 }
+		public void jobCallDJ(){
+			   try{
+					  jobRunnerDJ.call();
+			   }catch(Exception ex){
+				   System.out.println(ex.getMessage());
+			   }
+		 }
+		public void jobCallDG(){
+			   try{
+					  jobRunnerDG.call();
+			   }catch(Exception ex){
+				   System.out.println(ex.getMessage());
+			   }
+		 }
+		public void jobCallGW(){
+			   try{
+					  jobRunnerGW.call();
+			   }catch(Exception ex){
+				   System.out.println(ex.getMessage());
+			   }
+		 }
+		public void jobCallGB(){
+			   try{
+					  jobRunnerGB.call();
+			   }catch(Exception ex){
+				   System.out.println(ex.getMessage());
+			   }
+		 }
+		public void jobCallGN(){
+			   try{
+					  jobRunnerGN.call();
+			   }catch(Exception ex){
+				   System.out.println(ex.getMessage());
+			   }
+		 }
+		public void jobCallGG(){
+			   try{
+					  jobRunnerGG.call();
+			   }catch(Exception ex){
+				   System.out.println(ex.getMessage());
+			   }
+		 }
+		public void jobCallIC(){
+			   try{
+					  jobRunnerIC.call();
+			   }catch(Exception ex){
+				   System.out.println(ex.getMessage());
+			   }
+		 }
+		public void jobCallJJ(){
+			   try{
+					  jobRunnerJJ.call();
+			   }catch(Exception ex){
+				   System.out.println(ex.getMessage());
+			   }
+		 }
+		public void jobCallJB(){
+			   try{
+					  jobRunnerJB.call();
+			   }catch(Exception ex){
+				   System.out.println(ex.getMessage());
+			   }
+		 }
+		public void jobCallJN(){
+			   try{
+					  jobRunnerJN.call();
+			   }catch(Exception ex){
+				   System.out.println(ex.getMessage());
+			   }
+		 }
+		public void jobCallUS(){
+			   try{
+					  jobRunnerUS.call();
+			   }catch(Exception ex){
+				   System.out.println(ex.getMessage());
+			   }
+		 }
+		
+		
 		
 	   public void fileDelete(){
 		   try{

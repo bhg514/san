@@ -24,15 +24,15 @@
 		if (httpRequest.readyState == 4) {
 			if (httpRequest.status == 200) {
 			
-				$('#localSanDetail_season').html(httpRequest.responseText);
+				$('#sanDetail').html(httpRequest.responseText);
 			}
 		}
 	} 
 
 </script>
-
-
 </head>
+
+
 <body>
 	<ul>
 		<c:forEach var="vo" items="${recommandlist }">
@@ -40,4 +40,6 @@
 		</c:forEach>
 	</ul>
 </body>
+
+
 </html>

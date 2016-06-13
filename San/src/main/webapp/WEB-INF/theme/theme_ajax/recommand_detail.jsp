@@ -7,31 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>	2,계절
-<script type="text/javascript">
-  google.charts.load("current", {packages:["corechart"]});
-  google.charts.setOnLoadCallback(drawChart);
-  
-  function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Task', 'Hours per Day'],
-      
-      <c:forEach var="vo" items="${slist}">    
-      ['<c:out value="${vo.season}"/>',<c:out value="${vo.count}"/>],
-      </c:forEach>
-      
-    ]);
-      
-    var options = {
-      title: 'My Daily Activities',
-      is3D: true,
-    };
-
-    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-    chart.draw(data, options);
-  }
-</script> -->
-
 <script src="http://www.amcharts.com/lib/3/amcharts.js"></script>	<!-- 1,지역 -->
 <script src="http://www.amcharts.com/lib/3/serial.js"></script>
 <script type="text/javascript">
@@ -39,7 +14,7 @@ var chart;
 var graph;
 
 var chartData = [
-<c:forEach var="vo" items="${slist}">        
+<c:forEach var="vo" items="${seasonlist}">        
 {
 'date': '<c:out value="${vo.season}"/>',
 '검색수': <c:out value="${vo.count}"/>,
@@ -114,23 +89,51 @@ legend.useGraphSettings = true;
 chart.addLegend(legend);
 
 // WRITE
-chart.write("container");
+chart.write("localSanDetail_season");
 });
 
 </script> 
 
-
-
 </head>
+
 <body>
-<div id="container" style="width:100%; height:400px;"></div> <!-- 1.지역 -->  
-	 <!-- <div id="piechart_3d" style="width:300px;height:300px;"></div>   -->
-	<%--  <ul>
-		<c:forEach var="vo" items="${slist}">  
-			<p>${vo.season }</p>
-			<P>hi</P>
-		</c:forEach>
-	</ul>  --%>
+
+					<div class="col-md-5 col-sm-6">
+						<div class="panel panel-primary">
+							<div class="panel-heading">테마별 계절분석</div>
+							<div class="panel-body">
+							
+								<!-- 1. 계절 -->
+							<div id="localSanDetail_season" style="width:400px; height:400px;"></div>
+							
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-5 col-sm-6">
+						<div class="panel panel-primary">
+							<div class="panel-heading">테마별 유명관광지</div>
+							<div class="panel-body">
+								<p>내요요요요용.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-10">
+						<div class="panel panel-default">
+							<div class="panel-heading">누구랑</div>
+							<div class="panel-body">
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-10">
+						<div class="panel panel-default">
+							<div class="panel-heading">언제?</div>
+							<div class="panel-body"></div>
+						</div>
+					</div>
+	
 
 </body>
 </html>

@@ -92,6 +92,168 @@
      job-ref="chungbuk"
       run-at-startup="false"
     />
+       											 <!-- chungnam  -->
+ 	<hadoop:job id="chungnam"
+      input-path="/input/recommand"
+      output-path="/output/recommand"
+      mapper="com.sist.mapredRec.Chungnam_RecommandMapper"
+      reducer="com.sist.mapredRec.RecommandReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner id="chungnamj"
+     job-ref="chungnam"
+      run-at-startup="false"
+    />
+     											 <!-- Daegu  -->
+ 	<hadoop:job id="daegu"
+      input-path="/input/recommand"
+      output-path="/output/recommand"
+      mapper="com.sist.mapredRec.Daegu_RecommandMapper"
+      reducer="com.sist.mapredRec.RecommandReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner id="daeguj"
+     job-ref="daegu"
+      run-at-startup="false"
+    />
+     											 <!-- Daejeon  -->
+ 	<hadoop:job id="daejeon"
+      input-path="/input/recommand"
+      output-path="/output/recommand"
+      mapper="com.sist.mapredRec.Daejeon_RecommandMapper"
+      reducer="com.sist.mapredRec.RecommandReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner id="daejeonj"
+     job-ref="daejeon"
+      run-at-startup="false"
+    />
+  
+     											 <!-- Gangwon  -->
+ 	<hadoop:job id="gangwon"
+      input-path="/input/recommand"
+      output-path="/output/recommand"
+      mapper="com.sist.mapredRec.Gangwon_RecommandMapper"
+      reducer="com.sist.mapredRec.RecommandReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner id="gangwonj"
+     job-ref="gangwon"
+      run-at-startup="false"
+    />
+     											 <!-- Gyeongbuk  -->
+ 	<hadoop:job id="gyeongbuk"
+      input-path="/input/recommand"
+      output-path="/output/recommand"
+      mapper="com.sist.mapredRec.Gyeongbuk_RecommandMapper"
+      reducer="com.sist.mapredRec.RecommandReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner id="gyeongbukj"
+     job-ref="gyeongbuk"
+      run-at-startup="false"
+    />
+      											 <!--Gyeongnam -->
+ 	<hadoop:job id="gyeongnam"
+      input-path="/input/recommand"
+      output-path="/output/recommand"
+      mapper="com.sist.mapredRec.Gyeongnam_RecommandMapper"
+      reducer="com.sist.mapredRec.RecommandReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner id="gyeongnamj"
+     job-ref="gyeongnam"
+      run-at-startup="false"
+    />
+
+      											 <!-- Gyeonggi  -->
+ 	<hadoop:job id="gyeonggi"
+      input-path="/input/recommand"
+      output-path="/output/recommand"
+      mapper="com.sist.mapredRec.Gyeonggi_RecommandMapper"
+      reducer="com.sist.mapredRec.RecommandReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner id="gyeonggij"
+     job-ref="gyeonggi"
+      run-at-startup="false"
+    />
+   												  <!-- incheon  -->
+    <hadoop:job id="incheon"
+      input-path="/input/recommand"
+      output-path="/output/recommand"
+      mapper="com.sist.mapredRec.Incheon_RecommandMapper"
+      reducer="com.sist.mapredRec.RecommandReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner id="incheonj"
+     job-ref="incheon"
+      run-at-startup="false"
+    />
+    												  <!--  Jeju -->     
+    <hadoop:job id="jeju"
+      input-path="/input/recommand"
+      output-path="/output/recommand"
+      mapper="com.sist.mapredRec.Jeju_RecommandMapper"
+      reducer="com.sist.mapredRec.RecommandReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner id="jejuj"
+     job-ref="jeju"
+      run-at-startup="false"
+    />
+        												  <!-- Jeonbuk  --> 
+    <hadoop:job id="jeonbuk"
+      input-path="/input/recommand"
+      output-path="/output/recommand"
+      mapper="com.sist.mapredRec.Jeonbuk_RecommandMapper"
+      reducer="com.sist.mapredRec.RecommandReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner id="jeonbukj"
+     job-ref="jeonbuk"
+      run-at-startup="false"
+    />
+          												  <!-- Jeonnam  --> 
+    <hadoop:job id="jeonnam"
+      input-path="/input/recommand"
+      output-path="/output/recommand"
+      mapper="com.sist.mapredRec.Jeonnam_RecommandMapper"
+      reducer="com.sist.mapredRec.RecommandReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner id="jeonnamj"
+     job-ref="jeonnam"
+      run-at-startup="false"
+    />
+          												  <!-- Ulsan  --> 
+    <hadoop:job id="ulsan"
+      input-path="/input/recommand"
+      output-path="/output/recommand"
+      mapper="com.sist.mapredRec.Ulsan_RecommandMapper"
+      reducer="com.sist.mapredRec.RecommandReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner id="ulsanj"
+     job-ref="ulsan"
+      run-at-startup="false"
+    />
+    
+    
+    
+    
     
     											 <!-- 4번:recommand_season  -->
     <hadoop:job id="recseason"

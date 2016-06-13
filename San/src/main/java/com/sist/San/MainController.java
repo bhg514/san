@@ -237,11 +237,47 @@ public class MainController {
 			
 			 if(local.equals("Busan")){
 				   System.out.println("busan call");
-				   rd.jobCallB();
-				   
+				   rd.jobCallB();				   
 			   }else if(local.equals("Chungbuk")){
 				   System.out.println("Chungbuk call");
 				   rd.jobCallC();
+			   }else if(local.equals("Chungnam")){
+				   System.out.println("Chungnam call");
+				   rd.jobCallCN();				   
+			   }else if(local.equals("Daegu")){
+				   System.out.println("Daegu call");
+				   rd.jobCallDG();				   
+			   }else if(local.equals("Daejeon")){
+				   System.out.println("Daejeon call");
+				   rd.jobCallDJ();				   
+			   }else if(local.equals("Gangwon")){
+				   System.out.println("Gangwon call");
+				   rd.jobCallGW();				   
+			   }else if(local.equals("Gyeongbuk")){
+				   System.out.println("Gyeongbuk call");
+				   rd.jobCallGB();				   
+			   }else if(local.equals("Gyeongnam")){
+				   System.out.println("Gyeongnam call");
+				   rd.jobCallGN();				   
+			   }else if(local.equals("Gyeonggi")){
+				   System.out.println("Gyeonggi call");
+				   rd.jobCallGG();				   
+			   }else if(local.equals("Incheon")){
+				   System.out.println("Incheon call");
+				   rd.jobCallIC();				   
+			   }else if(local.equals("Jeju")){
+				   System.out.println("Jeju call");
+				   rd.jobCallJJ();				   
+			   }else if(local.equals("Jeonbuk")){
+				   System.out.println("Jeonbuk call");
+				   rd.jobCallJB();				   
+			   }else if(local.equals("Jeonnam")){
+				   System.out.println("Jeonnam call");
+				   rd.jobCallJN();				   
+			   }
+			   else if(local.equals("Ulsan")){
+				   System.out.println("Ulsan call");
+				   rd.jobCallUS();				   
 			   }//지역
 			
 			//몽고디비
@@ -268,11 +304,11 @@ public class MainController {
 		return "theme/theme_ajax/recommand_local";
 	}
 	
-	//3.추천페이지_산 선택
+	//3.추천페이지_산 선택=======================================================================================================by
 	@RequestMapping("recommand_detail.do")
 	public String recommand_selectdetail(HttpServletRequest req) throws Exception{
 				
-		List<SeasonVO> slist=new ArrayList<SeasonVO>();
+		List<SeasonVO> seasonlist=new ArrayList<SeasonVO>();
 		
 		try{
 			
@@ -292,18 +328,17 @@ public class MainController {
 			
 			rsd.jobCall();
 		
-			slist=nrm.rSeasonData(1);		//season
+			seasonlist=nrm.rSeasonData(1);		//season
 					
 		}catch(Exception ex){
 				System.out.println(ex.getMessage());
 		}	
 		
-		req.setAttribute("slist", slist);      
+		req.setAttribute("seasonlist", seasonlist);      
 			      
 		return "theme/theme_ajax/recommand_detail";
 	}
-	
-			
+	//			
 	@RequestMapping("zone.do")
 	public String zone() {
 		return "zone/zone";
