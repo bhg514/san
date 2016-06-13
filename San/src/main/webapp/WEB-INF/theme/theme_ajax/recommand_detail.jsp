@@ -9,16 +9,15 @@
 <link rel="stylesheet" type="text/css"  media="screen" href="assets/css/who.css">
 <!-- 누구와 스타일 -->
 <style>
-      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
       * {
   box-sizing: border-box;
 }
 
-:root {
+/* :root {
   margin: 2rem auto;
   width: 50%;
   text-align: center;
-}
+} */
 
 .avatar-container {
   position: relative;
@@ -473,8 +472,7 @@
 .p-100 {
   background-image: linear-gradient(90deg, #0BF 50%, transparent 50%, transparent), linear-gradient(270deg, #0BF 50%, #efefef 50%, #efefef);
 }
-
-    </style>
+</style>
 
 <!-- 스타일 -->
 
