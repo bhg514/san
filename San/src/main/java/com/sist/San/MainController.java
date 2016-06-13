@@ -166,27 +166,25 @@ public class MainController {
 			for(int i=0; i<weekList.size(); i++){
 				String day = weekList.get(i).getDay()+"일";
 				weekList.get(i).setDay(day);
-				System.out.println(weekList.get(i).getDay());
+				
 			}
 			
 			weekData = "{";
 			for(WeekdayVO vo:weekList){	
-				weekData += "\""+vo.getDay()+"\":"+vo.getCount()+",";
+				weekData += "\""+vo.getDay()+"\":"+vo.getCount()+".1,";	
 			}
-			weekData += "\"Tuesday\":0";
-			weekData += "}";
 			
+			//weekData += "\"월요일\":3.1"+",\"아무일\":3.1";
+			weekData += "}";
+			System.out.println(weekData);
 			
 			for(int i=0; i<feelList.size(); i++){
 				
 				for(int j=0; j<feelList.get(i).getCount(); j++){
 					
-					feelAll += feelList.get(i).getFeel()+" ";
-					
-				}
-				
-			}
-			
+					feelAll += feelList.get(i).getFeel()+" ";					
+				}				
+			}			
 			
 		}catch(Exception ex){
 				System.out.println(ex.getMessage());
@@ -215,6 +213,7 @@ public class MainController {
 		//"봉래산","불광산","산성산","삼각산","석은덤산","수정산","승학산","시명산","아홉산","엄광산","연대봉","용두산","윤산","일광산","장산","철마산","황령산",
 		String local = req.getParameter("type"); 		// 지역
 		System.out.println(local);
+	
 		List<LocalVO> localList=new ArrayList<LocalVO>();
 		
 		
@@ -308,7 +307,12 @@ public class MainController {
 	@RequestMapping("recommand_detail.do")
 	public String recommand_selectdetail(HttpServletRequest req) throws Exception{
 				
-		List<SeasonVO> seasonlist=new ArrayList<SeasonVO>();
+		List<SeasonVO> seasonlist=new ArrayList<SeasonVO>();				//계절
+		//List<WeekdayVO> weekList = new ArrayList<WeekdayVO>();			//요일
+		//String weekData = "";
+		
+		List<FeelVO> feelList = new ArrayList<FeelVO>();
+		String feelAll = "";
 		
 		try{
 			
@@ -327,17 +331,45 @@ public class MainController {
 			fw.close();		
 			
 			rsd.jobCall();
-		
-			seasonlist=nrm.rSeasonData(1);		//season
-					
+			wd.jobCall();
+			
+			seasonlist=nrm.rSeasonData(1);		//계절
+			//weekList=nrm.rWeekData();				//요일
+			
+			/*for(int i=0; i<weekList.size(); i++){
+				String day = weekList.get(i).getDay()+"일";
+				weekList.get(i).setDay(day);
+				
+			}
+			
+			weekData = "{";
+			for(WeekdayVO vo:weekList){	
+				weekData += "\""+vo.getDay()+"\":"+vo.getCount()+".1,";
+			}
+			
+			weekData += "}";
+			System.out.println(weekData);*/
+			
+			feelList=nrm.rFeelData();		//감정
+
+			for(int i=0; i<feelList.size(); i++){			
+				for(int j=0; j<feelList.get(i).getCount(); j++){				
+					feelAll += feelList.get(i).getFeel()+" ";					
+				}				
+			}		
+			
 		}catch(Exception ex){
 				System.out.println(ex.getMessage());
 		}	
 		
 		req.setAttribute("seasonlist", seasonlist);      
-			      
+		//req.setAttribute("weekData", weekData);  
+		req.setAttribute("feelAll", feelAll);  
+		
 		return "theme/theme_ajax/recommand_detail";
 	}
+	
+	
 	//			
 	@RequestMapping("zone.do")
 	public String zone() {

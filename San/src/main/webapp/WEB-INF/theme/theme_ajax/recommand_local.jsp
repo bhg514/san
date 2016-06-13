@@ -23,7 +23,7 @@
 	function localSanDetail() {
 		if (httpRequest.readyState == 4) {
 			if (httpRequest.status == 200) {
-			
+			alert(httpRequest.responseText);
 				$('#sanDetail').html(httpRequest.responseText);
 			}
 		}
