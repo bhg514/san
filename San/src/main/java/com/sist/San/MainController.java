@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sist.data.*;
 import com.sist.mapredFeel.FeelDriver;
+import com.sist.mapredFood.FoodDriver;
 import com.sist.mapredLocal.LocalDriver;
 import com.sist.mapredRec.RecommandDriver;
 import com.sist.mapredSeason.RecSeasonDriver;
@@ -27,6 +28,8 @@ import com.sist.mongo.SanDAO;
 import com.sist.mongo.ThingsVO;
 import com.sist.mongo.WeekdayVO;
 import com.sist.naver.Naver;
+import com.sist.naver.NaverFood;
+import com.sist.r.FoodVO;
 import com.sist.r.NaverRManager;
 import com.sist.r.SeasonVO;
 
@@ -49,6 +52,9 @@ public class MainController {
 	private RecSeasonDriver rsd;
 	@Autowired
 	private ThingsDriver td;
+
+	@Autowired
+	private FoodDriver foodDriver;
 	
 	@Autowired
 	private WeekdayDriver wd;
@@ -111,7 +117,7 @@ public class MainController {
 		
 		//model.addAttribute("tlist",tlist);
 		//model.addAttribute("inoutlist",inoutlist);
-		model.addAttribute("thingsList",thingsList);
+
 		return "main";
 	}
 
@@ -122,6 +128,8 @@ public class MainController {
 		List<SeasonVO> seasonList=new ArrayList<SeasonVO>();
 		List<WeekdayVO> weekList = new ArrayList<WeekdayVO>();
 		List<FeelVO> feelList = new ArrayList<FeelVO>();
+		List<FoodVO> foodList=new ArrayList<FoodVO>();
+		List<ThingsVO> thingsList=new ArrayList<ThingsVO>();		// 등산 준비물.
 		
 		String weekData = "";
 		String feelAll = "";
@@ -147,12 +155,15 @@ public class MainController {
 			sd.jobCall();	
 			wd.jobCall();
 			fd.jobCall();
+			foodDriver.jobCall();
 			
 			//몽고디비
 			localList=nrm.rLocalData();		//지역
 			seasonList=nrm.rSeasonData(0);	//계절
 			weekList=nrm.rWeekData();		//요일
 			feelList=nrm.rFeelData();		//감정
+			foodList=nrm.rFoodData(); 		//음식
+			thingsList=nrm.rThingsData();		// 준비물
 			
 			for(LocalVO r:localList)
 			{
@@ -182,18 +193,27 @@ public class MainController {
 				
 				for(int j=0; j<feelList.get(i).getCount(); j++){
 					
-					feelAll += feelList.get(i).getFeel()+" ";					
-				}				
-			}			
+					feelAll += feelList.get(i).getFeel()+" ";
+					
+				}
+				
+			}
+			for(ThingsVO vo:thingsList){
+				System.out.println(vo.getThings());
+				System.out.println(vo.getCount());
+			}
+
 			
 		}catch(Exception ex){
 				System.out.println(ex.getMessage());
 		}		
-		
+
 		model.addAttribute("local", localList);		//7개 이상인 지역만 그래프 그리기
 		model.addAttribute("season", seasonList);
 		model.addAttribute("feelAll",feelAll);
 		model.addAttribute("weekData",weekData);
+		model.addAttribute("food", foodList);
+		model.addAttribute("thingsList",thingsList);
 		
 		return "season/season";
 	}

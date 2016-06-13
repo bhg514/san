@@ -297,7 +297,19 @@
      job-ref="feel"
       run-at-startup="false"
     />
-    
+    													<!-- 7번:food  -->
+	<hadoop:job id="food" 
+	input-path="/input/food"
+	 output-path="/output/food"
+ 	 mapper="com.sist.mapredFood.FoodMapper" 
+ 	 reducer="com.sist.mapredFood.FoodReducer"
+ 	  configuration-ref="hadoopConf" 
+   	scope="request"
+   />
+   <hadoop:job-runner  	id="foodj" 
+    	job-ref="food" 
+    	run-at-startup="false"
+    />
     
    
     

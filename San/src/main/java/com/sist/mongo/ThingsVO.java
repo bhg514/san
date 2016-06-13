@@ -3,7 +3,15 @@ package com.sist.mongo;
 public class ThingsVO {
 	private String things;
 	private int count;
+	private String color;
 	
+	
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
 	public String getThings() {
 		return things;
 	}

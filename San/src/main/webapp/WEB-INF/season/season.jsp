@@ -6,9 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css"  media="screen" href="assets/css/things.css">
 <script src="http://www.amcharts.com/lib/3/amcharts.js"></script>
 <!-- 1,지역 -->
 <script src="http://www.amcharts.com/lib/3/serial.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
 <script type="text/javascript">
 var chart;
 var graph;
@@ -87,10 +91,10 @@ chart.addChartCursor(chartCursor);
 var legend = new AmCharts.AmLegend();
 legend.useGraphSettings = true;
 chart.addLegend(legend);
-
 // WRITE
 chart.write("container");
 });
+
 
 </script>
 
@@ -316,7 +320,97 @@ chart.write("container");
 
 </script>
 
-<!-- 4.feel -->
+    <script type="text/javascript">
+      
+      google.charts.setOnLoadCallback(drawFoodChart);
+      function drawFoodChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          
+          <c:forEach var="vo" items="${food}">    
+          ['<c:out value="${vo.food}"/>',<c:out value="${vo.count}"/>],
+          </c:forEach>
+        ]);
+
+        var options = {
+          
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+<!-- 5.things -->
+<script type="text/javascript">
+var chart = AmCharts.makeChart("chartdiv", {
+    "theme": "none",
+    "type": "serial",
+	"startDuration": 2,
+    "dataProvider": [
+                    <c:forEach  var="vo" items="${thingsList}"> 
+                     {
+        "country": '<c:out value="${vo.things}"/>',
+        "visits":<c:out value="${vo.count}"/>,
+        "color": "<c:out value="${vo.color}"/>"
+    },
+    </c:forEach >
+    
+    
+    ],
+    "valueAxes": [{
+        "position": "left",
+        "axisAlpha":0,
+        "gridAlpha":0         
+    }],
+    "graphs": [{
+        "balloonText": "[[category]]: <b>[[value]]</b>",
+        "colorField": "color",
+        "fillAlphas": 0.85,
+        "lineAlpha": 0.1,
+        "type": "column",
+        "topRadius":1,
+        "valueField": "visits"
+    }],
+    "depth3D": 40,
+	"angle": 30,
+    "chartCursor": {
+        "categoryBalloonEnabled": false,
+        "cursorAlpha": 0,
+        "zoomable": false
+    },    
+    "categoryField": "country",
+    "categoryAxis": {
+        "gridPosition": "start",
+        "axisAlpha":0,
+        "gridAlpha":0
+        
+    },
+	"exportConfig":{
+		"menuTop":"20px",
+        "menuRight":"20px",
+        "menuItems": [{
+        "icon": '/lib/3/images/export.png',
+        "format": 'png'	  
+        }]  
+    }
+},0);
+
+jQuery('.chart-input').off().on('input change',function() {
+	var property	= jQuery(this).data('property');
+	var target		= chart;
+	chart.startDuration = 0;
+
+	if ( property == 'topRadius') {
+		target = chart.graphs[0];
+	}
+
+	target[property] = this.value;
+	chart.validateNow();
+});
+
+</script>
+
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
 </head>
@@ -371,7 +465,7 @@ chart.write("container");
 					<br> <br>
 
 					<div class="col-md-4 col-sm-4">
-						<div class="panel panel-default">
+						<div class="panel panel-primary">
 							<div class="panel-heading">요일분석</div>
 							<div class="panel-body">
 								<div id="weekGraph" style="width: 100%; height: 100%;"></div>
@@ -380,23 +474,33 @@ chart.write("container");
 					</div>
 
 					<div class="col-md-4 col-sm-4">
-						<div class="panel panel-default">
-							<div class="panel-heading">감정분석</div>
-							<div class="panel-body">이미지 ~</div>
+						<div class="panel panel-primary">
+							<div class="panel-heading">준비물</div>
+							<div class="panel-body"><div id="chartdiv"></div></div>
 						</div>
 					</div>
 
-					<div class="col-md-4 col-sm-4">
-						<div class="panel panel-default">
-							<div class="panel-heading">감정분석</div>
-							<div class="panel-body">이미지 ~</div>
+				<div class="col-md-4 col-sm-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">음식</div>
+						<div class="panel-body">
+						 <div id="donutchart" style="width: 100%; height: 100%;"></div> 
 						</div>
 					</div>
+				</div>
 
 					<div class="col-md-12">
 						<div class="panel panel-default">
 							<div class="panel-heading">데이터 확인</div>
-							<div class="panel-body">데이터 뿌려주는곳 ~</div>
+							<div class="panel-body">
+									
+								
+										
+														
+							
+							
+							
+							</div>
 						</div>
 					</div>
 				</div>
@@ -407,6 +511,7 @@ chart.write("container");
 
 <!-- 감정워드클라우드.. 아래있어야 됨... -->
 <script>
+
 
 //Simple animated example of d3-cloud - https://github.com/jasondavies/d3-cloud
 //Based on https:F//github.com/jasondavies/d3-cloud/blob/master/examples/simple.html
