@@ -1,0 +1,12 @@
+#word-cloud{
+    height: 250px;
+    width: 300px;
+    margin-top : 50px;
+    margin-left: 90px;
+
+}
+
+body, html{
+    margin: 0;
+    padding: 0;
+}	

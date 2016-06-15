@@ -14,7 +14,7 @@
 	$(function(){
 		$('li').click(function(){	
 			var san=$(this).attr("value");
-			alert("선택"+san)
+			
 			var param="san="+san;
 			sendMessage("POST", "recommand_detail.do",param, localSanDetail);
 			

@@ -22,6 +22,7 @@ import com.sist.mapredSeason.RecSeasonDriver;
 import com.sist.mapredSeason.SeasonDriver;
 import com.sist.mapredThings.ThingsDriver;
 import com.sist.mapredWeekday.WeekdayDriver;
+import com.sist.mapredWho.WhoDriver;
 import com.sist.mongo.FeelVO;
 import com.sist.mongo.LocalVO;
 import com.sist.mongo.SanDAO;
@@ -32,6 +33,8 @@ import com.sist.naver.NaverFood;
 import com.sist.r.FoodVO;
 import com.sist.r.NaverRManager;
 import com.sist.r.SeasonVO;
+import com.sist.r.WhoVO;
+import com.sist.r.WordCloudVO;
 
 
 @Controller
@@ -58,14 +61,12 @@ public class MainController {
 	
 	@Autowired
 	private WeekdayDriver wd;
-	
 	@Autowired
 	private FeelDriver	fd;
-
-	
 	@Autowired
 	private NaverRManager nrm;
-	
+	@Autowired
+	private WhoDriver whoDriver;
 	@Autowired
 	private SanDAO dao;
 	
@@ -328,9 +329,11 @@ public class MainController {
 		List<SeasonVO> seasonlist=new ArrayList<SeasonVO>();				//계절
 		//List<WeekdayVO> weekList = new ArrayList<WeekdayVO>();			//요일
 		//String weekData = "";
-		
+		List<WhoVO> whoList=new ArrayList<WhoVO>();
 		List<FeelVO> feelList = new ArrayList<FeelVO>();
+		List<WordCloudVO> wordCloud=new ArrayList<WordCloudVO>();
 		String feelAll = "";
+		String word="";
 		
 		try{
 			
@@ -344,14 +347,16 @@ public class MainController {
 				file.delete();			
 			FileWriter fw=new FileWriter(path);
 			for(String n:list){		
-				fw.write(n);	
+				fw.write(n+"\n");	
+				
 			}
 			fw.close();		
 			
 			rsd.jobCall();
-			wd.jobCall();
-			
+			wd.jobCall();			
+			whoDriver.jobCall();			
 			seasonlist=nrm.rSeasonData(1);		//계절
+			wordCloud=nrm.wordcloud();
 			//weekList=nrm.rWeekData();				//요일
 			
 			/*for(int i=0; i<weekList.size(); i++){
@@ -369,20 +374,28 @@ public class MainController {
 			System.out.println(weekData);*/
 			
 			feelList=nrm.rFeelData();		//감정
-
+			whoList=nrm.rWhoData();
 			for(int i=0; i<feelList.size(); i++){			
 				for(int j=0; j<feelList.get(i).getCount(); j++){				
 					feelAll += feelList.get(i).getFeel()+" ";					
 				}				
-			}		
+			}	
+			
+			for(WordCloudVO vo:wordCloud){
+				word+="\""+vo.getWord()+"\",";
+				
+			}
+			
+				System.out.println(word);
+		
+			
+			
 			
 		}catch(Exception ex){
 				System.out.println(ex.getMessage());
 		}	
-		for(SeasonVO vo:seasonlist){
-			System.out.println(vo.getSeason());
-			System.out.println(vo.getCount());
-		}
+		req.setAttribute("word", word);
+		req.setAttribute("whoList", whoList);
 		req.setAttribute("seasonlist", seasonlist);      
 		//req.setAttribute("weekData", weekData);  
 		req.setAttribute("feelAll", feelAll);  

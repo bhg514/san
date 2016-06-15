@@ -241,4 +241,65 @@ public class NaverRManager {
 			return list;
 		}
 
+		public List<WhoVO> rWhoData(){
+		List<WhoVO> list=new ArrayList<WhoVO>();
+		
+		try{
+			RConnection rc=new RConnection();
+			rc.voidEval("data<-read.table(\"/home/bhg/git/san/San/src/main/webapp/data/naver/output/recommand/who/part-r-00000\")");
+			REXP p=rc.eval("data$V1");	//1.누구랑
+			String[] who=p.asStrings();	
+			p=rc.eval("data$V2");			//2.카운트
+			int[] count=p.asIntegers();
+			rc.close();
+			int total=0;
+			for(int i=0;i<count.length;i++){
+				total+=count[i];
+			}
+			for(int i=0; i<count.length; i++){			
+					WhoVO vo=new WhoVO();
+					vo.setWho(who[i]);
+					vo.setCount(count[i]*100/total);
+					list.add(vo);
+			}
+		
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		return list;
+	}
+		
+		
+		public static List<WordCloudVO> wordcloud(){
+			List<WordCloudVO> list=new ArrayList<WordCloudVO>();
+			try{
+				RConnection rc=new RConnection();
+				rc.voidEval("library(KoNLP)");
+				rc.voidEval("data<-readLines(\"/home/bhg/git/san/San/src/main/webapp/data/naver/recommand_san.txt\")");		
+				rc.voidEval("place<-sapply(data,extractNoun,USE.NAMES = F)");				
+				rc.voidEval("data<-unlist(place)");					
+				rc.voidEval("place<-str_replace_all(data,\"[^[:alpha:]]\",\"\")");					
+				rc.voidEval("place<-gsub(\" \",\"\",place)");
+				rc.voidEval("place<-gsub(\"b\",\"\",place)");
+				rc.voidEval("place<-Filter(function(x){nchar(x)>=2},place)");
+				rc.voidEval("rev<-table(unlist(place))");
+				rc.voidEval("top20<-head(sort(rev,decreasing = T),15)");
+				REXP p=rc.eval("names(top20)");
+				String word[]=p.asStrings();
+				p=rc.eval("top20");
+				int count[]=p.asIntegers();
+				for(int i=0; i<word.length;i++){
+					WordCloudVO vo=new WordCloudVO();
+					vo.setWord(word[i]);
+					vo.setCount(count[i]);
+					list.add(vo);
+				}
+					
+			}catch(Exception ex){
+				System.out.println(ex.getMessage());
+			
+			}
+			return list;
+		}
+
 }

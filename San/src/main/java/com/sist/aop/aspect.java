@@ -17,6 +17,7 @@ import com.sist.mapredSeason.RecSeasonDriver;
 import com.sist.mapredSeason.SeasonDriver;
 import com.sist.mapredThings.ThingsDriver;
 import com.sist.mapredWeekday.WeekdayDriver;
+import com.sist.mapredWho.WhoDriver;
 import com.sist.r.NaverRManager;
 @Aspect
 @Component
@@ -45,6 +46,8 @@ public class aspect {
 	private FoodDriver foodDriver;
 	@Autowired
 	private NaverRManager nrm;
+	@Autowired
+	private WhoDriver whoDriver;
 
 	//1.weekday
     @Before("execution(* com.sist.mapredLocal.LocalDriver.jobCall())")
@@ -323,6 +326,21 @@ public class aspect {
     	td.copyToLocal();
     	//nrm.rGraph();
     }
+    //9.who
+    @Before("execution(* com.sist.mapredWho.WhoDriver.jobCall())")
+    public void beforewho()
+    {
+    	whoDriver.fileDelete();
+    	whoDriver.copyFromLocal();
+    }
+    
+    @After("execution(* com.sist.mapredWho.WhoDriver.jobCall())")
+    public void afterwho()
+    {
+    	whoDriver.copyToLocal();
+    	
+    }
+    
     
     
 }

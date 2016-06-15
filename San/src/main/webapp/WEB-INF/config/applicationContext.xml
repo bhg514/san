@@ -310,6 +310,19 @@
     	job-ref="food" 
     	run-at-startup="false"
     />
+        													<!-- 8번:who  -->
+	<hadoop:job id="who" 
+	input-path="/input/Recommand/who"
+	 output-path="/output/Recommand/who"
+ 	 mapper="com.sist.mapredWho.WhoMapper" 
+ 	 reducer="com.sist.mapredWho.WhoReducer"
+ 	  configuration-ref="hadoopConf" 
+   	scope="request"
+   />
+   <hadoop:job-runner  	id="whoj" 
+    	job-ref="who" 
+    	run-at-startup="false"
+    />
     
    
     
