@@ -39,10 +39,7 @@ public class Busan_RecommandMapper extends Mapper<LongWritable, Text, Text, IntW
 				
 			}
 		}
-		
-		
-		
-	}
 	
+	}
 
 }

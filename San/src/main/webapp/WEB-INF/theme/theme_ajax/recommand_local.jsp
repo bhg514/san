@@ -14,6 +14,7 @@
 	$(function(){
 		$('li').click(function(){	
 			var san=$(this).attr("value");
+			
 			var param="san="+san;
 			sendMessage("POST", "recommand_detail.do",param, localSanDetail);
 			
@@ -23,16 +24,16 @@
 	function localSanDetail() {
 		if (httpRequest.readyState == 4) {
 			if (httpRequest.status == 200) {
-			
-				$('#localSanDetail_season').html(httpRequest.responseText);
+			alert(httpRequest.responseText);
+				$('#sanDetail').html(httpRequest.responseText);
 			}
 		}
 	} 
 
 </script>
-
-
 </head>
+
+
 <body>
 	<ul>
 		<c:forEach var="vo" items="${recommandlist }">
@@ -40,4 +41,6 @@
 		</c:forEach>
 	</ul>
 </body>
+
+
 </html>

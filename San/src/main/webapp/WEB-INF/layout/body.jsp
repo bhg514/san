@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,14 +14,12 @@
 <script src="assets/js/main2.js"></script>
 
 <!-- css -->
+<link href="assets/css/main.css" rel="stylesheet" />
 <link href="assets/css/bootstrap.css" rel="stylesheet" />
 <link href="assets/css/font-awesome.css" rel="stylesheet" />
-<link href="assets/css/main.css" rel="stylesheet" />
 <link href="assets/css/slide.css" rel="stylesheet" />
-
 </head>
 <body>
-
 
 	<div id="cf-jumbotron" class="text-center">
 		<div class="overlay">
@@ -80,7 +76,8 @@
 			  <input type="button" value="통계" style="font-size: 20px" class="button"></a>
 			  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			  <input type="button" value="추천" style="font-size: 20px" class="button">
+			  <a href="theme.do" style="border: none;">
+			  <input type="button" value="추천" style="font-size: 20px" class="button"></a>
 			</div>
 			 
 			
@@ -124,4 +121,3 @@
 	</div>
 </body>
 </html>
-

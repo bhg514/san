@@ -15,6 +15,7 @@ public class SanDAO {
 		
 		try{
 			mc=new MongoClient(new ServerAddress("localhost",27017));	//보영ip
+
 			db=mc.getDB("sandb");
 			dbc=db.getCollection("recommand");	// 테이블
 			dbc_things=db.getCollection("thingsCollection");
@@ -72,7 +73,7 @@ public class SanDAO {
 				}
 		
 			}catch(Exception e){
-				System.out.println(e.getMessage());
+				System.out.println("mongodb : "+e.getMessage());
 			}
 		}
 		

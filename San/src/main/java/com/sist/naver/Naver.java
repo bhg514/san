@@ -21,7 +21,7 @@ public class Naver  {
 		 
 		try{
 			int page=1;
-				while(page<=201){					//100개 블로그 글
+				while(page<=301){					//100개 블로그 글
 					String key = "197d457a077b8a11007af85847f73ac1";					
 					String searchWord  = URLEncoder.encode(search ,"utf-8");
 					

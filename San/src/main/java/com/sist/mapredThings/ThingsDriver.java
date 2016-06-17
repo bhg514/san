@@ -41,11 +41,11 @@ public class ThingsDriver {
 	   
 	   public void copyFromLocal(){
 		   try{
-			   System.out.println("copyFromLocal=========");
+
 			   FileSystem fs=FileSystem.get(conf);
 			   // hadoop fs -cat /
 			   fs.copyFromLocalFile(
-					   new Path("/home/seo/git/san/San/src/main/webapp/data/naver/things.txt"), 
+					   new Path("/home/sist/git/san/San/src/main/webapp/data/naver/things.txt"), 
 					   new Path("/input/things/things.txt"));	
 			   fs.close();
 		   }catch(Exception ex){
@@ -55,11 +55,11 @@ public class ThingsDriver {
 
 	   public void copyToLocal(){
 		   try{
-			   System.out.println("copyToLocal=========");
+			
 			   FileSystem fs=FileSystem.get(conf);
 			   fs.copyToLocalFile(
 					   new Path("/output/things/part-r-00000"),
-					   new Path("/home/seo/git/san/San/src/main/webapp/data/naver/output/things/part-r-00000"));
+					   new Path("/home/sist/git/san/San/src/main/webapp/data/naver/output/things/part-r-00000"));
 			   fs.close();
 			 					
 		   }catch(Exception ex)

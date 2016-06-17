@@ -15,6 +15,7 @@
 		$('#localType').change(function(){		
 			var selectsan=$('#localType').val();	
 			var param="type="+selectsan;
+
 			sendMessage("POST", "recommand_select.do",param, localsan);
 			
 		});
@@ -27,7 +28,6 @@
 			}
 		}
 	}
-	
 </script>
 </head>
 <body>
@@ -52,7 +52,7 @@
 								<option value="Daegu">대구</option>	
 								<option value="Daejeon">대전</option>			
 								<option value="Gangwon">강원</option>		
-								<option value="Gyeonbuk">경북</option>
+								<option value="Gyeongbuk">경북</option>
 								<option value="Gyeongnam">경남</option>
 								<option value="Gyeonggi">경기</option>	
 								<option value="Incheon">인천</option>
@@ -67,49 +67,14 @@
 					<div class="col-md-2">
 						<div class="panel panel-default">
 							<div class="panel-heading">Top 5 Mountain</div>
-							<div class="panel-body">
-							
-								 <!-- 지역의 탑5 산 출력 -->
-								 <div id="localSanResult"></div>  
+							<div class="panel-body">								
+								 <div id="localSanResult"></div> 			  <!-- 지역의 탑5 산 출력 -->
 							</div>
 						</div>
 					</div>
-
-					<div class="col-md-5 col-sm-6">
-						<div class="panel panel-primary">
-							<div class="panel-heading">테마별 감정분석</div>
-							<div class="panel-body">
-							
-								<!-- 지역의 탑5 detail 출력 -->
-							<div id="localSanDetail_season" style="width:500px; height:600px;"></div>
-							
-							</div>
-						</div>
-					</div>
-					<div class="col-md-5 col-sm-6">
-						<div class="panel panel-primary">
-							<div class="panel-heading">테마별 유명관광지</div>
-							<div class="panel-body">
-								<p>내요요요요용.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-10">
-						<div class="panel panel-default">
-							<div class="panel-heading">누구랑</div>
-							<div class="panel-body">
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-10">
-						<div class="panel panel-default">
-							<div class="panel-heading">언제?</div>
-							<div class="panel-body"></div>
-						</div>
-					</div>
-
+					
+					<div id="sanDetail"></div>								<!-- san detail -->
+					
 					<!-- <div class="col-md-10">
 						<div class="panel panel-default">
 							<div class="panel-heading">인스타 사진 긁은거~</div>
