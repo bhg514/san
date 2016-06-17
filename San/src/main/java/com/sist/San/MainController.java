@@ -326,9 +326,6 @@ public class MainController {
 	public String recommand_selectdetail(HttpServletRequest req) throws Exception{
 				
 		List<SeasonVO> seasonlist=new ArrayList<SeasonVO>();				//계절
-		//List<WeekdayVO> weekList = new ArrayList<WeekdayVO>();			//요일
-		//String weekData = "";
-		
 		List<FeelVO> feelList = new ArrayList<FeelVO>();
 		String feelAll = "";
 		
@@ -350,30 +347,16 @@ public class MainController {
 			
 			rsd.jobCall();
 			wd.jobCall();
+			fd.jobCall();
 			
-			seasonlist=nrm.rSeasonData(1);		//계절
-			//weekList=nrm.rWeekData();				//요일
-			
-			/*for(int i=0; i<weekList.size(); i++){
-				String day = weekList.get(i).getDay()+"일";
-				weekList.get(i).setDay(day);
-				
-			}
-			
-			weekData = "{";
-			for(WeekdayVO vo:weekList){	
-				weekData += "\""+vo.getDay()+"\":"+vo.getCount()+".1,";
-			}
-			
-			weekData += "}";
-			System.out.println(weekData);*/
-			
-			feelList=nrm.rFeelData();		//감정
+			seasonlist=nrm.rSeasonData(1);		//계절			
+			feelList=nrm.rFeelData();				//감정
 
 			for(int i=0; i<feelList.size(); i++){			
-				for(int j=0; j<feelList.get(i).getCount(); j++){				
+				/*for(int j=0; j<feelList.get(i).getCount(); j++){				
 					feelAll += feelList.get(i).getFeel()+" ";					
-				}				
+				}*/		
+				System.out.println(feelList.get(i).getFeel()+", "+feelList.get(i).getCount()+"----------------");
 			}		
 			
 		}catch(Exception ex){
@@ -383,8 +366,7 @@ public class MainController {
 			System.out.println(vo.getSeason());
 			System.out.println(vo.getCount());
 		}
-		req.setAttribute("seasonlist", seasonlist);      
-		//req.setAttribute("weekData", weekData);  
+		req.setAttribute("seasonlist", seasonlist); 
 		req.setAttribute("feelAll", feelAll);  
 		
 		return "theme/theme_ajax/recommand_detail";

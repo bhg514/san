@@ -9,15 +9,21 @@
 <link rel="stylesheet" type="text/css"  media="screen" href="assets/css/who.css">
 <!-- 누구와 스타일 -->
 <style>
+
+#chartdiv {
+	width		: 100%;
+	height		: 500px;
+	font-size	: 11px;
+}					
       * {
   box-sizing: border-box;
 }
 
-/* :root {
+:root {
   margin: 2rem auto;
   width: 50%;
   text-align: center;
-} */
+}
 
 .avatar-container {
   position: relative;
@@ -472,6 +478,10 @@
 .p-100 {
   background-image: linear-gradient(90deg, #0BF 50%, transparent 50%, transparent), linear-gradient(270deg, #0BF 50%, #efefef 50%, #efefef);
 }
+
+#graph {border: 1px solid #111; }
+
+
 </style>
 
 <!-- 스타일 -->
@@ -479,12 +489,14 @@
 
 
 <script src="http://www.amcharts.com/lib/3/amcharts.js"></script>
-
+			
+	
 <!-- 1.계절             ---------------------------------------------------------------------->
 <script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
 <script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
 <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
 <script type="text/javascript">
+
 var chart;
 var graph;
 
@@ -556,26 +568,14 @@ chart.write("localSanDetail_season");
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
 
-<!-- 2.요일               ---------------------------------------------------------------------->
-<script type="text/javascript">
-$('.avatar-container').on('click',function(){
-	  
-	  if ($(this).find('.info').length <= 0) {
-	    $(this).append('<div class="info"><div class="info-inner"></div></div>');
-	  }
-	  
-	  var $info = $(this).find('.info'),
-	      $inner= $(this).find('.info-inner'),
-	      $p    = $(this).attr("class").match(/p-\w+/).toString().substring(2);
-	  
-	  $inner.text($p+'%');
-	  $info.toggleClass('js-active');
-	});
-</script>
       
 </head>
 
 <body>
+ <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/pie.js"></script>
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
 
 					<div class="col-md-5 col-sm-6">
 						<div class="panel panel-primary">
@@ -625,13 +625,61 @@ $('.avatar-container').on('click',function(){
 					<div class="col-md-10">
 						<div class="panel panel-default">
 							<div class="panel-heading">언제?</div>
-							<div class="panel-body"></div>
+							<div class="panel-body">
+							<div id="chartdiv"></div>
+							</div>
+    
 						</div>
 					</div>
 					
 				<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+				<script src="js/index.js"></script>
+				
+				
+        		<script src='https://code.jquery.com/jquery-1.11.2.min.js'></script>
 
-        			<script src="js/index.js"></script>
-	
+      			<script type="text/javascript">
+      			var chart = AmCharts.makeChart( "chartdiv", {
+      			  "type": "pie",
+      			  "theme": "light",
+      			  "dataProvider": [ {
+      			    "country": "Lithuania",
+      			    "litres": 501.9
+      			  }, {
+      			    "country": "Czech Republic",
+      			    "litres": 301.9
+      			  }, {
+      			    "country": "Ireland",
+      			    "litres": 201.1
+      			  }, {
+      			    "country": "Germany",
+      			    "litres": 165.8
+      			  }, {
+      			    "country": "Australia",
+      			    "litres": 139.9
+      			  }, {
+      			    "country": "Austria",
+      			    "litres": 128.3
+      			  }, {
+      			    "country": "UK",
+      			    "litres": 99
+      			  }, {
+      			    "country": "Belgium",
+      			    "litres": 60
+      			  }, {
+      			    "country": "The Netherlands",
+      			    "litres": 50
+      			  } ],
+      			  "valueField": "litres",
+      			  "titleField": "country",
+      			   "balloon":{
+      			   "fixedPosition":true
+      			  },
+      			  "export": {
+      			    "enabled": true
+      			  }
+      			} );
+      			</script>
+        
 </body>
 </html>
